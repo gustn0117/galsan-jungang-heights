@@ -73,7 +73,7 @@ interface HeaderProps {
 }
 
 export default function Header({ activeTab, onTabChange }: HeaderProps) {
-  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isHome, setIsHome] = useState(true);
@@ -90,27 +90,36 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerBg = isHome && !scrolled
+  const headerBg = isHome && !scrolled && !megaOpen
     ? "bg-transparent"
     : "bg-white/97 shadow-sm backdrop-blur-md";
 
-  const textColor = isHome && !scrolled ? "text-white" : "text-gray-800";
-  const textMuted = isHome && !scrolled ? "text-white/70" : "text-gray-500";
-  const logoText = isHome && !scrolled ? "text-white" : "text-gray-900";
-  const logoBorder = isHome && !scrolled ? "border-white/60 text-white/90" : "border-navy text-navy";
-  const activeColor = isHome && !scrolled ? "text-gold font-bold" : "text-navy font-bold";
-  const activeBar = isHome && !scrolled ? "bg-gold" : "bg-navy";
+  const isDark = isHome && !scrolled && !megaOpen;
+  const textMuted = isDark ? "text-white/70" : "text-gray-500";
+  const textColor = isDark ? "text-white" : "text-gray-800";
+  const logoText = isDark ? "text-white" : "text-gray-900";
+  const logoBorder = isDark ? "border-white/60 text-white/90" : "border-navy text-navy";
+  const activeColor = isDark ? "text-gold font-bold" : "text-navy font-bold";
+  const activeBar = isDark ? "bg-gold" : "bg-navy";
+
+  // 서브메뉴 있는 항목만 필터
+  const menuWithSubs = menuItems.filter((m) => m.subItems);
+  // 가장 긴 서브메뉴 개수 (테이블 행 수)
+  const maxSubs = Math.max(...menuWithSubs.map((m) => m.subItems!.length));
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerBg}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerBg}`}
+      onMouseLeave={() => setMegaOpen(false)}
+    >
       {/* 홈 투명 상태일 때 글자 가독성을 위한 상단 그라데이션 */}
-      {isHome && !scrolled && (
+      {isDark && (
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent pointer-events-none" />
       )}
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-[76px]">
         {/* Logo */}
         <button
-          onClick={() => onTabChange("home")}
+          onClick={() => { onTabChange("home"); setMegaOpen(false); }}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
           <span className={`inline-block px-2.5 py-1 border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
@@ -121,59 +130,24 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
           </span>
         </button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - 메인 메뉴 */}
         <nav className="hidden lg:flex items-center gap-0.5">
           {menuItems.map((item) => (
-            <div
+            <button
               key={item.id}
-              className="relative group"
-              onMouseEnter={() => setHoveredMenu(item.id)}
-              onMouseLeave={() => setHoveredMenu(null)}
+              onClick={() => { onTabChange(item.id); setMegaOpen(false); }}
+              onMouseEnter={() => item.subItems ? setMegaOpen(true) : setMegaOpen(false)}
+              className={`px-4 py-2.5 text-[14px] font-medium transition-all duration-300 relative
+                ${activeTab === item.id
+                  ? activeColor
+                  : `${textMuted} hover:${textColor}`
+                }`}
             >
-              <button
-                onClick={() => onTabChange(item.id)}
-                className={`px-4 py-2.5 text-[14px] font-medium transition-all duration-300 relative
-                  ${activeTab === item.id
-                    ? activeColor
-                    : `${textMuted} hover:${textColor}`
-                  }`}
-              >
-                {item.label}
-                {activeTab === item.id && (
-                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-[2px] ${activeBar} transition-all`} />
-                )}
-              </button>
-
-              {/* Dropdown */}
-              {item.subItems && hoveredMenu === item.id && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                  <div className="relative overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] min-w-[220px]">
-                    {/* 상단 네이비 헤더 */}
-                    <div className="bg-gradient-to-r from-[#1a2744] to-[#2a3a5c] px-5 py-3">
-                      <p className="text-white/90 text-[13px] font-semibold tracking-wide">{item.label}</p>
-                    </div>
-                    {/* 하단 메뉴 목록 */}
-                    <div className="bg-white py-1.5">
-                      {item.subItems.map((sub, idx) => (
-                        <button
-                          key={sub.id}
-                          onClick={() => {
-                            onTabChange(item.id, sub.id);
-                            setHoveredMenu(null);
-                          }}
-                          className="group/item flex items-center gap-3 w-full text-left px-5 py-3 text-[13px] text-gray-600 hover:text-[#1a2744] hover:bg-gradient-to-r hover:from-amber-50/60 hover:to-transparent transition-all duration-200"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-[#c9a96e] opacity-0 group-hover/item:opacity-100 transition-opacity flex-shrink-0" />
-                          <span className="group-hover/item:translate-x-0.5 transition-transform duration-200">{sub.label}</span>
-                        </button>
-                      ))}
-                    </div>
-                    {/* 하단 골드 라인 */}
-                    <div className="h-[2px] bg-gradient-to-r from-[#c9a96e] via-[#d4b87a] to-[#c9a96e]" />
-                  </div>
-                </div>
+              {item.label}
+              {activeTab === item.id && (
+                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-[2px] ${activeBar} transition-all`} />
               )}
-            </div>
+            </button>
           ))}
         </nav>
 
@@ -201,6 +175,48 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
             )}
           </svg>
         </button>
+      </div>
+
+      {/* 메가 메뉴 (전체 펼침) */}
+      <div
+        className={`hidden lg:block overflow-hidden transition-all duration-300 ease-in-out ${
+          megaOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-gray-100 bg-white">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-6 gap-0">
+              {menuWithSubs.map((item) => (
+                <div key={item.id} className="border-r border-gray-100 last:border-r-0">
+                  {/* 카테고리 헤더 */}
+                  <div className="px-5 pt-5 pb-3 border-b border-gray-50">
+                    <button
+                      onClick={() => { onTabChange(item.id); setMegaOpen(false); }}
+                      className="text-[13px] font-bold text-navy tracking-wide hover:text-gold transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  </div>
+                  {/* 서브 메뉴 */}
+                  <div className="px-2 py-2">
+                    {item.subItems!.map((sub) => (
+                      <button
+                        key={sub.id}
+                        onClick={() => { onTabChange(item.id, sub.id); setMegaOpen(false); }}
+                        className="group/sub flex items-center gap-2 w-full text-left px-3 py-2.5 rounded-lg text-[13px] text-gray-500 hover:text-navy hover:bg-gray-50 transition-all duration-200"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-gold opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                        <span>{sub.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* 하단 골드 라인 */}
+            <div className="h-[2px] bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent" />
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
