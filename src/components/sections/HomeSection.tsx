@@ -111,7 +111,7 @@ export default function HomeSection() {
                   loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
-                <span className="inline-block px-4 py-1.5 border border-gold/60 text-gold text-[12px] font-medium tracking-[3px]">
+                <span className="inline-block px-4 py-1.5 pl-[calc(1rem+3px)] border border-gold/60 text-gold text-[12px] font-medium tracking-[3px]">
                   갈산역
                 </span>
                 <span className="text-white text-[28px] lg:text-[32px] font-bold tracking-tight">

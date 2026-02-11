@@ -137,7 +137,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
           onClick={() => { onTabChange("home"); setMegaOpen(false); }}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
-          <span className={`inline-block px-2.5 py-1 border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
+          <span className={`inline-block px-2.5 py-1 pl-[calc(0.625rem+2px)] border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
             갈산역
           </span>
           <span className={`text-[20px] font-bold tracking-tight transition-colors duration-300 ${logoText}`}>
