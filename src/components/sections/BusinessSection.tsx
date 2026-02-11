@@ -23,7 +23,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
       <SectionBanner
         title="사 업 안 내"
         subtitle="중앙하이츠 갈산역 센트럴의 사업 정보를 확인하세요."
-        bgImage="/images/banner-business.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500"
       />
 

@@ -8,7 +8,7 @@ export default function RegisterSection() {
       <SectionBanner
         title="관심고객등록"
         subtitle="중앙하이츠 갈산역 센트럴에 관심을 가져주셔서 감사합니다."
-        bgImage="/images/banner-register.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-700"
       />
 

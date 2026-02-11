@@ -22,7 +22,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
       <SectionBanner
         title="프 리 미 엄"
         subtitle="걸어서 누리는 완성된 프리미엄을 만나보세요."
-        bgImage="/images/banner-premium.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600"
       />
 

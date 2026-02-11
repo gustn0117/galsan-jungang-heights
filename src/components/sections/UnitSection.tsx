@@ -21,7 +21,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
       <SectionBanner
         title="세 대 안 내"
         subtitle="중앙하이츠 갈산역 센트럴의 세대 정보를 확인하세요."
-        bgImage="/images/banner-unit.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-stone-700 via-stone-600 to-stone-500"
       />
 

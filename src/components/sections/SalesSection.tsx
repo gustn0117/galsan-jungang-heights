@@ -22,7 +22,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
       <SectionBanner
         title="분 양 안 내"
         subtitle="중앙하이츠 갈산역 센트럴의 분양 일정을 확인하세요."
-        bgImage="/images/banner-sales.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700"
       />
 

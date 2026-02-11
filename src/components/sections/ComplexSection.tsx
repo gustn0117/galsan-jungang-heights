@@ -93,7 +93,7 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
       <SectionBanner
         title="단 지 안 내"
         subtitle="중앙하이츠 갈산역 센트럴의 단지 정보를 확인하세요."
-        bgImage="/images/banner-complex.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500"
       />
 

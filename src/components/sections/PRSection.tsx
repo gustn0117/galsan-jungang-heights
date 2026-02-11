@@ -21,7 +21,7 @@ export default function PRSection({ initialSubTab }: PRSectionProps) {
       <SectionBanner
         title="홍 보 센 터"
         subtitle="중앙하이츠 갈산역 센트럴의 최신 소식을 만나보세요."
-        bgImage="/images/banner-pr.jpg"
+        bgImage="/images/banner.jpg"
         fallbackGradient="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700"
       />
 
