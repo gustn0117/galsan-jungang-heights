@@ -97,7 +97,7 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
           단 지 안 내
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          갈산역 중앙하이츠의 단지 정보를 확인하세요.
+          중앙하이츠 갈산역 센트럴의 단지 정보를 확인하세요.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
             >
               {tab.label}
               {activeSubTab === tab.id && (
-                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-blue-400" />
+                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold" />
               )}
             </button>
           ))}

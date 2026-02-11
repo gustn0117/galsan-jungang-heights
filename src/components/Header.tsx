@@ -24,7 +24,7 @@ const menuItems: MenuItem[] = [
     label: "프리미엄",
     subItems: [
       { id: "location", label: "입지환경" },
-      { id: "premium7", label: "프리미엄 7" },
+      { id: "premium4", label: "프리미엄 4" },
     ],
   },
   {
@@ -110,10 +110,10 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
           className="flex items-center gap-2.5 cursor-pointer group"
         >
           <span className={`inline-block px-2.5 py-1 border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
-            갈산역
+            중앙하이츠
           </span>
           <span className={`text-[20px] font-bold tracking-tight transition-colors duration-300 ${logoText}`}>
-            중앙하이츠
+            갈산역 센트럴
           </span>
         </button>
 
@@ -172,7 +172,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
           </div>
-          <span className="text-[16px] font-bold tracking-wider">1688-0458</span>
+          <span className="text-[16px] font-bold tracking-wider">1800-5636</span>
         </div>
 
         {/* Mobile Menu Button */}
@@ -229,7 +229,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span className="text-lg font-bold tracking-wider">1688-0458</span>
+              <span className="text-lg font-bold tracking-wider">1800-5636</span>
             </div>
           </div>
         </div>

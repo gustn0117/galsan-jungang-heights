@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Phone Floating Button (Mobile) */}
       <a
-        href="tel:1688-0458"
+        href="tel:1800-5636"
         className={`fixed bottom-8 left-6 z-40 lg:hidden flex items-center gap-2 px-5 py-3 bg-navy text-white rounded-full shadow-xl transition-all duration-500 ${
           showFloatingBtn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}

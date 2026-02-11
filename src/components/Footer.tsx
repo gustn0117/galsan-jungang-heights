@@ -37,19 +37,19 @@ export default function Footer({ onTabChange }: FooterProps) {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-14">
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Brand */}
-          <div className="max-w-[320px]">
+          <div className="max-w-[360px]">
             <div className="flex items-center gap-2.5 mb-5">
               <span className="inline-block px-2.5 py-1 border border-gray-600 text-[10px] font-medium tracking-[2px] text-gray-400">
-                갈산역
+                중앙하이츠
               </span>
               <span className="text-[18px] font-bold text-gray-200 tracking-tight">
-                중앙하이츠
+                갈산역 센트럴
               </span>
             </div>
             <p className="text-[13px] leading-[1.8] text-gray-500">
-              갈산역 중앙하이츠는 뛰어난 입지와
+              갈산역 &lsquo;0분&rsquo;의 가치,
               <br />
-              프리미엄 주거 환경을 제공합니다.
+              걸어서 누리는 완성된 프리미엄
             </p>
             <div className="mt-5 flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center">
@@ -58,7 +58,12 @@ export default function Footer({ onTabChange }: FooterProps) {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-              <span className="text-[18px] font-bold text-white tracking-wider">1688-0458</span>
+              <span className="text-[18px] font-bold text-white tracking-wider">1800-5636</span>
+            </div>
+            <div className="mt-6 space-y-1.5 text-[12px] text-gray-600">
+              <p><span className="text-gray-500">시행</span> 배조아파트소규모재건축사업조합</p>
+              <p><span className="text-gray-500">시공/분양</span> 중앙건설산업(주)</p>
+              <p><span className="text-gray-500">시행</span> CA이엔씨(주)</p>
             </div>
           </div>
 
@@ -111,12 +116,12 @@ export default function Footer({ onTabChange }: FooterProps) {
       <div className="border-t border-gray-800/60">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[12px] text-gray-600">
-            &copy; 2025 갈산역 중앙하이츠. All rights reserved.
+            &copy; 2025 중앙하이츠 갈산역 센트럴. All rights reserved.
           </p>
-          <div className="flex gap-6 text-[12px] text-gray-600">
-            <span className="hover:text-gray-400 cursor-pointer transition-colors">개인정보처리방침</span>
-            <span className="hover:text-gray-400 cursor-pointer transition-colors">이용약관</span>
-          </div>
+          <p className="text-[11px] text-gray-700 max-w-[600px] text-center md:text-right leading-relaxed">
+            본 제작물에 사용된 이미지 및 내용, 문구 등은 소비자의 이해를 돕기 위해 제작 또는 표기된 것으로
+            실제와 차이가 있으며, 본 제작물상의 설계 내용은 향후 인허가 과정에서 변동될 수 있습니다.
+          </p>
         </div>
       </div>
     </footer>

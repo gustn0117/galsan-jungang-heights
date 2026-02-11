@@ -23,7 +23,7 @@ export default function PRSection({ initialSubTab }: PRSectionProps) {
           홍 보 센 터
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          갈산역 중앙하이츠의 최신 소식을 만나보세요.
+          중앙하이츠 갈산역 센트럴의 최신 소식을 만나보세요.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function PRSection({ initialSubTab }: PRSectionProps) {
             >
               {tab.label}
               {activeSubTab === tab.id && (
-                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-blue-400" />
+                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold" />
               )}
             </button>
           ))}

@@ -9,7 +9,7 @@ export default function RegisterSection() {
           관심고객등록
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          갈산역 중앙하이츠에 관심을 가져주셔서 감사합니다.
+          중앙하이츠 갈산역 센트럴에 관심을 가져주셔서 감사합니다.
         </p>
       </div>
 
@@ -53,7 +53,7 @@ export default function RegisterSection() {
               관심 평형 <span className="text-red-500">*</span>
             </label>
             <div className="flex flex-wrap gap-3">
-              {["59㎡", "84㎡ A", "84㎡ B", "전체"].map((type) => (
+              {["59㎡ (전용 59.79㎡)", "전체"].map((type) => (
                 <label
                   key={type}
                   className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 rounded-lg cursor-pointer hover:border-navy/50 transition-colors"
@@ -108,8 +108,8 @@ export default function RegisterSection() {
         <div className="mt-12 text-center">
           <p className="text-gray-500 text-sm">
             전화 문의:{" "}
-            <a href="tel:1688-0458" className="text-navy font-bold text-lg">
-              1688-0458
+            <a href="tel:1800-5636" className="text-navy font-bold text-lg">
+              1800-5636
             </a>
           </p>
         </div>

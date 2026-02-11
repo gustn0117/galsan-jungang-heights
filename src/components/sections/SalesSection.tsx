@@ -24,7 +24,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           분 양 안 내
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          갈산역 중앙하이츠의 분양 일정을 확인하세요.
+          중앙하이츠 갈산역 센트럴의 분양 일정을 확인하세요.
         </p>
       </div>
 
@@ -50,7 +50,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             >
               {tab.label}
               {activeSubTab === tab.id && (
-                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-blue-400" />
+                <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-gold" />
               )}
             </button>
           ))}
