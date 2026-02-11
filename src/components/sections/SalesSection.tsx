@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ImagePlaceholder from "../ImagePlaceholder";
+import SectionBanner from "../SectionBanner";
 
 const subTabs = [
   { id: "schedule", label: "분양일정" },
@@ -18,15 +19,12 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
 
   return (
     <section className="pt-[72px]">
-      {/* Section Banner */}
-      <div className="relative h-[300px] bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center">
-        <h2 className="text-white text-[42px] font-light tracking-[20px]">
-          분 양 안 내
-        </h2>
-        <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          중앙하이츠 갈산역 센트럴의 분양 일정을 확인하세요.
-        </p>
-      </div>
+      <SectionBanner
+        title="분 양 안 내"
+        subtitle="중앙하이츠 갈산역 센트럴의 분양 일정을 확인하세요."
+        bgImage="/images/banner-sales.jpg"
+        fallbackGradient="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700"
+      />
 
       {/* Sub Navigation */}
       <div className="bg-[#1a2744]">

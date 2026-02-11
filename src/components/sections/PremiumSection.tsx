@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ImagePlaceholder from "../ImagePlaceholder";
+import SectionBanner from "../SectionBanner";
 
 const subTabs = [
   { id: "location", label: "입지환경" },
@@ -17,15 +18,12 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
 
   return (
     <section className="pt-[72px]">
-      {/* Section Banner */}
-      <div className="relative h-[300px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 flex items-center justify-center">
-        <h2 className="text-white text-[42px] font-light tracking-[20px]">
-          프 리 미 엄
-        </h2>
-        <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          걸어서 누리는 완성된 프리미엄을 만나보세요.
-        </p>
-      </div>
+      <SectionBanner
+        title="프 리 미 엄"
+        subtitle="걸어서 누리는 완성된 프리미엄을 만나보세요."
+        bgImage="/images/banner-premium.jpg"
+        fallbackGradient="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600"
+      />
 
       {/* Sub Navigation */}
       <div className="bg-[#1a2744]">

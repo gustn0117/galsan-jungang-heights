@@ -1,17 +1,16 @@
 "use client";
 
+import SectionBanner from "../SectionBanner";
+
 export default function RegisterSection() {
   return (
     <section className="pt-[72px]">
-      {/* Section Banner */}
-      <div className="relative h-[300px] bg-gradient-to-r from-amber-900 via-amber-800 to-amber-700 flex items-center justify-center">
-        <h2 className="text-white text-[42px] font-light tracking-[20px]">
-          관심고객등록
-        </h2>
-        <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          중앙하이츠 갈산역 센트럴에 관심을 가져주셔서 감사합니다.
-        </p>
-      </div>
+      <SectionBanner
+        title="관심고객등록"
+        subtitle="중앙하이츠 갈산역 센트럴에 관심을 가져주셔서 감사합니다."
+        bgImage="/images/banner-register.jpg"
+        fallbackGradient="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-700"
+      />
 
       {/* Form */}
       <div className="max-w-[700px] mx-auto px-6 py-16">
