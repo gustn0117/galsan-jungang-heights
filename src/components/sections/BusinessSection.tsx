@@ -25,9 +25,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
           사 업 안 내
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          더 가까워진 KTX광명역세권 생활, 더 빨라진 쾌속교통,
-          <br />
-          더 높아진 개발비전으로 초프리미엄을 누린다.
+          갈산역 중앙하이츠의 사업 정보를 확인하세요.
         </p>
       </div>
 
@@ -77,15 +75,15 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { label: "사업명", value: "만안역 중앙하이츠 포레" },
-                    { label: "위치", value: "경기도 안양시 만안구 석수동 일원" },
-                    { label: "대지면적", value: "이미지에서 확인" },
-                    { label: "건축면적", value: "이미지에서 확인" },
-                    { label: "건폐율", value: "이미지에서 확인" },
-                    { label: "용적률", value: "이미지에서 확인" },
-                    { label: "규모", value: "지하 O층 ~ 지상 O층, O개동" },
-                    { label: "세대수", value: "총 O세대" },
-                    { label: "주차대수", value: "O대 (세대당 O대)" },
+                    { label: "사업명", value: "갈산역 중앙하이츠" },
+                    { label: "위치", value: "추후 업데이트 예정" },
+                    { label: "대지면적", value: "추후 업데이트 예정" },
+                    { label: "건축면적", value: "추후 업데이트 예정" },
+                    { label: "건폐율", value: "추후 업데이트 예정" },
+                    { label: "용적률", value: "추후 업데이트 예정" },
+                    { label: "규모", value: "추후 업데이트 예정" },
+                    { label: "세대수", value: "추후 업데이트 예정" },
+                    { label: "주차대수", value: "추후 업데이트 예정" },
                   ].map((item, i) => (
                     <div key={i} className="border-b border-gray-100 pb-3">
                       <span className="text-xs text-gray-400 font-medium">{item.label}</span>
@@ -125,7 +123,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             />
             <div className="mt-8 p-6 bg-gray-50 rounded-lg">
               <p className="text-gray-700">
-                <span className="font-bold text-navy">주소:</span> 경기도 안양시 만안구 석수동 일원
+                <span className="font-bold text-navy">주소:</span> 추후 업데이트 예정
               </p>
               <p className="text-gray-700 mt-2">
                 <span className="font-bold text-navy">전화:</span> 1688-0458

@@ -24,9 +24,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           분 양 안 내
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          더 가까워진 KTX광명역세권 생활, 더 빨라진 쾌속교통,
-          <br />
-          더 높아진 개발비전으로 초프리미엄을 누린다.
+          갈산역 중앙하이츠의 분양 일정을 확인하세요.
         </p>
       </div>
 

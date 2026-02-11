@@ -9,7 +9,7 @@ export default function RegisterSection() {
           관심고객등록
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          만안역 중앙하이츠 포레에 관심을 가져주셔서 감사합니다.
+          갈산역 중앙하이츠에 관심을 가져주셔서 감사합니다.
         </p>
       </div>
 

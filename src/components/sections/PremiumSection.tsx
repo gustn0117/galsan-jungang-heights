@@ -23,9 +23,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
           프 리 미 엄
         </h2>
         <p className="absolute bottom-8 text-white/70 text-sm text-center w-full">
-          더 가까워진 KTX광명역세권 생활, 더 빨라진 쾌속교통,
-          <br />
-          더 높아진 개발비전으로 초프리미엄을 누린다.
+          갈산역 중앙하이츠만의 특별한 프리미엄을 만나보세요.
         </p>
       </div>
 
@@ -62,19 +60,19 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
       <div>
         {activeSubTab === "location" && (
           <div>
-            {/* KTX 광명역세권 Section */}
+            {/* Location Section */}
             <div className="relative h-[80vh] min-h-[600px]">
               <ImagePlaceholder
                 number={8}
                 gradient="gradient-night"
                 height="h-full"
-                label="도시 야경 (KTX광명역세권)"
+                label="입지환경 이미지"
               />
               <div className="absolute inset-0 flex items-center">
                 <div className="max-w-[1400px] mx-auto px-6 w-full">
                   <div className="max-w-[500px]">
                     <h3 className="text-white text-[36px] lg:text-[44px] font-bold leading-tight mb-4">
-                      KTX광명역세권!
+                      갈산역 도보권!
                       <br />
                       앞선 생활의 중심
                     </h3>
@@ -82,14 +80,10 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   <div className="mt-16 text-right max-w-[600px] ml-auto">
                     <p className="text-white/80 text-[20px] italic font-light mb-8"
                       style={{ fontFamily: "'Georgia', serif" }}>
-                      Double Infra
+                      Premium Location
                     </p>
                     <p className="text-white/70 text-sm leading-relaxed">
-                      중앙대학교병원 · 롯데몰 · 이케아 · 코스트코(광명역),
-                      <br />
-                      석수시장, 석수2동행정복지센터 및 다목적 체육관
-                      <br />
-                      · 와룡산, 충훈공원, 안양천 등 풍부한 생활 인프라
+                      주변 인프라 정보 업데이트 예정
                     </p>
                   </div>
                 </div>
@@ -117,9 +111,9 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
             <div className="max-w-[1200px] mx-auto px-6 py-16">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                  { num: 13, title: "교통", desc: "KTX광명역, 1호선 만안역 인접" },
-                  { num: 14, title: "교육", desc: "석수도서관, 화장초교, 충훈고교" },
-                  { num: 15, title: "편의", desc: "롯데몰, 이케아, 코스트코 등" },
+                  { num: 13, title: "교통", desc: "교통 정보 업데이트 예정" },
+                  { num: 14, title: "교육", desc: "교육 시설 정보 업데이트 예정" },
+                  { num: 15, title: "편의", desc: "편의 시설 정보 업데이트 예정" },
                 ].map((item) => (
                   <div key={item.num} className="text-center">
                     <ImagePlaceholder
