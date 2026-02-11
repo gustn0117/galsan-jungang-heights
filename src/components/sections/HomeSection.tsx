@@ -299,66 +299,138 @@ export default function HomeSection() {
       </div>
 
       {/* ===== PREMIUM 4 Highlights ===== */}
-      <div ref={sec2.ref} className="bg-[#f8f7f4] py-24 lg:py-32 overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-          <div className={`text-center mb-16 transition-all duration-[800ms] ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-gold text-[13px] tracking-[4px] font-medium">PREMIUM 4</span>
-            <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 mt-4">
+      <div ref={sec2.ref} className="bg-[#0c1a2e] py-28 lg:py-36 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className={`text-center mb-20 transition-all duration-[800ms] ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <span className="text-gold text-[12px] tracking-[5px] font-medium">PREMIUM 4</span>
+            <h2 className="text-[30px] lg:text-[40px] font-bold text-white mt-5 leading-tight">
               걸어서 누리는 완성된 프리미엄
             </h2>
-            <p className="text-gray-400 text-[14px] mt-3">
-              중앙하이츠 갈산역 센트럴, 삶의 중심이 된다.
-            </p>
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <span className="w-12 h-[1px] bg-gold/30" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+              <span className="w-12 h-[1px] bg-gold/30" />
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {/* 상단 2개 - 대형 카드 */}
+          <div className={`grid md:grid-cols-2 gap-5 mb-5 transition-all duration-[800ms] delay-200 ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             {[
               {
-                icon: "M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0",
-                badge: "0분",
-                badgeColor: "bg-blue-500",
+                badge: "도보 0분",
+                tag: "TRANSPORTATION",
                 title: "교통중심",
-                desc: "갈산역 도보 1분! 인천1호선 운행 시 7호선 직결운행으로 서울 4대 중심 업무지구까지 한 번에"
+                desc: "갈산역 도보 1분! 인천1호선 운행 시 7호선 직결운행으로 서울 4대 중심 업무지구까지 한 번에",
+                image: "/images/premium-transport.jpg",
+                pixel: "680 x 420",
               },
               {
-                icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-                badge: "1분",
-                badgeColor: "bg-green-500",
+                badge: "도보 1분",
+                tag: "NATURE",
                 title: "자연중심",
-                desc: "갈산천수변공원까지 1분! 단지에서 나오면 바로 수변공원이 펼쳐지는 자연친화적 주거환경"
+                desc: "갈산천수변공원까지 1분! 단지에서 나오면 바로 수변공원이 펼쳐지는 자연친화적 주거환경",
+                image: "/images/premium-nature.jpg",
+                pixel: "680 x 420",
               },
-              {
-                icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
-                badge: "2분",
-                badgeColor: "bg-orange-500",
-                title: "생활중심",
-                desc: "롯데마트, 부평문화의거리, 부평역지하상가, 부평중앙시장 등 풍부한 생활 인프라"
-              },
-              {
-                icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-                badge: "10분",
-                badgeColor: "bg-purple-500",
-                title: "교육중심",
-                desc: "고려대교육관, 인천대공학관 등 우수한 교육 환경이 가까이"
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className={`group bg-white p-8 hover:shadow-2xl transition-all duration-700 border border-gray-100 hover:border-gold/30 relative overflow-hidden hover:-translate-y-1 ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                style={{ transitionDelay: sec2.visible ? `${200 + i * 100}ms` : "0ms" }}
-              >
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-gold via-gold to-gold/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-navy/5 flex items-center justify-center group-hover:bg-navy group-hover:shadow-lg transition-all duration-500">
-                    <svg className="w-6 h-6 text-navy group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={feature.icon} />
-                    </svg>
+            ].map((item, i) => (
+              <div key={i} className="group relative h-[420px] overflow-hidden cursor-default">
+                {/* 이미지 배경 또는 플레이스홀더 */}
+                <div className="absolute inset-0 bg-navy-light">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                  {/* 이미지 미설정 안내 */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-60">
+                    <div className="w-12 h-12 rounded-xl border-2 border-dashed border-white/20 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/10">
+                      <p className="text-white/70 text-[11px] font-mono">{item.image}</p>
+                      <p className="text-white/40 text-[10px] font-mono text-center">{item.pixel} px</p>
+                    </div>
                   </div>
-                  <span className={`${feature.badgeColor} text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm`}>
-                    {feature.badge}
-                  </span>
                 </div>
-                <h3 className="text-[18px] font-bold text-gray-900 mb-3 group-hover:text-navy transition-colors">{feature.title}</h3>
-                <p className="text-gray-500 text-[13px] leading-[1.9]">{feature.desc}</p>
+                {/* 그라데이션 오버레이 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+                {/* 컨텐츠 */}
+                <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-gold/80 text-[11px] tracking-[3px] font-medium">{item.tag}</span>
+                  </div>
+                  <div>
+                    <span className="inline-block px-3 py-1 bg-gold/90 text-white text-[11px] font-bold tracking-wide rounded-sm mb-4">
+                      {item.badge}
+                    </span>
+                    <h3 className="text-white text-[28px] lg:text-[32px] font-bold mb-3">{item.title}</h3>
+                    <p className="text-white/60 text-[14px] leading-[1.8] max-w-[400px]">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 하단 2개 - 가로형 카드 */}
+          <div className={`grid md:grid-cols-2 gap-5 transition-all duration-[800ms] delay-400 ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            {[
+              {
+                badge: "도보 2분",
+                tag: "LIVING",
+                title: "생활중심",
+                desc: "롯데마트, 부평문화의거리, 부평역지하상가, 부평중앙시장 등 풍부한 생활 인프라",
+                image: "/images/premium-living.jpg",
+                pixel: "680 x 320",
+              },
+              {
+                badge: "도보 10분",
+                tag: "EDUCATION",
+                title: "교육중심",
+                desc: "갈산초, 부평동중, 부평여고 등 우수한 교육 환경과 학원가가 가까이",
+                image: "/images/premium-edu.jpg",
+                pixel: "680 x 320",
+              },
+            ].map((item, i) => (
+              <div key={i} className="group relative h-[320px] overflow-hidden cursor-default">
+                <div className="absolute inset-0 bg-navy-light">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-60">
+                    <div className="w-12 h-12 rounded-xl border-2 border-dashed border-white/20 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/10">
+                      <p className="text-white/70 text-[11px] font-mono">{item.image}</p>
+                      <p className="text-white/40 text-[10px] font-mono text-center">{item.pixel} px</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+                <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-between">
+                  <span className="text-gold/80 text-[11px] tracking-[3px] font-medium">{item.tag}</span>
+                  <div>
+                    <span className="inline-block px-3 py-1 bg-gold/90 text-white text-[11px] font-bold tracking-wide rounded-sm mb-4">
+                      {item.badge}
+                    </span>
+                    <h3 className="text-white text-[26px] lg:text-[28px] font-bold mb-2">{item.title}</h3>
+                    <p className="text-white/60 text-[14px] leading-[1.8] max-w-[400px]">{item.desc}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
