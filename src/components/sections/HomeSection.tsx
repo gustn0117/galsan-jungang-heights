@@ -195,6 +195,83 @@ export default function HomeSection() {
         </div>
       </div>
 
+      {/* ===== About Section - 브랜드 ===== */}
+      <div ref={sec5.ref} className="relative py-28 lg:py-36 bg-[#f8f7f4] overflow-hidden">
+        {/* 배경 장식 */}
+        <div className="absolute top-20 right-0 w-96 h-96 bg-gold/[0.02] rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-80 h-80 bg-navy/[0.02] rounded-full blur-3xl" />
+
+        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Text Content */}
+            <div className={`transition-all duration-[800ms] ${sec5.visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+              <span className="text-gold text-[13px] tracking-[4px] font-medium">ABOUT</span>
+              <h2 className="text-[32px] lg:text-[44px] font-bold text-gray-900 mt-4 mb-6 leading-tight">
+                삶의 중심이
+                <br />
+                <span className="text-navy">된다.</span>
+              </h2>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-16 h-[2px] bg-gold" />
+                <div className="w-2 h-2 rounded-full bg-gold/40" />
+              </div>
+              <p className="text-gray-500 text-[15px] leading-[1.9] mb-4">
+                중앙하이츠 갈산역 센트럴은 갈산역 도보 1분의 초역세권에 위치하여
+                인천1호선은 물론 서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에 연결됩니다.
+              </p>
+              <p className="text-gray-500 text-[15px] leading-[1.9] mb-10">
+                갈산천수변공원을 품은 자연친화적 주거환경과 롯데마트, 부평중앙시장 등
+                풍부한 생활 인프라가 걸어서 누리는 완성된 프리미엄을 선사합니다.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { num: "126", unit: "세대", desc: "총 세대수" },
+                  { num: "50", unit: "세대", desc: "일반분양" },
+                  { num: "59", unit: "type", desc: "단일 평면" },
+                  { num: "0", unit: "분", desc: "갈산역 초역세권" },
+                ].map((stat, i) => (
+                  <div key={i} className="py-5 border-l-2 border-gold/30 pl-5 hover:border-gold transition-colors duration-300">
+                    <p className="text-navy text-[32px] font-bold leading-none">
+                      {stat.num}
+                      <span className="text-gold text-[14px] font-medium ml-1">{stat.unit}</span>
+                    </p>
+                    <p className="text-gray-400 text-[12px] mt-2 tracking-wide">{stat.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Image Side */}
+            <div className={`relative transition-all duration-[800ms] delay-300 ${sec5.visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
+              <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-rendering.jpg"
+                  alt="중앙하이츠 갈산역 센트럴"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
+              </div>
+              {/* Floating Card */}
+              <div className="absolute -bottom-6 -left-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px]">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-6 h-[1px] bg-gold" />
+                  <p className="text-gold text-[11px] tracking-[3px] font-semibold">LOCATION</p>
+                </div>
+                <p className="text-[18px] font-bold leading-snug">
+                  갈산역 초역세권
+                  <br />
+                  수변공원 초공세권
+                </p>
+              </div>
+              {/* Decorative Frame */}
+              <div className="absolute -top-5 -right-5 w-full h-full border-2 border-gold/15 -z-10" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ===== 0분의 가치 - 초역세권 · 초공세권 ===== */}
       <div ref={sec1.ref} className="relative py-28 lg:py-36 bg-white overflow-hidden">
         {/* 배경 대형 텍스트 */}
@@ -631,83 +708,6 @@ export default function HomeSection() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ===== About Section - 브랜드 ===== */}
-      <div ref={sec5.ref} className="relative py-28 lg:py-36 bg-[#f8f7f4] overflow-hidden">
-        {/* 배경 장식 */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-gold/[0.02] rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-80 h-80 bg-navy/[0.02] rounded-full blur-3xl" />
-
-        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Text Content */}
-            <div className={`transition-all duration-[800ms] ${sec5.visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
-              <span className="text-gold text-[13px] tracking-[4px] font-medium">ABOUT</span>
-              <h2 className="text-[32px] lg:text-[44px] font-bold text-gray-900 mt-4 mb-6 leading-tight">
-                삶의 중심이
-                <br />
-                <span className="text-navy">된다.</span>
-              </h2>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-16 h-[2px] bg-gold" />
-                <div className="w-2 h-2 rounded-full bg-gold/40" />
-              </div>
-              <p className="text-gray-500 text-[15px] leading-[1.9] mb-4">
-                중앙하이츠 갈산역 센트럴은 갈산역 도보 1분의 초역세권에 위치하여
-                인천1호선은 물론 서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에 연결됩니다.
-              </p>
-              <p className="text-gray-500 text-[15px] leading-[1.9] mb-10">
-                갈산천수변공원을 품은 자연친화적 주거환경과 롯데마트, 부평중앙시장 등
-                풍부한 생활 인프라가 걸어서 누리는 완성된 프리미엄을 선사합니다.
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { num: "126", unit: "세대", desc: "총 세대수" },
-                  { num: "50", unit: "세대", desc: "일반분양" },
-                  { num: "59", unit: "type", desc: "단일 평면" },
-                  { num: "0", unit: "분", desc: "갈산역 초역세권" },
-                ].map((stat, i) => (
-                  <div key={i} className="py-5 border-l-2 border-gold/30 pl-5 hover:border-gold transition-colors duration-300">
-                    <p className="text-navy text-[32px] font-bold leading-none">
-                      {stat.num}
-                      <span className="text-gold text-[14px] font-medium ml-1">{stat.unit}</span>
-                    </p>
-                    <p className="text-gray-400 text-[12px] mt-2 tracking-wide">{stat.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Image Side */}
-            <div className={`relative transition-all duration-[800ms] delay-300 ${sec5.visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
-              <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/hero-rendering.jpg"
-                  alt="중앙하이츠 갈산역 센트럴"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
-              </div>
-              {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px]">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-6 h-[1px] bg-gold" />
-                  <p className="text-gold text-[11px] tracking-[3px] font-semibold">LOCATION</p>
-                </div>
-                <p className="text-[18px] font-bold leading-snug">
-                  갈산역 초역세권
-                  <br />
-                  수변공원 초공세권
-                </p>
-              </div>
-              {/* Decorative Frame */}
-              <div className="absolute -top-5 -right-5 w-full h-full border-2 border-gold/15 -z-10" />
-            </div>
           </div>
         </div>
       </div>
