@@ -69,6 +69,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                 sizes="100vw"
                 priority
               />
+              <div className="absolute inset-0 bg-black/50" />
               <div className="absolute inset-0 flex items-center">
                 <div className="max-w-[1400px] mx-auto px-6 w-full">
                   <div className="max-w-[500px]">

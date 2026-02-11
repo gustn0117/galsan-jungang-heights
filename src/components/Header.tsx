@@ -123,10 +123,10 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
           className="flex items-center gap-2.5 cursor-pointer group"
         >
           <span className={`inline-block px-2.5 py-1 border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
-            중앙하이츠
+            갈산역
           </span>
           <span className={`text-[20px] font-bold tracking-tight transition-colors duration-300 ${logoText}`}>
-            갈산역 센트럴
+            중앙하이츠센트럴
           </span>
         </button>
 
