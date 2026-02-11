@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700&display=swap');
+
+:root {
+  --navy: #1a2744;
+  --navy-light: #2a3a5c;
+  --gold: #c9a96e;
+  --gold-light: #d4b87a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  background: #fff;
+}
+
+/* Image Placeholder Styles */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.img-placeholder::after {
+  content: '이미지 예정';
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 2px;
+}
+
+.img-placeholder-dark {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.img-placeholder-dark::after {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+/* Gradient backgrounds for placeholders */
+.gradient-hero {
+  background: linear-gradient(135deg, #2c3e6b 0%, #4a6fa5 30%, #7ba0c9 60%, #b8cfe0 100%);
+}
+
+.gradient-aerial {
+  background: linear-gradient(180deg, #2d5a3d 0%, #3a7a52 30%, #5a9a6e 60%, #7ab88a 100%);
+}
+
+.gradient-night {
+  background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 30%, #2a3145 60%, #3d4a6b 100%);
+}
+
+.gradient-premium {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.gradient-location {
+  background: linear-gradient(135deg, #e8d5b7 0%, #d4c4a8 50%, #c0b396 100%);
+}
+
+.gradient-community {
+  background: linear-gradient(135deg, #f5f0e8 0%, #e8e0d4 50%, #dbd2c4 100%);
+}
+
+.gradient-silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #d8d8d8 30%, #e8e8e8 60%, #f0f0f0 100%);
+}
+
+/* Header dropdown animation */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Sub navigation bar */
+.sub-nav {
+  background: var(--navy);
+}
+
+/* Table styles for unit layout */
+.unit-table {
+  border-collapse: collapse;
+}
+
+.unit-table td,
+.unit-table th {
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.unit-table .floor-label {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #555;
+}
+
+.unit-table .unit-normal {
+  background: #fff;
+}
+
+.unit-table .unit-highlight-pink {
+  background: #f4b8c1;
+  color: #333;
+}
+
+.unit-table .unit-highlight-yellow {
+  background: #f5e6a3;
+  color: #333;
+}
+
+.unit-table .unit-highlight-blue {
+  background: #a3c4f5;
+  color: #333;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
