@@ -267,45 +267,56 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 shadow-2xl">
-          <div className="max-w-[1400px] mx-auto px-6 py-6">
+        <div className="lg:hidden bg-navy/[0.98] backdrop-blur-xl border-t border-white/[0.06] shadow-2xl max-h-[calc(100vh-76px)] overflow-y-auto">
+          <div className="px-6 py-5">
             {menuItems.map((item) => (
-              <div key={item.id} className="border-b border-gray-50 last:border-0">
+              <div key={item.id} className="border-b border-white/[0.06] last:border-0">
                 <button
                   onClick={() => {
-                    onTabChange(item.id);
-                    setMobileOpen(false);
+                    if (!item.subItems) {
+                      onTabChange(item.id);
+                      setMobileOpen(false);
+                    } else {
+                      onTabChange(item.id);
+                      setMobileOpen(false);
+                    }
                   }}
-                  className={`block w-full text-left py-3.5 text-[15px] font-medium transition-colors
-                    ${activeTab === item.id ? "text-navy" : "text-gray-600"}`}
+                  className={`flex items-center justify-between w-full text-left py-4 text-[16px] font-semibold transition-colors
+                    ${activeTab === item.id ? "text-gold" : "text-white/90"}`}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {activeTab === item.id && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                  )}
                 </button>
                 {item.subItems && (
-                  <div className="pl-4 pb-3">
-                    {item.subItems.map((sub) => (
-                      <button
-                        key={sub.id}
-                        onClick={() => {
-                          onTabChange(item.id, sub.id);
-                          setMobileOpen(false);
-                        }}
-                        className="block w-full text-left py-2 text-[13px] text-gray-400 hover:text-navy transition-colors"
-                      >
-                        {sub.label}
-                      </button>
-                    ))}
+                  <div className="pb-4 -mt-1">
+                    <div className="bg-white/[0.04] rounded-lg overflow-hidden">
+                      {item.subItems.map((sub, si) => (
+                        <button
+                          key={sub.id}
+                          onClick={() => {
+                            onTabChange(item.id, sub.id);
+                            setMobileOpen(false);
+                          }}
+                          className={`flex items-center gap-3 w-full text-left px-5 py-3.5 text-[15px] transition-colors active:bg-white/[0.04] ${si > 0 ? "border-t border-white/[0.04]" : ""} text-white/50 hover:text-gold`}
+                        >
+                          <span className="w-1 h-1 rounded-full bg-gold/40 flex-shrink-0" />
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
             ))}
-            <div className="pt-6 mt-2 border-t border-gray-100">
-              <a href="tel:18005636" className="flex items-center gap-2.5 text-gray-800 hover:text-gold transition-colors">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="pt-5 mt-1">
+              <a href="tel:18005636" className="flex items-center justify-center gap-3 py-4 bg-gold/90 rounded-lg text-white hover:bg-gold transition-colors">
+                <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span className="text-lg font-bold tracking-wider">1800-5636</span>
+                <span className="text-[17px] font-bold tracking-wider">1800-5636</span>
               </a>
             </div>
           </div>
