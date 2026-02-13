@@ -105,16 +105,17 @@ export default function HomeSection() {
 
               {/* Brand Name */}
               <div
-                className={`flex items-center gap-4 transition-all duration-[1200ms] delay-500 ${
+                className={`transition-all duration-[1200ms] delay-500 ${
                   loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
-                <span className="inline-block px-4 py-1.5 pl-[calc(1rem+3px)] border border-gold/60 text-gold text-[12px] font-medium tracking-[3px]">
-                  중앙하이츠
-                </span>
-                <span className="text-white text-[28px] lg:text-[32px] font-bold tracking-tight">
-                  갈산역 센트럴
-                </span>
+                <Image
+                  src="/images/logo-bi.png"
+                  alt="중앙하이츠 갈산역 센트럴"
+                  width={360}
+                  height={80}
+                  className="h-[48px] lg:h-[56px] w-auto brightness-0 invert"
+                />
               </div>
 
               {/* CTA Buttons */}

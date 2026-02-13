@@ -395,12 +395,15 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <span className="text-gold/60 text-[10px] tracking-[6px] font-medium uppercase">Brand Identity</span>
                   <span className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
                 </div>
-                <h3 className="text-white text-[38px] lg:text-[52px] font-bold leading-[1.2] mb-3" style={{ fontFamily: "'Noto Serif KR', serif" }}>
-                  중앙하이츠
-                </h3>
-                <p className="text-white/30 text-[18px] lg:text-[22px] font-light tracking-[8px] lg:tracking-[12px] mb-10" style={{ fontFamily: "'Noto Serif KR', serif" }}>
-                  갈산역 센트럴
-                </p>
+                <div className="flex justify-center mb-10">
+                  <Image
+                    src="/images/logo-bi.png"
+                    alt="중앙하이츠 갈산역 센트럴"
+                    width={400}
+                    height={90}
+                    className="h-[60px] lg:h-[80px] w-auto brightness-0 invert"
+                  />
+                </div>
                 <div className="flex items-center justify-center gap-2 mb-10">
                   <span className="w-6 h-px bg-gold/30" />
                   <span className="w-1.5 h-1.5 bg-gold/50 rotate-45" />

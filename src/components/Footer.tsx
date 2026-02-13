@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface FooterProps {
   onTabChange?: (tabId: string) => void;
 }
@@ -41,13 +43,14 @@ export default function Footer({ onTabChange }: FooterProps) {
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Brand */}
           <div className="max-w-[360px]">
-            <div className="flex items-center gap-2.5 mb-5">
-              <span className="inline-block px-2.5 py-1 border border-gray-600 text-[10px] font-medium tracking-[2px] text-gray-400">
-                중앙하이츠
-              </span>
-              <span className="text-[18px] font-bold text-gray-200 tracking-tight">
-                갈산역 센트럴
-              </span>
+            <div className="mb-5">
+              <Image
+                src="/images/logo-bi.png"
+                alt="중앙하이츠 갈산역 센트럴"
+                width={180}
+                height={40}
+                className="h-[32px] w-auto brightness-0 invert opacity-80"
+              />
             </div>
             <p className="text-[13px] leading-[1.8] text-gray-500">
               갈산역 &lsquo;0분&rsquo;의 가치,

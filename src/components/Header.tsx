@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface MenuItem {
   id: string;
@@ -110,8 +111,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
 
   const textMuted = isDark || isMegaDark ? "text-white/80" : "text-gray-700";
   const textColor = isDark || isMegaDark ? "text-white" : "text-gray-900";
-  const logoText = isDark || isMegaDark ? "text-white" : "text-gray-900";
-  const logoBorder = isDark || isMegaDark ? "border-white/60 text-white/90" : "border-navy text-navy";
+  const logoWhite = isDark || isMegaDark;
   const activeColor = isDark || isMegaDark ? "text-gold font-bold" : "text-navy font-bold";
   const activeBar = isDark || isMegaDark ? "bg-gold" : "bg-navy";
 
@@ -141,14 +141,16 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
         {/* Logo */}
         <button
           onClick={() => { onTabChange("home"); setMegaOpen(false); }}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center cursor-pointer"
         >
-          <span className={`inline-block px-2.5 py-1 pl-[calc(0.625rem+2px)] border text-[11px] font-medium tracking-[2px] transition-all duration-300 ${logoBorder} group-hover:bg-gold group-hover:border-gold group-hover:text-white`}>
-            중앙하이츠
-          </span>
-          <span className={`text-[20px] font-bold tracking-tight transition-colors duration-300 ${logoText}`}>
-            갈산역 센트럴
-          </span>
+          <Image
+            src="/images/logo-bi.png"
+            alt="중앙하이츠 갈산역 센트럴"
+            width={180}
+            height={40}
+            className={`h-[34px] w-auto transition-all duration-300 ${logoWhite ? "brightness-0 invert" : ""}`}
+            priority
+          />
         </button>
 
         {/* Desktop Navigation */}
