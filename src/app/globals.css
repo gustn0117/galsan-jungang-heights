@@ -543,29 +543,19 @@ body {
   to { opacity: 0; }
 }
 
-@keyframes landingLogoReveal {
-  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes landingTitleReveal {
-  from { opacity: 0; letter-spacing: 0.4em; }
-  to { opacity: 1; letter-spacing: 0.25em; }
-}
-
-@keyframes landingSubReveal {
-  from { opacity: 0; transform: translateY(10px); }
+@keyframes landingSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes landingCircleSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes landingSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes landingEnterPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.15); }
-  50% { box-shadow: 0 0 0 20px rgba(201, 169, 110, 0); }
+@keyframes landingTreesReveal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .landing-page {
@@ -573,37 +563,29 @@ body {
 }
 
 .landing-page.fade-out {
-  animation: landingFadeOut 0.6s ease-in forwards;
+  animation: landingFadeOut 0.5s ease-in forwards;
 }
 
-.landing-logo {
-  animation: landingLogoReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+.landing-header {
+  animation: landingSlideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
 .landing-title {
-  animation: landingTitleReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  animation: landingSlideUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
 }
 
-.landing-sub {
-  animation: landingSubReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+.landing-trees {
+  animation: landingTreesReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
 }
 
-.landing-desc {
-  animation: landingSubReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.1s both;
+.landing-keywords {
+  animation: landingSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1s both;
 }
 
 .landing-enter {
-  animation: landingSubReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.3s both;
+  animation: landingSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both;
 }
 
 .landing-footer {
-  animation: landingSubReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
-}
-
-.landing-circle {
-  animation: landingCircleSpin 120s linear infinite;
-}
-
-.landing-enter-btn:hover {
-  animation: landingEnterPulse 2s ease-in-out infinite;
+  animation: landingSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.4s both;
 }
