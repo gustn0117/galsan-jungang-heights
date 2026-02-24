@@ -18,14 +18,19 @@ const landingKeywords = ["사업안내", "프리미엄", "단지안내", "세대
 export default function Home() {
   const [showLanding, setShowLanding] = useState(true);
   const [landingFading, setLandingFading] = useState(false);
+  const [mainRevealing, setMainRevealing] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
   const [activeSubTab, setActiveSubTab] = useState<string | undefined>();
 
   const handleEnter = () => {
     setLandingFading(true);
+    // 랜딩 페이드아웃 완료 후 → 메인 페이지 등장
     setTimeout(() => {
       setShowLanding(false);
-    }, 600);
+      setMainRevealing(true);
+      // 메인 등장 애니메이션 완료 후 상태 정리
+      setTimeout(() => setMainRevealing(false), 800);
+    }, 700);
   };
 
   const handleTabChange = (tabId: string, subTabId?: string) => {
@@ -328,7 +333,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={`min-h-screen flex flex-col ${mainRevealing ? "main-reveal" : ""}`}>
       <Header activeTab={activeTab} onTabChange={handleTabChange} />
 
       <main className="flex-1">

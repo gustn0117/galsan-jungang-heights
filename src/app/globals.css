@@ -541,8 +541,9 @@ body {
 }
 
 @keyframes landingFadeOut {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(1.03); }
+  0% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  60% { opacity: 0.4; transform: translateY(-20px); filter: blur(0); }
+  100% { opacity: 0; transform: translateY(-40px); filter: blur(4px); }
 }
 
 @keyframes landingRevealUp {
@@ -648,7 +649,17 @@ body {
 }
 
 .landing-page.fade-out {
-  animation: landingFadeOut 0.6s ease-in forwards;
+  animation: landingFadeOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* --- 메인 페이지 등장 --- */
+@keyframes mainRevealIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.main-reveal {
+  animation: mainRevealIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* --- 배경 골드 글로우 (브레스) --- */
