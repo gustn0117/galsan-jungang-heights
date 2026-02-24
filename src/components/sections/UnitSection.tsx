@@ -99,17 +99,17 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
             <div className="flex flex-col lg:flex-row gap-0 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
               {/* Left: Floor Plan Image */}
-              <div className="flex-1 relative bg-white p-6 md:p-10 lg:p-12">
+              <div className="flex-1 relative bg-white p-3 md:p-4">
                 {/* Corner frame decorations */}
-                <div className="absolute top-6 left-6 w-10 h-10 border-t border-l border-gold/20" />
-                <div className="absolute top-6 right-6 lg:hidden w-10 h-10 border-t border-r border-gold/20" />
-                <div className="absolute bottom-6 left-6 w-10 h-10 border-b border-l border-gold/20" />
-                <div className="absolute bottom-6 right-6 lg:hidden w-10 h-10 border-b border-r border-gold/20" />
+                <div className="absolute top-3 left-3 w-8 h-8 border-t border-l border-gold/20" />
+                <div className="absolute top-3 right-3 lg:hidden w-8 h-8 border-t border-r border-gold/20" />
+                <div className="absolute bottom-3 left-3 w-8 h-8 border-b border-l border-gold/20" />
+                <div className="absolute bottom-3 right-3 lg:hidden w-8 h-8 border-b border-r border-gold/20" />
 
                 {/* Isometric View */}
                 {viewMode === "iso" && (
                   <div className="relative">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-[#f8f7f5]">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
                       <Image
                         key={isoImages[isoIndex].src}
                         src={isoImages[isoIndex].src}
@@ -143,7 +143,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
 
                 {/* Top View */}
                 {viewMode === "top" && (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-[#f8f7f5]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
                     <Image
                       src="/images/floorplan-topview.png"
                       alt="59타입 평면도"
