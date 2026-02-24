@@ -49,7 +49,6 @@ const menuItems: MenuItem[] = [
     label: "분양안내",
     subItems: [
       { id: "schedule", label: "분양일정" },
-      { id: "recruitment", label: "입주자 모집공고" },
     ],
   },
   {

@@ -6,7 +6,6 @@ import SectionBanner from "../SectionBanner";
 
 const subTabs = [
   { id: "schedule", label: "분양일정" },
-  { id: "recruitment", label: "입주자 모집공고" },
 ];
 
 interface SalesSectionProps {
@@ -86,19 +85,6 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           </div>
         )}
 
-        {activeSubTab === "recruitment" && (
-          <div className="tab-content">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">입주자 모집공고</h3>
-            <ImagePlaceholder
-              number={35}
-              gradient="gradient-silver"
-              height="h-[700px]"
-              label="입주자 모집공고 문서"
-              dark
-              className="rounded-lg"
-            />
-          </div>
-        )}
 
       </div>
     </section>
