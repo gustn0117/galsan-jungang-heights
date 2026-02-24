@@ -39,12 +39,6 @@ export default function SectionBanner({
         {subtitle}
       </p>
 
-      {/* 배경 이미지 없을 때 파일 안내 */}
-      {!bgImage && (
-        <div className="absolute top-4 right-4 z-10 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/20">
-          <p className="text-white/60 text-[10px] font-mono">배경 이미지 미설정</p>
-        </div>
-      )}
     </div>
   );
 }

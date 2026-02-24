@@ -88,23 +88,6 @@ export default function ImagePlaceholder({
         </span>
       )}
 
-      {/* 파일 정보 박스 */}
-      {info && (
-        <div className={`mt-2 rounded-lg px-4 py-2.5 text-center ${
-          dark ? "bg-black/5 border border-black/10" : "bg-white/10 border border-white/15"
-        }`}>
-          <p className={`text-xs font-mono font-semibold tracking-wide ${
-            dark ? "text-black/50" : "text-white/80"
-          }`}>
-            /images/{info.fileName}
-          </p>
-          <p className={`text-[11px] font-mono mt-0.5 ${
-            dark ? "text-black/30" : "text-white/50"
-          }`}>
-            {info.pixel} px
-          </p>
-        </div>
-      )}
     </div>
   );
 }

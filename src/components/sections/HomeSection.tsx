@@ -392,7 +392,6 @@ export default function HomeSection() {
                 title: "교통중심",
                 desc: "갈산역 도보 1분! 인천1호선 운행 시 7호선 직결운행으로 서울 4대 중심 업무지구까지 한 번에",
                 image: "/images/premium-transport.jpg",
-                pixel: "680 x 340",
               },
               {
                 num: "02",
@@ -401,7 +400,6 @@ export default function HomeSection() {
                 title: "자연중심",
                 desc: "갈산천수변공원까지 1분! 단지에서 나오면 바로 수변공원이 펼쳐지는 자연친화적 주거환경",
                 image: "/images/premium-nature.jpg",
-                pixel: "680 x 340",
               },
               {
                 num: "03",
@@ -410,7 +408,6 @@ export default function HomeSection() {
                 title: "생활중심",
                 desc: "롯데마트, 부평문화의거리, 부평역지하상가, 부평중앙시장 등 풍부한 생활 인프라",
                 image: "/images/premium-life.jpg",
-                pixel: "680 x 340",
               },
               {
                 num: "04",
@@ -419,7 +416,6 @@ export default function HomeSection() {
                 title: "교육중심",
                 desc: "갈산초, 부평동중, 부평여고 등 우수한 교육 환경과 학원가가 가까이",
                 image: "/images/premium-edu.jpg",
-                pixel: "680 x 340",
               },
             ].map((item, i) => (
               <div
@@ -434,20 +430,7 @@ export default function HomeSection() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />
-                  {/* 이미지 미설정 안내 */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-50">
-                    <div className="w-12 h-12 rounded-xl border-2 border-dashed border-white/15 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/10">
-                      <p className="text-white/60 text-[11px] font-mono">{item.image}</p>
-                      <p className="text-white/35 text-[10px] font-mono text-center">{item.pixel} px</p>
-                    </div>
-                  </div>
                 </div>
                 {/* 그라데이션 오버레이 */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
