@@ -49,109 +49,79 @@ export default function Home() {
   if (showLanding) {
     return (
       <div
-        className={`landing-page fixed inset-0 z-[100] flex flex-col overflow-hidden ${
+        className={`landing-page fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-[#fafaf8] ${
           landingFading ? "fade-out" : ""
         }`}
-        style={{ background: 'linear-gradient(180deg, #f7f5f0 0%, #f0ede6 100%)' }}
       >
-        {/* 상단 영역 */}
-        <div className="landing-header relative z-10 flex items-center justify-between px-8 md:px-14 pt-8 md:pt-10">
-          <Image
-            src="/images/logo-bi.png"
-            alt="중앙하이츠 갈산역 센트럴"
-            width={160}
-            height={40}
-            className="h-[24px] md:h-[30px] w-auto"
-            priority
-          />
-          <a
-            href="tel:1800-5636"
-            className="flex items-center gap-2 text-navy/40 hover:text-gold transition-colors duration-300"
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            <span className="text-[11px] md:text-[12px] tracking-[0.15em] font-medium">1800-5636</span>
-          </a>
-        </div>
+        {/* 배경 큰 원 (Tegu Island 스타일) */}
+        <div className="landing-circle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[560px] md:h-[560px] lg:w-[640px] lg:h-[640px] rounded-full border border-navy/[0.06] pointer-events-none" />
+        <div className="landing-circle-inner absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] md:w-[510px] md:h-[510px] lg:w-[590px] lg:h-[590px] rounded-full border border-dashed border-navy/[0.04] pointer-events-none" />
 
-        {/* 메인 콘텐츠 */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
+        {/* 중앙 콘텐츠 */}
+        <div className="relative z-10 flex flex-col items-center text-center px-6">
 
-          {/* 핵심 카피 */}
-          <div className="landing-title">
-            <p className="text-gold/70 text-[11px] md:text-[12px] tracking-[0.3em] font-medium mb-4 md:mb-5">
-              GALSAN STATION 0 MIN
-            </p>
-            <h1
-              className="text-navy text-[28px] md:text-[42px] lg:text-[52px] font-bold leading-[1.4] md:leading-[1.35]"
-              style={{ fontFamily: "'Noto Serif KR', serif" }}
-            >
-              갈산역 0분의 가치<br />
-              <span className="text-gold">중앙하이츠</span>에서 누린다
-            </h1>
-          </div>
-
-          {/* 나무 일러스트 — 크고 대담하게 */}
-          <div className="landing-trees relative w-full max-w-[600px] md:max-w-[800px] mt-8 md:mt-12 pointer-events-none">
+          {/* 나무 일러스트 (로고 위치처럼 상단에) */}
+          <div className="landing-logo pointer-events-none mb-6 md:mb-8">
             <Image
               src="/images/landing-trees.png"
               alt="수변공원"
-              width={1200}
-              height={300}
-              className="w-full h-auto"
-              style={{ opacity: 0.25 }}
+              width={400}
+              height={120}
+              className="w-[180px] md:w-[240px] h-auto opacity-30"
               priority
             />
-            {/* 좌우 페이드 */}
-            <div className="absolute inset-y-0 left-0 w-24 md:w-32" style={{ background: 'linear-gradient(to right, #f7f5f0, transparent)' }} />
-            <div className="absolute inset-y-0 right-0 w-24 md:w-32" style={{ background: 'linear-gradient(to left, #f3f0e9, transparent)' }} />
-            {/* 하단 페이드 */}
-            <div className="absolute bottom-0 left-0 right-0 h-12" style={{ background: 'linear-gradient(to top, #f2efe8, transparent)' }} />
           </div>
 
-          {/* 핵심 키워드 3개 */}
-          <div className="landing-keywords flex items-center gap-6 md:gap-10 mt-6 md:mt-8">
-            <div className="text-center">
-              <p className="text-navy/30 text-[9px] md:text-[10px] tracking-[0.2em] mb-1">내집앞 갈산역</p>
-              <p className="text-navy text-[15px] md:text-[18px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>초역세권</p>
-            </div>
-            <div className="w-px h-8 bg-gold/20" />
-            <div className="text-center">
-              <p className="text-navy/30 text-[9px] md:text-[10px] tracking-[0.2em] mb-1">내집앞 수변공원</p>
-              <p className="text-navy text-[15px] md:text-[18px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>초공세권</p>
-            </div>
-            <div className="w-px h-8 bg-gold/20" />
-            <div className="text-center">
-              <p className="text-navy/30 text-[9px] md:text-[10px] tracking-[0.2em] mb-1">총 126세대</p>
-              <p className="text-navy text-[15px] md:text-[18px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>59 TYPE</p>
-            </div>
+          {/* 영문 타이틀 — 크고 넓은 자간 */}
+          <h1 className="landing-title text-navy text-[28px] md:text-[40px] lg:text-[50px] font-light tracking-[0.25em] md:tracking-[0.3em]" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+            중앙하이츠
+          </h1>
+
+          {/* 구분선 + 한글 서브타이틀 */}
+          <div className="landing-subtitle flex items-center gap-4 md:gap-6 mt-4 md:mt-5">
+            <div className="w-10 md:w-16 h-px bg-navy/15" />
+            <p className="text-navy/50 text-[13px] md:text-[15px] tracking-[0.4em] font-light" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+              갈 산 역  센 트 럴
+            </p>
+            <div className="w-10 md:w-16 h-px bg-navy/15" />
           </div>
 
-          {/* ENTER */}
+          {/* 설명 */}
+          <p className="landing-desc text-navy/35 text-[13px] md:text-[15px] tracking-[0.08em] mt-8 md:mt-10" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+            갈산역 초역세권 · 수변공원 초공세권 · 총 126세대
+          </p>
+
+          {/* 영문 설명 */}
+          <p className="landing-desc-en text-navy/20 text-[10px] md:text-[11px] tracking-[0.25em] font-medium mt-3">
+            GALSAN STATION 0 MIN · WATERFRONT PARK · 59 TYPE
+          </p>
+
+          {/* ENTER 버튼 — 라운드 보더 */}
           <button
             onClick={handleEnter}
-            className="landing-enter group mt-10 md:mt-14"
+            className="landing-enter group mt-12 md:mt-16"
           >
-            <div className="relative px-12 md:px-16 py-3.5 md:py-4 bg-navy text-white text-[11px] md:text-[12px] tracking-[0.35em] font-medium transition-all duration-500 hover:bg-gold overflow-hidden">
-              <span className="relative z-10">ENTER</span>
+            <div className="px-16 md:px-24 py-4 md:py-5 rounded-[40px] border border-navy/15 text-navy/40 text-[12px] md:text-[13px] tracking-[0.4em] font-medium transition-all duration-500 hover:border-navy/40 hover:text-navy/70 hover:bg-navy/[0.02]">
+              ENTER
             </div>
           </button>
         </div>
 
-        {/* 하단 키워드 */}
-        <div className="landing-footer relative z-10 pb-6 md:pb-8 flex items-center justify-center gap-4 md:gap-6 px-4">
-          {landingKeywords.map((kw, i) => (
-            <span key={i} className="flex items-center gap-4 md:gap-6">
-              <span className="text-navy/25 text-[9px] md:text-[10px] tracking-[0.15em]">
-                {kw}
+        {/* 하단 구분선 + 키워드 */}
+        <div className="landing-footer absolute bottom-0 left-0 right-0 z-10">
+          <div className="w-full h-px bg-navy/[0.06]" />
+          <div className="py-5 md:py-6 flex items-center justify-center gap-3 md:gap-5 px-4">
+            {landingKeywords.map((kw, i) => (
+              <span key={i} className="flex items-center gap-3 md:gap-5">
+                <span className="text-navy/25 text-[9px] md:text-[10px] tracking-[0.2em] font-medium">
+                  {kw}
+                </span>
+                {i < landingKeywords.length - 1 && (
+                  <span className="w-1 h-1 rounded-full bg-navy/10" />
+                )}
               </span>
-              {i < landingKeywords.length - 1 && (
-                <span className="w-px h-2.5 bg-gold/20" />
-              )}
-            </span>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
