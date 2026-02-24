@@ -6,22 +6,15 @@ import SectionBanner from "../SectionBanner";
 export default function RegisterSection() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [interestTypes, setInterestTypes] = useState<string[]>([]);
   const [message, setMessage] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState<"success" | "error" | null>(null);
 
-  const handleCheckbox = (type: string, checked: boolean) => {
-    setInterestTypes((prev) =>
-      checked ? [...prev, type] : prev.filter((t) => t !== type),
-    );
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim() || !phone.trim() || interestTypes.length === 0) {
+    if (!name.trim() || !phone.trim()) {
       alert("필수 항목을 모두 입력해 주세요.");
       return;
     }
@@ -38,7 +31,7 @@ export default function RegisterSection() {
         body: JSON.stringify({
           name: name.trim(),
           phone: phone.trim(),
-          interest_type: interestTypes.join(", "),
+          interest_type: "59㎡ (전용 59.79㎡)",
           message: message.trim(),
         }),
       });
@@ -47,7 +40,6 @@ export default function RegisterSection() {
         setSubmitResult("success");
         setName("");
         setPhone("");
-        setInterestTypes([]);
         setMessage("");
         setPrivacyConsent(false);
       } else {
@@ -130,30 +122,13 @@ export default function RegisterSection() {
                 />
               </div>
 
-              {/* Interest Type */}
+              {/* Interest Type (fixed) */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  관심 평형 <span className="text-red-500">*</span>
+                  관심 평형
                 </label>
-                <div className="flex flex-wrap gap-3">
-                  {["59㎡ (전용 59.79㎡)", "전체"].map((type) => (
-                    <label
-                      key={type}
-                      className={`flex items-center gap-2 px-4 py-2.5 border rounded-lg cursor-pointer transition-colors ${
-                        interestTypes.includes(type)
-                          ? "border-navy bg-navy/5"
-                          : "border-gray-200 hover:border-navy/50"
-                      }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={interestTypes.includes(type)}
-                        onChange={(e) => handleCheckbox(type, e.target.checked)}
-                        className="w-4 h-4 text-navy focus:ring-navy/30 border-gray-300 rounded"
-                      />
-                      <span className="text-sm text-gray-700">{type}</span>
-                    </label>
-                  ))}
+                <div className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
+                  59㎡ (전용 59.79㎡)
                 </div>
               </div>
 
