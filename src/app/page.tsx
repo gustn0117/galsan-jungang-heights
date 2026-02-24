@@ -53,10 +53,19 @@ export default function Home() {
           landingFading ? "fade-out" : ""
         }`}
       >
-        {/* 미세 도트 패턴 */}
-        <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #1a2744 0.8px, transparent 0)`,
-          backgroundSize: '24px 24px'
+        {/* 배경 패턴 — 크로스 그리드 */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `
+            linear-gradient(rgba(26,39,68,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(26,39,68,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }} />
+        {/* 배경 패턴 — 세밀한 도트 */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `radial-gradient(circle, rgba(201,169,110,0.12) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
+          backgroundPosition: '40px 40px'
         }} />
 
         {/* 배경 큰 원 — 바깥 */}
@@ -110,12 +119,12 @@ export default function Home() {
             Galsan Station 0 min · Waterfront Park · 59 Type
           </p>
 
-          {/* ENTER 버튼 */}
+          {/* ENTER 버튼 — Tegu Island 스타일 크게 */}
           <button
             onClick={handleEnter}
-            className="landing-enter group mt-14 md:mt-18"
+            className="landing-enter group mt-12 md:mt-16"
           >
-            <div className="landing-enter-btn px-20 md:px-28 py-4.5 md:py-5.5 rounded-[60px] border border-navy/12 text-navy/35 text-[11px] md:text-[12px] tracking-[0.45em] font-medium transition-all duration-500 hover:border-gold/50 hover:text-gold hover:shadow-[0_0_30px_rgba(201,169,110,0.08)]">
+            <div className="landing-enter-btn w-[240px] md:w-[320px] py-5 md:py-6 rounded-[50px] border border-navy/10 text-navy/35 text-[12px] md:text-[14px] tracking-[0.45em] font-medium transition-all duration-500 hover:border-gold/40 hover:text-gold">
               ENTER
             </div>
           </button>
