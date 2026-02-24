@@ -49,13 +49,13 @@ export default function Home() {
   if (showLanding) {
     return (
       <div
-        className={`landing-page fixed inset-0 z-[100] flex flex-col overflow-hidden bg-[#1a2744] ${
+        className={`landing-page fixed inset-0 z-[100] flex flex-col overflow-hidden bg-[#fafaf8] ${
           landingFading ? "fade-out" : ""
         }`}
       >
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201,169,110,0.5) 1px, transparent 0)`,
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201,169,110,0.4) 1px, transparent 0)`,
           backgroundSize: '32px 32px'
         }} />
 
@@ -65,64 +65,39 @@ export default function Home() {
           {/* Main Slogan */}
           <h1 className="landing-title">
             <span
-              className="block text-white text-[22px] md:text-[32px] lg:text-[38px] font-bold tracking-[0.05em] leading-[1.6]"
+              className="block text-navy text-[22px] md:text-[32px] lg:text-[38px] font-bold tracking-[0.05em] leading-[1.6]"
               style={{ fontFamily: "'Noto Serif KR', serif" }}
             >
               &ldquo; 갈산역 <span className="text-gold">&lsquo;0분&rsquo;</span>의 가치, 중앙하이츠에서 누린다 &rdquo;
             </span>
           </h1>
 
-          {/* Illustration Area: Train — Trees — Train */}
+          {/* Illustration Area */}
           <div className="landing-sub relative w-full max-w-[700px] mt-10 md:mt-14 mb-6 md:mb-8">
             {/* Labels */}
             <div className="flex items-start justify-between mb-4 md:mb-6 px-2">
               <div className="text-left">
-                <p className="text-white/40 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 갈산역</p>
-                <p className="text-white text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <p className="text-gray-400 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 갈산역</p>
+                <p className="text-navy text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
                   초역세권
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-white/40 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 수변공원</p>
-                <p className="text-white text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <p className="text-gray-400 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 수변공원</p>
+                <p className="text-navy text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
                   초공세권
                 </p>
               </div>
             </div>
 
-            {/* Train (left side) */}
-            <div className="absolute left-0 md:-left-4 bottom-[52px] md:bottom-[60px] w-[100px] md:w-[150px] pointer-events-none opacity-40">
-              <Image
-                src="/images/landing-train.png"
-                alt="지하철"
-                width={300}
-                height={40}
-                className="w-full h-auto"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-            </div>
-
-            {/* Train (right side) */}
-            <div className="absolute right-0 md:-right-4 bottom-[52px] md:bottom-[60px] w-[100px] md:w-[150px] pointer-events-none opacity-40" style={{ transform: "scaleX(-1)" }}>
-              <Image
-                src="/images/landing-train.png"
-                alt="지하철"
-                width={300}
-                height={40}
-                className="w-full h-auto"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-            </div>
-
             {/* Trees (center) */}
-            <div className="relative mx-auto w-[260px] md:w-[380px] pointer-events-none">
+            <div className="relative mx-auto w-[280px] md:w-[420px] pointer-events-none">
               <Image
                 src="/images/landing-trees.png"
                 alt="수변공원"
                 width={760}
                 height={200}
-                className="w-full h-auto opacity-60"
-                style={{ filter: "brightness(0) invert(1)" }}
+                className="w-full h-auto opacity-50"
                 priority
               />
             </div>
@@ -130,7 +105,7 @@ export default function Home() {
 
           {/* Description */}
           <div className="landing-desc max-w-[500px]">
-            <p className="text-white/40 text-[11px] md:text-[13px] leading-[2] tracking-[0.05em]">
+            <p className="text-gray-400 text-[11px] md:text-[13px] leading-[2] tracking-[0.05em]">
               단지 바로 앞에서 이용가능한 지하철,
               <br />
               걸어서 누리는 수변공원과 생태하천을 통한 쾌적한 자연환경,
@@ -147,7 +122,6 @@ export default function Home() {
               width={200}
               height={50}
               className="h-[28px] md:h-[36px] w-auto"
-              style={{ filter: "brightness(0) invert(1)" }}
               priority
             />
           </div>
@@ -155,7 +129,7 @@ export default function Home() {
           {/* ENTER Button */}
           <button
             onClick={handleEnter}
-            className="landing-enter landing-enter-btn group mt-10 md:mt-14 px-16 md:px-20 py-4 md:py-5 rounded-full border border-white/15 text-white/60 text-[13px] md:text-[14px] tracking-[0.35em] font-medium transition-all duration-500 hover:border-gold hover:text-gold hover:bg-gold/[0.05]"
+            className="landing-enter landing-enter-btn group mt-10 md:mt-14 px-16 md:px-20 py-4 md:py-5 rounded-full border border-gray-300 text-gray-500 text-[13px] md:text-[14px] tracking-[0.35em] font-medium transition-all duration-500 hover:border-gold hover:text-gold hover:bg-gold/[0.03]"
           >
             <span className="flex items-center gap-3">
               ENTER
@@ -170,7 +144,7 @@ export default function Home() {
         <div className="landing-footer relative z-10 pb-6 md:pb-10 flex flex-col items-center gap-4">
           <a
             href="tel:1800-5636"
-            className="flex items-center gap-2 text-white/20 hover:text-gold/60 transition-colors duration-300"
+            className="flex items-center gap-2 text-gray-300 hover:text-gold transition-colors duration-300"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -181,11 +155,11 @@ export default function Home() {
           <div className="flex items-center justify-center gap-3 md:gap-5 px-4 flex-wrap">
             {landingKeywords.map((kw, i) => (
               <span key={i} className="flex items-center gap-3 md:gap-5">
-                <span className="text-white/15 text-[9px] md:text-[10px] tracking-[0.2em] font-medium">
+                <span className="text-gray-300 text-[9px] md:text-[10px] tracking-[0.2em] font-medium">
                   {kw}
                 </span>
                 {i < landingKeywords.length - 1 && (
-                  <span className="w-[3px] h-[3px] rounded-full bg-gold/20" />
+                  <span className="w-[3px] h-[3px] rounded-full bg-gold/30" />
                 )}
               </span>
             ))}
