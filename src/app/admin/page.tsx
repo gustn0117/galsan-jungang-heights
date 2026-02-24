@@ -3,26 +3,29 @@
 import { useState, useEffect, useCallback } from "react";
 import type { Registration, RegistrationStats } from "@/lib/types";
 
-/* ─── Status helpers ─── */
+/* ─── Constants ─── */
+const NAVY = "#1a2744";
+const GOLD = "#c9a96e";
+
 const STATUS_MAP: Record<
   string,
   { label: string; color: string; bg: string; dot: string }
 > = {
   new: {
     label: "신규",
-    color: "text-blue-700",
-    bg: "bg-blue-50 border-blue-200",
-    dot: "bg-blue-500",
+    color: "text-[#1a2744]",
+    bg: "bg-[#1a2744]/5 border-[#1a2744]/15",
+    dot: "bg-[#1a2744]",
   },
   contacted: {
     label: "상담완료",
-    color: "text-amber-700",
-    bg: "bg-amber-50 border-amber-200",
-    dot: "bg-amber-500",
+    color: "text-[#c9a96e]",
+    bg: "bg-[#c9a96e]/5 border-[#c9a96e]/20",
+    dot: "bg-[#c9a96e]",
   },
   completed: {
     label: "계약완료",
-    color: "text-emerald-700",
+    color: "text-emerald-600",
     bg: "bg-emerald-50 border-emerald-200",
     dot: "bg-emerald-500",
   },
@@ -31,21 +34,21 @@ const STATUS_MAP: Record<
 /* ─── Date formatter ─── */
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  const hour = String(d.getHours()).padStart(2, "0");
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const h = String(d.getHours()).padStart(2, "0");
   const min = String(d.getMinutes()).padStart(2, "0");
-  return `${year}.${month}.${day} ${hour}:${min}`;
+  return `${y}.${m}.${dd} ${h}:${min}`;
 }
 
 function formatDateShort(dateStr: string) {
   const d = new Date(dateStr);
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  const hour = String(d.getHours()).padStart(2, "0");
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const h = String(d.getHours()).padStart(2, "0");
   const min = String(d.getMinutes()).padStart(2, "0");
-  return `${month}.${day} ${hour}:${min}`;
+  return `${m}.${dd} ${h}:${min}`;
 }
 
 /* ═══════════════════════════════════════════
@@ -60,19 +63,14 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
     e.preventDefault();
     setLoading(true);
     setError("");
-
     try {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
-
-      if (res.ok) {
-        onLogin();
-      } else {
-        setError("비밀번호가 올바르지 않습니다.");
-      }
+      if (res.ok) onLogin();
+      else setError("비밀번호가 올바르지 않습니다.");
     } catch {
       setError("서버 연결에 실패했습니다.");
     } finally {
@@ -81,259 +79,95 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0e1525] px-4">
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <div className="relative w-full max-w-[420px]">
-        <div className="bg-white/[0.03] backdrop-blur-xl rounded-3xl border border-white/[0.06] shadow-2xl overflow-hidden">
-          {/* Header */}
-          <div className="px-10 pt-12 pb-8 text-center">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#c9a96e] to-[#a88b52] mb-6 shadow-lg shadow-[#c9a96e]/20">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </div>
-            <h1
-              className="text-white text-[22px] font-light tracking-[0.15em]"
-              style={{ fontFamily: "'Noto Serif KR', serif" }}
-            >
-              중앙하이츠
-            </h1>
-            <p className="text-[#c9a96e]/60 text-[11px] tracking-[0.3em] mt-1.5 font-medium">
-              MANAGEMENT SYSTEM
-            </p>
+    <div className="min-h-screen flex items-center justify-center bg-[#0f1520]">
+      <div className="w-full max-w-[380px] px-6">
+        {/* Logo */}
+        <div className="text-center mb-10">
+          <p
+            className="text-white/90 text-[22px] tracking-[0.2em] font-light"
+            style={{ fontFamily: "'Noto Serif KR', serif" }}
+          >
+            중앙하이츠
+          </p>
+          <div className="flex items-center justify-center gap-3 mt-2">
+            <span className="w-6 h-px bg-white/10" />
+            <span className="text-white/20 text-[10px] tracking-[0.4em]">
+              ADMIN
+            </span>
+            <span className="w-6 h-px bg-white/10" />
           </div>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="px-10 pb-10">
-            <div className="relative">
-              <svg
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-                />
-              </svg>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-11 pr-4 py-3.5 bg-white/[0.06] border border-white/[0.08] rounded-xl text-sm text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-[#c9a96e]/30 focus:border-[#c9a96e]/40 transition-all"
-                placeholder="관리자 비밀번호"
-                autoFocus
-              />
-            </div>
-            {error && (
-              <p className="text-red-400 text-xs mt-3 pl-1">{error}</p>
-            )}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full mt-5 py-3.5 bg-gradient-to-r from-[#c9a96e] to-[#b89a5e] text-white rounded-xl font-medium text-sm hover:from-[#d4b87a] hover:to-[#c9a96e] transition-all disabled:opacity-50 shadow-lg shadow-[#c9a96e]/20"
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg
-                    className="animate-spin w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                    />
-                  </svg>
-                  로그인 중...
-                </span>
-              ) : (
-                "로그인"
-              )}
-            </button>
-          </form>
         </div>
+
+        {/* Form Card */}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-5 py-4 bg-white/[0.04] border border-white/[0.06] rounded-xl text-[14px] text-white placeholder-white/20 focus:outline-none focus:border-white/15 transition-colors"
+            placeholder="비밀번호를 입력하세요"
+            autoFocus
+          />
+          {error && (
+            <p className="text-red-400/80 text-[12px] mt-2.5 pl-1">{error}</p>
+          )}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full mt-4 py-4 bg-white text-[#0f1520] rounded-xl text-[13px] font-semibold hover:bg-white/90 transition-colors disabled:opacity-40"
+          >
+            {loading ? "로그인 중..." : "로그인"}
+          </button>
+        </form>
       </div>
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════
-   Stats Cards
+   Stats Row
    ═══════════════════════════════════════════ */
-function StatsCards({ stats }: { stats: RegistrationStats }) {
-  const cards = [
-    {
-      label: "총 등록",
-      value: stats.total,
-      gradient: "from-[#1a2744] to-[#2a3a5c]",
-      iconBg: "bg-white/10",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      ),
-    },
-    {
-      label: "신규 미처리",
-      value: stats.new,
-      gradient: "from-blue-500 to-blue-600",
-      iconBg: "bg-white/15",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-        />
-      ),
-    },
-    {
-      label: "상담완료",
-      value: stats.contacted,
-      gradient: "from-amber-500 to-amber-600",
-      iconBg: "bg-white/15",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-        />
-      ),
-    },
-    {
-      label: "계약완료",
-      value: stats.completed,
-      gradient: "from-emerald-500 to-emerald-600",
-      iconBg: "bg-white/15",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      ),
-    },
-    {
-      label: "오늘 등록",
-      value: stats.todayCount,
-      gradient: "from-[#c9a96e] to-[#b89a5e]",
-      iconBg: "bg-white/15",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-        />
-      ),
-    },
-    {
-      label: "이번주",
-      value: stats.weekCount,
-      gradient: "from-violet-500 to-violet-600",
-      iconBg: "bg-white/15",
-      textColor: "text-white",
-      labelColor: "text-white/60",
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-        />
-      ),
-    },
+function StatsRow({ stats }: { stats: RegistrationStats }) {
+  const items = [
+    { label: "전체", value: stats.total, highlight: true },
+    { label: "신규", value: stats.new },
+    { label: "상담완료", value: stats.contacted },
+    { label: "계약완료", value: stats.completed },
+    { label: "오늘", value: stats.todayCount },
+    { label: "이번주", value: stats.weekCount },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-      {cards.map((card, i) => (
-        <div
-          key={i}
-          className={`bg-gradient-to-br ${card.gradient} rounded-2xl p-4 shadow-lg relative overflow-hidden`}
-        >
-          {/* Background decorative circle */}
-          <div className="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-white/[0.06]" />
-          <div className="absolute -right-1 -top-1 w-8 h-8 rounded-full bg-white/[0.04]" />
-
+    <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+      <div className="grid grid-cols-3 lg:grid-cols-6">
+        {items.map((item, i) => (
           <div
-            className={`inline-flex items-center justify-center w-8 h-8 rounded-lg ${card.iconBg} mb-3`}
+            key={i}
+            className={`px-5 py-5 text-center ${i < items.length - 1 ? "border-r border-gray-50" : ""} ${i >= 3 ? "border-t border-gray-50 lg:border-t-0" : ""}`}
           >
-            <svg
-              className="w-4 h-4 text-white/80"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <p
+              className={`text-[28px] font-bold leading-none ${item.highlight ? `text-[${NAVY}]` : "text-gray-800"}`}
+              style={{
+                fontFamily: "'Noto Serif KR', serif",
+                color: item.highlight ? NAVY : undefined,
+              }}
             >
-              {card.icon}
-            </svg>
+              {item.value}
+            </p>
+            <p className="text-[11px] text-gray-400 mt-2 font-medium">
+              {item.label}
+            </p>
           </div>
-          <p
-            className={`text-[26px] font-bold ${card.textColor} leading-none`}
-            style={{ fontFamily: "'Noto Serif KR', serif" }}
-          >
-            {card.value}
-          </p>
-          <p className={`text-[11px] ${card.labelColor} mt-1.5 font-medium`}>
-            {card.label}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════
-   Detail Modal
+   Detail Drawer (Modal)
    ═══════════════════════════════════════════ */
-function DetailModal({
+function DetailDrawer({
   reg,
   onClose,
   onStatusChange,
@@ -347,89 +181,77 @@ function DetailModal({
   const st = STATUS_MAP[reg.status] || STATUS_MAP.new;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/40" />
       <div
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[480px] overflow-hidden"
+        className="relative bg-white w-full sm:w-[440px] sm:rounded-2xl rounded-t-2xl max-h-[85vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
-        <div className="bg-gradient-to-r from-[#1a2744] to-[#2a3a5c] px-6 py-5 flex items-center justify-between">
-          <div>
-            <h3 className="text-white text-lg font-bold">{reg.name}</h3>
-            <p className="text-white/40 text-xs mt-0.5">
-              #{reg.id} &middot; {formatDate(reg.created_at)}
-            </p>
-          </div>
-          <button
-            onClick={onClose}
-            className="text-white/40 hover:text-white transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {/* Header */}
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center text-white text-[13px] font-bold"
+              style={{ backgroundColor: NAVY }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+              {reg.name.charAt(0)}
+            </div>
+            <div>
+              <p className="text-[15px] font-bold text-gray-900">{reg.name}</p>
+              <p className="text-[11px] text-gray-400">#{reg.id}</p>
+            </div>
+          </div>
+          <button onClick={onClose} className="text-gray-300 hover:text-gray-500 transition-colors p-1">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-1">
-                연락처
-              </p>
-              <a
-                href={`tel:${reg.phone}`}
-                className="text-sm font-medium text-[#1a2744] hover:text-[#c9a96e] transition-colors"
-              >
+        {/* Body */}
+        <div className="px-6 py-5 space-y-5">
+          {/* Info Grid */}
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-[12px] text-gray-400">연락처</span>
+              <a href={`tel:${reg.phone}`} className="text-[14px] font-mono text-gray-800 hover:text-[#c9a96e] transition-colors">
                 {reg.phone}
               </a>
             </div>
-            <div>
-              <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-1">
-                관심평형
-              </p>
-              <p className="text-sm text-gray-700">{reg.interest_type}</p>
+            <div className="h-px bg-gray-50" />
+            <div className="flex justify-between items-center">
+              <span className="text-[12px] text-gray-400">관심평형</span>
+              <span className="text-[13px] text-gray-700">{reg.interest_type}</span>
+            </div>
+            <div className="h-px bg-gray-50" />
+            <div className="flex justify-between items-center">
+              <span className="text-[12px] text-gray-400">등록일</span>
+              <span className="text-[13px] text-gray-500">{formatDate(reg.created_at)}</span>
             </div>
           </div>
 
+          {/* Message */}
           {reg.message && (
             <div>
-              <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-1">
-                문의사항
-              </p>
-              <p className="text-sm text-gray-600 bg-gray-50 rounded-xl p-4 leading-relaxed">
+              <p className="text-[12px] text-gray-400 mb-2">문의사항</p>
+              <p className="text-[13px] text-gray-600 bg-gray-50 rounded-xl p-4 leading-relaxed">
                 {reg.message}
               </p>
             </div>
           )}
 
+          {/* Status */}
           <div>
-            <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-2">
-              상태 변경
-            </p>
+            <p className="text-[12px] text-gray-400 mb-2.5">상태</p>
             <div className="flex gap-2">
               {Object.entries(STATUS_MAP).map(([key, val]) => (
                 <button
                   key={key}
                   onClick={() => onStatusChange(reg.id, key)}
-                  className={`flex-1 py-2.5 rounded-xl text-xs font-semibold border-2 transition-all ${
+                  className={`flex-1 py-2.5 rounded-xl text-[12px] font-semibold border transition-all ${
                     reg.status === key
-                      ? `${val.bg} ${val.color} border-current shadow-sm`
-                      : "border-gray-100 text-gray-400 hover:border-gray-200 hover:text-gray-500"
+                      ? `${val.bg} ${val.color}`
+                      : "border-gray-100 text-gray-300 hover:border-gray-200 hover:text-gray-400"
                   }`}
                 >
                   {val.label}
@@ -439,33 +261,18 @@ function DetailModal({
           </div>
         </div>
 
-        {/* Modal Footer */}
-        <div className="px-6 py-4 bg-gray-50 flex items-center justify-between">
+        {/* Footer */}
+        <div className="sticky bottom-0 bg-white border-t border-gray-50 px-6 py-4 flex items-center justify-between">
           <button
-            onClick={() => {
-              onDelete(reg.id);
-              onClose();
-            }}
-            className="text-xs text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1"
+            onClick={() => { onDelete(reg.id); onClose(); }}
+            className="text-[12px] text-gray-300 hover:text-red-400 transition-colors"
           >
-            <svg
-              className="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-              />
-            </svg>
             삭제
           </button>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-[#1a2744] text-white rounded-lg text-xs font-medium hover:bg-[#2a3a5c] transition-colors"
+            className="px-6 py-2 rounded-lg text-[12px] font-medium text-white transition-colors"
+            style={{ backgroundColor: NAVY }}
           >
             닫기
           </button>
@@ -487,7 +294,6 @@ export default function AdminPage() {
   const [total, setTotal] = useState(0);
   const [selectedReg, setSelectedReg] = useState<Registration | null>(null);
 
-  // Filters
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -496,7 +302,6 @@ export default function AdminPage() {
   const [sortBy, setSortBy] = useState("created_at");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
-  // Debounced search
   const [searchDebounced, setSearchDebounced] = useState("");
   useEffect(() => {
     const t = setTimeout(() => setSearchDebounced(search), 300);
@@ -525,7 +330,6 @@ export default function AdminPage() {
       sort_by: sortBy,
       sort_order: sortOrder,
     });
-
     const res = await fetch(`/api/admin/registrations?${params}`);
     if (res.ok) {
       const data = await res.json();
@@ -535,18 +339,14 @@ export default function AdminPage() {
     }
   }, [page, searchDebounced, statusFilter, dateFrom, dateTo, sortBy, sortOrder]);
 
-  // Initial auth check
   useEffect(() => {
     (async () => {
       const ok = await fetchStats();
-      if (ok) {
-        setIsLoggedIn(true);
-      }
+      if (ok) setIsLoggedIn(true);
       setIsLoading(false);
     })();
   }, [fetchStats]);
 
-  // Refetch on filter change
   useEffect(() => {
     if (isLoggedIn) fetchRegistrations();
   }, [isLoggedIn, fetchRegistrations]);
@@ -575,23 +375,15 @@ export default function AdminPage() {
       fetchStats();
       if (selectedReg && selectedReg.id === id) {
         setSelectedReg((prev) =>
-          prev
-            ? {
-                ...prev,
-                status: newStatus as Registration["status"],
-              }
-            : null,
+          prev ? { ...prev, status: newStatus as Registration["status"] } : null,
         );
       }
     }
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm("정말 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."))
-      return;
-    const res = await fetch(`/api/admin/registrations/${id}`, {
-      method: "DELETE",
-    });
+    if (!confirm("정말 삭제하시겠습니까?")) return;
+    const res = await fetch(`/api/admin/registrations/${id}`, { method: "DELETE" });
     if (res.ok) {
       fetchRegistrations();
       fetchStats();
@@ -599,17 +391,9 @@ export default function AdminPage() {
   };
 
   const handleSort = (col: string) => {
-    if (sortBy === col) {
-      setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
-    } else {
-      setSortBy(col);
-      setSortOrder("desc");
-    }
+    if (sortBy === col) setSortOrder((p) => (p === "asc" ? "desc" : "asc"));
+    else { setSortBy(col); setSortOrder("desc"); }
     setPage(1);
-  };
-
-  const handleExport = () => {
-    window.open("/api/admin/export", "_blank");
   };
 
   const resetFilters = () => {
@@ -620,235 +404,124 @@ export default function AdminPage() {
     setPage(1);
   };
 
-  const hasActiveFilters =
-    search || statusFilter || dateFrom || dateTo;
+  const hasFilters = search || statusFilter || dateFrom || dateTo;
 
   /* ─── Loading ─── */
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0e1525]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative w-10 h-10">
-            <div className="absolute inset-0 rounded-full border-2 border-[#c9a96e]/20" />
-            <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#c9a96e] animate-spin" />
-          </div>
-          <p className="text-white/30 text-xs tracking-widest">LOADING</p>
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-[#0f1520]">
+        <div className="w-5 h-5 border-2 border-white/10 border-t-white/50 rounded-full animate-spin" />
       </div>
     );
   }
 
-  if (!isLoggedIn) {
-    return <LoginForm onLogin={handleLogin} />;
-  }
+  if (!isLoggedIn) return <LoginForm onLogin={handleLogin} />;
 
   /* ─── Dashboard ─── */
   return (
-    <div className="min-h-screen bg-[#f0f2f5]">
+    <div className="min-h-screen bg-[#f5f5f7]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#1a2744] via-[#1e2e4d] to-[#1a2744] shadow-xl relative overflow-hidden">
-        {/* Decorative line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a96e]/40 to-transparent" />
-
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#c9a96e] to-[#a88b52] flex items-center justify-center shadow-lg shadow-[#c9a96e]/20">
-              <svg
-                className="w-4 h-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
-              </svg>
-            </div>
-            <div>
-              <h1
-                className="text-white text-[16px] font-light tracking-[0.1em] leading-none"
-                style={{ fontFamily: "'Noto Serif KR', serif" }}
-              >
-                중앙하이츠
-              </h1>
-              <p className="text-[#c9a96e]/50 text-[9px] tracking-[0.2em] mt-0.5">
-                MANAGEMENT
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => {
-                fetchRegistrations();
-                fetchStats();
-              }}
-              className="hidden sm:flex items-center gap-1.5 text-white/30 text-[11px] hover:text-white/60 transition-colors"
-              title="새로고침"
+      <header className="bg-white border-b border-gray-100">
+        <div className="max-w-[1360px] mx-auto px-5 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <p
+              className="text-[15px] tracking-[0.08em] font-light"
+              style={{ fontFamily: "'Noto Serif KR', serif", color: NAVY }}
             >
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
+              중앙하이츠
+            </p>
+            <span className="text-[10px] text-gray-300 tracking-[0.15em] font-medium">
+              ADMIN
+            </span>
+          </div>
+          <div className="flex items-center gap-5">
+            <button
+              onClick={() => { fetchRegistrations(); fetchStats(); }}
+              className="text-[11px] text-gray-400 hover:text-gray-600 transition-colors hidden sm:block"
+            >
               새로고침
             </button>
-            <button
-              onClick={handleLogout}
-              className="text-white/30 text-[11px] hover:text-white/60 transition-colors flex items-center gap-1.5"
-            >
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                />
-              </svg>
+            <button onClick={handleLogout} className="text-[11px] text-gray-400 hover:text-gray-600 transition-colors">
               로그아웃
             </button>
           </div>
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-6">
+      <main className="max-w-[1360px] mx-auto px-5 py-6 space-y-4">
         {/* Stats */}
-        {stats && <StatsCards stats={stats} />}
+        {stats && <StatsRow stats={stats} />}
 
-        {/* Filter Bar */}
-        <div className="mt-6 bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-5">
-          <div className="flex flex-col lg:flex-row gap-3">
+        {/* Toolbar */}
+        <div className="bg-white rounded-2xl border border-gray-100 px-5 py-4">
+          <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center">
             {/* Search */}
-            <div className="relative flex-1">
-              <svg
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
+            <div className="relative flex-1 min-w-0">
+              <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
                 type="text"
                 value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setPage(1);
-                }}
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a2744]/10 focus:border-[#1a2744]/20 focus:bg-white transition-all placeholder-gray-300"
-                placeholder="이름 또는 연락처 검색..."
+                onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+                className="w-full pl-9 pr-4 py-2 bg-gray-50 border-0 rounded-lg text-[13px] focus:outline-none focus:ring-1 focus:ring-gray-200 placeholder-gray-300 transition-all"
+                placeholder="이름 또는 연락처 검색"
               />
             </div>
 
-            {/* Status Filter - Chip Style */}
-            <div className="flex items-center gap-1.5">
-              {[
-                { value: "", label: "전체" },
-                { value: "new", label: "신규" },
-                { value: "contacted", label: "상담" },
-                { value: "completed", label: "계약" },
-              ].map((opt) => (
-                <button
-                  key={opt.value}
-                  onClick={() => {
-                    setStatusFilter(opt.value);
-                    setPage(1);
-                  }}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
-                    statusFilter === opt.value
-                      ? "bg-[#1a2744] text-white shadow-sm"
-                      : "bg-gray-50 text-gray-400 hover:text-gray-600 hover:bg-gray-100"
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Date Range */}
-            <div className="flex items-center gap-2">
-              <input
-                type="date"
-                value={dateFrom}
-                onChange={(e) => {
-                  setDateFrom(e.target.value);
-                  setPage(1);
-                }}
-                className="px-3 py-2 bg-gray-50 border border-gray-100 rounded-lg text-xs text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1a2744]/10"
-              />
-              <span className="text-gray-300 text-xs">~</span>
-              <input
-                type="date"
-                value={dateTo}
-                onChange={(e) => {
-                  setDateTo(e.target.value);
-                  setPage(1);
-                }}
-                className="px-3 py-2 bg-gray-50 border border-gray-100 rounded-lg text-xs text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1a2744]/10"
-              />
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-2">
-              {hasActiveFilters && (
-                <button
-                  onClick={resetFilters}
-                  className="px-3.5 py-2 rounded-lg text-xs text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-1"
-                >
-                  <svg
-                    className="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+            {/* Filters Row */}
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Status chips */}
+              <div className="flex items-center bg-gray-50 rounded-lg p-0.5">
+                {[
+                  { v: "", l: "전체" },
+                  { v: "new", l: "신규" },
+                  { v: "contacted", l: "상담" },
+                  { v: "completed", l: "계약" },
+                ].map((o) => (
+                  <button
+                    key={o.v}
+                    onClick={() => { setStatusFilter(o.v); setPage(1); }}
+                    className={`px-3 py-1.5 rounded-md text-[11px] font-medium transition-all ${
+                      statusFilter === o.v
+                        ? "bg-white text-gray-800 shadow-sm"
+                        : "text-gray-400 hover:text-gray-500"
+                    }`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                    {o.l}
+                  </button>
+                ))}
+              </div>
+
+              {/* Dates */}
+              <div className="flex items-center gap-1.5">
+                <input
+                  type="date"
+                  value={dateFrom}
+                  onChange={(e) => { setDateFrom(e.target.value); setPage(1); }}
+                  className="px-2.5 py-1.5 bg-gray-50 border-0 rounded-lg text-[11px] text-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-200"
+                />
+                <span className="text-gray-200 text-[10px]">–</span>
+                <input
+                  type="date"
+                  value={dateTo}
+                  onChange={(e) => { setDateTo(e.target.value); setPage(1); }}
+                  className="px-2.5 py-1.5 bg-gray-50 border-0 rounded-lg text-[11px] text-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-200"
+                />
+              </div>
+
+              {hasFilters && (
+                <button onClick={resetFilters} className="text-[11px] text-gray-300 hover:text-gray-500 transition-colors px-1">
                   초기화
                 </button>
               )}
+
+              {/* Export */}
               <button
-                onClick={handleExport}
-                className="px-4 py-2 bg-gradient-to-r from-[#c9a96e] to-[#b89a5e] text-white rounded-lg text-xs font-medium hover:from-[#d4b87a] hover:to-[#c9a96e] transition-all shadow-sm shadow-[#c9a96e]/20 flex items-center gap-1.5"
+                onClick={() => window.open("/api/admin/export", "_blank")}
+                className="ml-auto px-3.5 py-1.5 rounded-lg text-[11px] font-medium text-white transition-colors"
+                style={{ backgroundColor: NAVY }}
               >
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
                 CSV 내보내기
               </button>
             </div>
@@ -856,57 +529,42 @@ export default function AdminPage() {
         </div>
 
         {/* Table */}
-        <div className="mt-4 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          {/* Table Header Info */}
-          <div className="px-5 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <p className="text-sm text-gray-400">
-                총{" "}
-                <span className="font-bold text-[#1a2744] text-base">
-                  {total}
-                </span>
-                <span className="text-gray-300 ml-0.5">건</span>
-              </p>
-              {hasActiveFilters && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#c9a96e]/10 text-[#c9a96e] text-[10px] font-medium">
-                  필터 적용됨
-                </span>
-              )}
-            </div>
-            <p className="text-[11px] text-gray-300">
-              {page} / {totalPages} 페이지
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          {/* Count bar */}
+          <div className="px-5 py-3.5 border-b border-gray-50 flex items-center justify-between">
+            <p className="text-[13px] text-gray-400">
+              <span className="font-bold text-gray-800">{total}</span>건
             </p>
+            {totalPages > 1 && (
+              <p className="text-[11px] text-gray-300">{page} / {totalPages}</p>
+            )}
           </div>
 
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-y border-gray-50">
+                <tr className="border-b border-gray-50">
                   {[
-                    { key: "id", label: "#", w: "w-[60px]" },
-                    { key: "name", label: "이름", w: "w-[100px]" },
-                    { key: "phone", label: "연락처", w: "w-[140px]" },
+                    { key: "id", label: "#", w: "w-14" },
+                    { key: "name", label: "이름", w: "w-24" },
+                    { key: "phone", label: "연락처", w: "w-36" },
                     { key: "", label: "문의사항", w: "" },
-                    { key: "status", label: "상태", w: "w-[130px]" },
-                    { key: "created_at", label: "등록일", w: "w-[140px]" },
-                    { key: "", label: "", w: "w-[50px]" },
+                    { key: "status", label: "상태", w: "w-28" },
+                    { key: "created_at", label: "등록일", w: "w-36" },
+                    { key: "", label: "", w: "w-10" },
                   ].map((col, i) => (
                     <th
                       key={i}
-                      className={`px-4 py-3 text-left text-[11px] font-semibold text-gray-400 tracking-wider ${col.w} ${col.key ? "cursor-pointer hover:text-[#1a2744] select-none transition-colors" : ""}`}
+                      className={`px-4 py-3 text-left text-[11px] font-medium text-gray-300 ${col.w} ${col.key ? "cursor-pointer hover:text-gray-500 select-none transition-colors" : ""}`}
                       onClick={() => col.key && handleSort(col.key)}
                     >
                       <span className="flex items-center gap-1">
                         {col.label}
                         {col.key && sortBy === col.key && (
-                          <svg
-                            className={`w-3 h-3 text-[#c9a96e] transition-transform ${sortOrder === "asc" ? "rotate-180" : ""}`}
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                          </svg>
+                          <span className={`transition-transform inline-block ${sortOrder === "asc" ? "rotate-180" : ""}`} style={{ color: GOLD }}>
+                            ▾
+                          </span>
                         )}
                       </span>
                     </th>
@@ -916,101 +574,39 @@ export default function AdminPage() {
               <tbody>
                 {registrations.length === 0 ? (
                   <tr>
-                    <td
-                      colSpan={7}
-                      className="px-4 py-20 text-center"
-                    >
-                      <div className="flex flex-col items-center gap-3">
-                        <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center">
-                          <svg
-                            className="w-6 h-6 text-gray-200"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={1.5}
-                              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                            />
-                          </svg>
-                        </div>
-                        <p className="text-gray-300 text-sm">
-                          등록된 관심고객이 없습니다
-                        </p>
-                      </div>
+                    <td colSpan={7} className="py-20 text-center">
+                      <p className="text-gray-300 text-[13px]">등록된 관심고객이 없습니다</p>
                     </td>
                   </tr>
                 ) : (
-                  registrations.map((reg, idx) => {
+                  registrations.map((reg) => {
                     const st = STATUS_MAP[reg.status] || STATUS_MAP.new;
                     return (
                       <tr
                         key={reg.id}
-                        className={`group hover:bg-[#f8f9fb] transition-colors cursor-pointer ${idx !== registrations.length - 1 ? "border-b border-gray-50" : ""}`}
+                        className="border-b border-gray-50 last:border-0 group hover:bg-gray-50/50 transition-colors cursor-pointer"
                         onClick={() => setSelectedReg(reg)}
                       >
-                        <td className="px-4 py-3.5 text-xs text-gray-300 font-mono">
-                          {reg.id}
+                        <td className="px-4 py-3 text-[12px] text-gray-300 font-mono">{reg.id}</td>
+                        <td className="px-4 py-3 text-[13px] font-semibold text-gray-800">{reg.name}</td>
+                        <td className="px-4 py-3 text-[13px] text-gray-500 font-mono">{reg.phone}</td>
+                        <td className="px-4 py-3 text-[13px] text-gray-400 truncate max-w-[240px]">
+                          {reg.message || <span className="text-gray-200">–</span>}
                         </td>
-                        <td className="px-4 py-3.5">
-                          <span className="text-sm font-semibold text-[#1a2744]">
-                            {reg.name}
+                        <td className="px-4 py-3">
+                          <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full border ${st.bg} ${st.color}`}>
+                            <span className={`w-1.5 h-1.5 rounded-full ${st.dot}`} />
+                            {st.label}
                           </span>
                         </td>
-                        <td className="px-4 py-3.5 text-sm text-gray-500 font-mono">
-                          {reg.phone}
-                        </td>
-                        <td className="px-4 py-3.5 text-sm text-gray-400 max-w-[250px] truncate">
-                          {reg.message || (
-                            <span className="text-gray-200">-</span>
-                          )}
-                        </td>
-                        <td className="px-4 py-3.5">
-                          <select
-                            value={reg.status}
-                            onChange={(e) => {
-                              e.stopPropagation();
-                              handleStatusChange(reg.id, e.target.value);
-                            }}
-                            onClick={(e) => e.stopPropagation()}
-                            className={`text-[11px] font-semibold pl-5 pr-6 py-1.5 rounded-full border appearance-none cursor-pointer focus:outline-none ${st.bg} ${st.color}`}
-                            style={{
-                              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 20 20'%3E%3Cpath fill='%239ca3af' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3E%3C/svg%3E")`,
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "right 8px center",
-                            }}
-                          >
-                            <option value="new">신규</option>
-                            <option value="contacted">상담완료</option>
-                            <option value="completed">계약완료</option>
-                          </select>
-                        </td>
-                        <td className="px-4 py-3.5 text-xs text-gray-300">
-                          {formatDate(reg.created_at)}
-                        </td>
-                        <td className="px-4 py-3.5">
+                        <td className="px-4 py-3 text-[12px] text-gray-300">{formatDate(reg.created_at)}</td>
+                        <td className="px-4 py-3">
                           <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDelete(reg.id);
-                            }}
+                            onClick={(e) => { e.stopPropagation(); handleDelete(reg.id); }}
                             className="opacity-0 group-hover:opacity-100 text-gray-200 hover:text-red-400 transition-all"
-                            title="삭제"
                           >
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={1.5}
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
                         </td>
@@ -1025,70 +621,40 @@ export default function AdminPage() {
           {/* Mobile Cards */}
           <div className="md:hidden">
             {registrations.length === 0 ? (
-              <div className="px-6 py-16 text-center">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-gray-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-gray-300 text-sm">
-                    등록된 관심고객이 없습니다
-                  </p>
-                </div>
+              <div className="py-16 text-center">
+                <p className="text-gray-300 text-[13px]">등록된 관심고객이 없습니다</p>
               </div>
             ) : (
-              registrations.map((reg, idx) => {
+              registrations.map((reg) => {
                 const st = STATUS_MAP[reg.status] || STATUS_MAP.new;
                 return (
                   <div
                     key={reg.id}
-                    className={`p-4 active:bg-gray-50 transition-colors cursor-pointer ${idx !== registrations.length - 1 ? "border-b border-gray-50" : ""}`}
+                    className="px-5 py-4 border-b border-gray-50 last:border-0 active:bg-gray-50 transition-colors cursor-pointer"
                     onClick={() => setSelectedReg(reg)}
                   >
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1a2744] to-[#2a3a5c] flex items-center justify-center text-white text-[11px] font-bold">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
+                          style={{ backgroundColor: NAVY }}
+                        >
                           {reg.name.charAt(0)}
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-[#1a2744] leading-none">
-                            {reg.name}
-                          </p>
-                          <p className="text-[11px] text-gray-300 mt-0.5 font-mono">
-                            {reg.phone}
-                          </p>
+                          <p className="text-[14px] font-bold text-gray-800 leading-none">{reg.name}</p>
+                          <p className="text-[11px] text-gray-400 mt-0.5 font-mono">{reg.phone}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-1.5">
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full ${st.dot}`}
-                        />
-                        <span
-                          className={`text-[11px] font-semibold ${st.color}`}
-                        >
-                          {st.label}
-                        </span>
-                      </div>
+                      <span className={`inline-flex items-center gap-1 text-[10px] font-semibold ${st.color}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${st.dot}`} />
+                        {st.label}
+                      </span>
                     </div>
                     {reg.message && (
-                      <p className="text-xs text-gray-400 bg-gray-50 rounded-lg px-3 py-2 mb-2 line-clamp-2">
-                        {reg.message}
-                      </p>
+                      <p className="text-[12px] text-gray-400 line-clamp-1 ml-[42px]">{reg.message}</p>
                     )}
-                    <p className="text-[10px] text-gray-300">
-                      {formatDateShort(reg.created_at)}
-                    </p>
+                    <p className="text-[10px] text-gray-300 mt-1.5 ml-[42px]">{formatDateShort(reg.created_at)}</p>
                   </div>
                 );
               })
@@ -1097,56 +663,34 @@ export default function AdminPage() {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="px-5 py-4 border-t border-gray-50 flex items-center justify-center gap-1">
+            <div className="px-5 py-3.5 border-t border-gray-50 flex items-center justify-center gap-0.5">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="w-8 h-8 rounded-lg text-gray-400 hover:bg-gray-50 disabled:opacity-20 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-8 h-8 rounded-lg text-gray-400 hover:bg-gray-50 disabled:opacity-20 transition-colors flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter(
-                  (p) =>
-                    p === 1 ||
-                    p === totalPages ||
-                    Math.abs(p - page) <= 2,
-                )
+                .filter((p) => p === 1 || p === totalPages || Math.abs(p - page) <= 2)
                 .reduce<(number | string)[]>((acc, p, i, arr) => {
-                  if (i > 0 && p - (arr[i - 1] as number) > 1) {
-                    acc.push("...");
-                  }
+                  if (i > 0 && p - (arr[i - 1] as number) > 1) acc.push("...");
                   acc.push(p);
                   return acc;
                 }, [])
                 .map((p, i) =>
                   typeof p === "string" ? (
-                    <span
-                      key={`dot-${i}`}
-                      className="w-8 h-8 flex items-center justify-center text-gray-200 text-xs"
-                    >
-                      ...
+                    <span key={`d${i}`} className="w-8 h-8 flex items-center justify-center text-gray-200 text-[11px]">
+                      ···
                     </span>
                   ) : (
                     <button
                       key={p}
                       onClick={() => setPage(p)}
-                      className={`w-8 h-8 rounded-lg text-xs font-medium transition-all ${
-                        page === p
-                          ? "bg-[#1a2744] text-white shadow-sm"
-                          : "text-gray-400 hover:bg-gray-50"
+                      className={`w-8 h-8 rounded-lg text-[12px] font-medium transition-all ${
+                        page === p ? "bg-gray-900 text-white" : "text-gray-400 hover:bg-gray-50"
                       }`}
                     >
                       {p}
@@ -1156,20 +700,10 @@ export default function AdminPage() {
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
-                className="w-8 h-8 rounded-lg text-gray-400 hover:bg-gray-50 disabled:opacity-20 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-8 h-8 rounded-lg text-gray-400 hover:bg-gray-50 disabled:opacity-20 transition-colors flex items-center justify-center"
               >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
@@ -1179,7 +713,7 @@ export default function AdminPage() {
 
       {/* Detail Modal */}
       {selectedReg && (
-        <DetailModal
+        <DetailDrawer
           reg={selectedReg}
           onClose={() => setSelectedReg(null)}
           onStatusChange={handleStatusChange}
