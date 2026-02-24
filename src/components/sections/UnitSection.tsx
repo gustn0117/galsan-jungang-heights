@@ -1,12 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import ImagePlaceholder from "../ImagePlaceholder";
+import Image from "next/image";
 import SectionBanner from "../SectionBanner";
 
 const subTabs = [
   { id: "floorplan", label: "평면안내" },
   { id: "vr", label: "VR영상" },
+];
+
+const viewModes = [
+  { id: "iso", label: "3D 입체도", icon: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+    </svg>
+  )},
+  { id: "top", label: "평면도", icon: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zm0 9.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zm0 9.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z" />
+    </svg>
+  )},
+];
+
+const isoImages = [
+  { src: "/images/floorplan-iso-1.png", label: "VIEW A" },
+  { src: "/images/floorplan-iso-2.png", label: "VIEW B" },
 ];
 
 interface UnitSectionProps {
@@ -15,6 +33,8 @@ interface UnitSectionProps {
 
 export default function UnitSection({ initialSubTab }: UnitSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "floorplan");
+  const [viewMode, setViewMode] = useState("iso");
+  const [isoIndex, setIsoIndex] = useState(0);
 
   return (
     <section className="pt-[72px]">
@@ -55,25 +75,85 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
       <div className="max-w-[1200px] mx-auto px-6 py-16">
         {activeSubTab === "floorplan" && (
           <div className="tab-content">
+
+            {/* ── View Mode Toggle ── */}
+            <div className="flex items-center justify-center gap-2 mb-10">
+              {viewModes.map((mode) => (
+                <button
+                  key={mode.id}
+                  onClick={() => setViewMode(mode.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-medium transition-all duration-300 border
+                    ${viewMode === mode.id
+                      ? "bg-navy text-gold border-navy shadow-lg"
+                      : "bg-white text-gray-400 border-gray-200 hover:border-gold/40 hover:text-gray-600"
+                    }
+                  `}
+                >
+                  {mode.icon}
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+
             {/* ── Two-Column Layout: Floor Plan + Spec Sidebar ── */}
             <div className="flex flex-col lg:flex-row gap-0 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
               {/* Left: Floor Plan Image */}
-              <div className="flex-1 relative bg-white p-8 md:p-12 lg:p-14">
+              <div className="flex-1 relative bg-white p-6 md:p-10 lg:p-12">
                 {/* Corner frame decorations */}
                 <div className="absolute top-6 left-6 w-10 h-10 border-t border-l border-gold/20" />
                 <div className="absolute top-6 right-6 lg:hidden w-10 h-10 border-t border-r border-gold/20" />
                 <div className="absolute bottom-6 left-6 w-10 h-10 border-b border-l border-gold/20" />
                 <div className="absolute bottom-6 right-6 lg:hidden w-10 h-10 border-b border-r border-gold/20" />
 
-                <ImagePlaceholder
-                  number={28}
-                  gradient="gradient-silver"
-                  height="h-[400px] md:h-[520px] lg:h-[580px]"
-                  label="59type 평면도"
-                  dark={false}
-                  className="rounded-md"
-                />
+                {/* Isometric View */}
+                {viewMode === "iso" && (
+                  <div className="relative">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-[#f8f7f5]">
+                      <Image
+                        key={isoImages[isoIndex].src}
+                        src={isoImages[isoIndex].src}
+                        alt={`59타입 3D 입체도 ${isoImages[isoIndex].label}`}
+                        fill
+                        className="object-contain transition-opacity duration-500"
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        priority
+                      />
+                    </div>
+                    {/* Iso View Switcher */}
+                    <div className="flex items-center justify-center gap-3 mt-5">
+                      {isoImages.map((img, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setIsoIndex(i)}
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[12px] font-medium transition-all duration-300
+                            ${isoIndex === i
+                              ? "bg-navy/5 text-navy border border-navy/15"
+                              : "text-gray-300 hover:text-gray-500 border border-transparent"
+                            }
+                          `}
+                        >
+                          <span className={`w-2 h-2 rounded-full transition-colors ${isoIndex === i ? "bg-gold" : "bg-gray-200"}`} />
+                          {img.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Top View */}
+                {viewMode === "top" && (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-[#f8f7f5]">
+                    <Image
+                      src="/images/floorplan-topview.png"
+                      alt="59타입 평면도"
+                      fill
+                      className="object-contain transition-opacity duration-500"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      priority
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Right: Spec Sidebar */}
