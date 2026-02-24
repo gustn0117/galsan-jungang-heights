@@ -49,85 +49,113 @@ export default function Home() {
   if (showLanding) {
     return (
       <div
-        className={`landing-page fixed inset-0 z-[100] flex flex-col overflow-hidden ${
+        className={`landing-page fixed inset-0 z-[100] flex flex-col overflow-hidden bg-[#1a2744] ${
           landingFading ? "fade-out" : ""
         }`}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/landing-perspective.jpg"
-            alt="중앙하이츠 갈산역 센트럴 투시도"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          {/* Dark Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a]/95 via-[#0a0f1a]/50 to-[#0a0f1a]/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1a]/30 via-transparent to-[#0a0f1a]/30" />
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none landing-circle">
-          <div className="w-[500px] h-[500px] md:w-[650px] md:h-[650px] rounded-full border border-white/[0.06]" />
-        </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <div className="w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full border border-gold/[0.08]" />
-        </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201,169,110,0.5) 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
+        }} />
 
         {/* Content */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
+
+          {/* Main Slogan */}
+          <h1 className="landing-title">
+            <span
+              className="block text-white text-[22px] md:text-[32px] lg:text-[38px] font-bold tracking-[0.05em] leading-[1.6]"
+              style={{ fontFamily: "'Noto Serif KR', serif" }}
+            >
+              &ldquo; 갈산역 <span className="text-gold">&lsquo;0분&rsquo;</span>의 가치, 중앙하이츠에서 누린다 &rdquo;
+            </span>
+          </h1>
+
+          {/* Illustration Area: Train — Trees — Train */}
+          <div className="landing-sub relative w-full max-w-[700px] mt-10 md:mt-14 mb-6 md:mb-8">
+            {/* Labels */}
+            <div className="flex items-start justify-between mb-4 md:mb-6 px-2">
+              <div className="text-left">
+                <p className="text-white/40 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 갈산역</p>
+                <p className="text-white text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  초역세권
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-white/40 text-[11px] md:text-[13px] tracking-[0.1em]">내집앞 수변공원</p>
+                <p className="text-white text-[20px] md:text-[26px] font-bold mt-1" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  초공세권
+                </p>
+              </div>
+            </div>
+
+            {/* Train (left side) */}
+            <div className="absolute left-0 md:-left-4 bottom-[52px] md:bottom-[60px] w-[100px] md:w-[150px] pointer-events-none opacity-40">
+              <Image
+                src="/images/landing-train.png"
+                alt="지하철"
+                width={300}
+                height={40}
+                className="w-full h-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            </div>
+
+            {/* Train (right side) */}
+            <div className="absolute right-0 md:-right-4 bottom-[52px] md:bottom-[60px] w-[100px] md:w-[150px] pointer-events-none opacity-40" style={{ transform: "scaleX(-1)" }}>
+              <Image
+                src="/images/landing-train.png"
+                alt="지하철"
+                width={300}
+                height={40}
+                className="w-full h-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            </div>
+
+            {/* Trees (center) */}
+            <div className="relative mx-auto w-[260px] md:w-[380px] pointer-events-none">
+              <Image
+                src="/images/landing-trees.png"
+                alt="수변공원"
+                width={760}
+                height={200}
+                className="w-full h-auto opacity-60"
+                style={{ filter: "brightness(0) invert(1)" }}
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="landing-desc max-w-[500px]">
+            <p className="text-white/40 text-[11px] md:text-[13px] leading-[2] tracking-[0.05em]">
+              단지 바로 앞에서 이용가능한 지하철,
+              <br />
+              걸어서 누리는 수변공원과 생태하천을 통한 쾌적한 자연환경,
+              <br />
+              앞마당에 펼쳐진 중심상업지구를 통한 완벽한 생활인프라
+            </p>
+          </div>
+
           {/* Logo */}
-          <div className="landing-logo mb-8 md:mb-12">
+          <div className="landing-enter mt-8 md:mt-12">
             <Image
               src="/images/logo-bi.png"
               alt="중앙하이츠 갈산역 센트럴"
-              width={240}
-              height={60}
-              className="h-[40px] md:h-[52px] w-auto"
+              width={200}
+              height={50}
+              className="h-[28px] md:h-[36px] w-auto"
               style={{ filter: "brightness(0) invert(1)" }}
               priority
             />
           </div>
 
-          {/* Main Slogan */}
-          <div className="landing-title">
-            <p
-              className="text-white/50 text-[13px] md:text-[15px] tracking-[0.3em] font-light mb-4 md:mb-6"
-              style={{ fontFamily: "'Noto Serif KR', serif" }}
-            >
-              갈산역 &ldquo;0분&rdquo;의 가치
-            </p>
-            <h1
-              className="text-white text-[28px] md:text-[42px] lg:text-[50px] font-bold tracking-[0.08em] leading-[1.3]"
-              style={{ fontFamily: "'Noto Serif KR', serif" }}
-            >
-              걸어서 누리는
-              <br />
-              완성된 <span className="text-gold">프리미엄</span>
-            </h1>
-          </div>
-
-          {/* Divider */}
-          <div className="landing-sub flex items-center gap-4 mt-8 md:mt-10">
-            <span className="w-10 md:w-16 h-px bg-gold/40" />
-            <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-            <span className="w-10 md:w-16 h-px bg-gold/40" />
-          </div>
-
-          {/* Sub Description */}
-          <p className="landing-desc text-white/40 text-[12px] md:text-[14px] tracking-[0.2em] mt-6 md:mt-8 leading-relaxed">
-            내집앞 갈산역 초역세권 · 내집앞 수변공원 초공세권
-          </p>
-          <p className="landing-desc text-white/25 text-[11px] md:text-[12px] tracking-[0.15em] mt-2">
-            총 126세대 · 일반분양 50세대 · 59TYPE 단일
-          </p>
-
           {/* ENTER Button */}
           <button
             onClick={handleEnter}
-            className="landing-enter landing-enter-btn group mt-12 md:mt-16 px-16 md:px-20 py-4 md:py-5 rounded-full border border-white/20 text-white/70 text-[13px] md:text-[14px] tracking-[0.35em] font-medium transition-all duration-500 hover:border-gold hover:text-gold hover:bg-gold/[0.05] backdrop-blur-sm"
+            className="landing-enter landing-enter-btn group mt-10 md:mt-14 px-16 md:px-20 py-4 md:py-5 rounded-full border border-white/15 text-white/60 text-[13px] md:text-[14px] tracking-[0.35em] font-medium transition-all duration-500 hover:border-gold hover:text-gold hover:bg-gold/[0.05]"
           >
             <span className="flex items-center gap-3">
               ENTER
@@ -136,11 +164,13 @@ export default function Home() {
               </svg>
             </span>
           </button>
+        </div>
 
-          {/* Phone */}
+        {/* Bottom: Phone + Keywords */}
+        <div className="landing-footer relative z-10 pb-6 md:pb-10 flex flex-col items-center gap-4">
           <a
             href="tel:1800-5636"
-            className="landing-enter flex items-center gap-2 mt-6 text-white/25 hover:text-gold/70 transition-colors duration-300"
+            className="flex items-center gap-2 text-white/20 hover:text-gold/60 transition-colors duration-300"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -148,20 +178,18 @@ export default function Home() {
             </svg>
             <span className="text-[12px] tracking-[0.2em]">1800-5636</span>
           </a>
-        </div>
-
-        {/* Bottom Keywords */}
-        <div className="landing-footer relative z-10 pb-8 md:pb-12 flex items-center justify-center gap-3 md:gap-5 px-4 flex-wrap">
-          {landingKeywords.map((kw, i) => (
-            <span key={i} className="flex items-center gap-3 md:gap-5">
-              <span className="text-white/20 text-[10px] md:text-[11px] tracking-[0.2em] font-medium">
-                {kw}
+          <div className="flex items-center justify-center gap-3 md:gap-5 px-4 flex-wrap">
+            {landingKeywords.map((kw, i) => (
+              <span key={i} className="flex items-center gap-3 md:gap-5">
+                <span className="text-white/15 text-[9px] md:text-[10px] tracking-[0.2em] font-medium">
+                  {kw}
+                </span>
+                {i < landingKeywords.length - 1 && (
+                  <span className="w-[3px] h-[3px] rounded-full bg-gold/20" />
+                )}
               </span>
-              {i < landingKeywords.length - 1 && (
-                <span className="w-[3px] h-[3px] rounded-full bg-gold/30" />
-              )}
-            </span>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
