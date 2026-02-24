@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import getDb from "@/lib/db";
+import supabase from "@/lib/db";
 import { isAuthenticated } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -9,20 +9,14 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const db = getDb();
-  const rows = db
-    .prepare(
-      "SELECT id, name, phone, interest_type, message, status, created_at FROM registrations ORDER BY created_at DESC",
-    )
-    .all() as {
-    id: number;
-    name: string;
-    phone: string;
-    interest_type: string;
-    message: string;
-    status: string;
-    created_at: string;
-  }[];
+  const { data: rows, error } = await supabase
+    .from("registrations")
+    .select("id, name, phone, interest_type, message, status, created_at")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
 
   const statusMap: Record<string, string> = {
     new: "신규",
@@ -32,7 +26,7 @@ export async function GET() {
 
   const BOM = "\uFEFF";
   const header = "번호,이름,연락처,관심평형,문의사항,상태,등록일시\n";
-  const csvRows = rows
+  const csvRows = (rows || [])
     .map((r) =>
       [
         r.id,

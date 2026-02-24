@@ -1,36 +1,9 @@
-import Database from "better-sqlite3";
-import path from "path";
-import fs from "fs";
+import { createClient } from "@supabase/supabase-js";
 
-const DB_PATH = path.join(process.cwd(), "data", "registrations.db");
+const supabase = createClient(
+  "https://api.hsweb.pics",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaXNzIjoic3VwYWJhc2UiLCJpYXQiOjE2NDE3NjkyMDAsImV4cCI6MTc5OTUzNTYwMH0.xTNteRFphY3F9W2PPWOwCQ9PDXD05ySRqkJu5d4Cej0",
+  { db: { schema: "galsan_jungang_heights" } },
+);
 
-let db: Database.Database | null = null;
-
-export default function getDb(): Database.Database {
-  if (!db) {
-    const dir = path.dirname(DB_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    db = new Database(DB_PATH);
-    db.pragma("journal_mode = WAL");
-    db.pragma("foreign_keys = ON");
-
-    db.exec(`
-      CREATE TABLE IF NOT EXISTS registrations (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        phone TEXT NOT NULL,
-        interest_type TEXT NOT NULL,
-        message TEXT DEFAULT '',
-        status TEXT NOT NULL DEFAULT 'new',
-        created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
-        updated_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
-      );
-      CREATE INDEX IF NOT EXISTS idx_registrations_status ON registrations(status);
-      CREATE INDEX IF NOT EXISTS idx_registrations_created_at ON registrations(created_at);
-    `);
-  }
-  return db;
-}
+export default supabase;

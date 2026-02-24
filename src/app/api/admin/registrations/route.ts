@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import getDb from "@/lib/db";
+import supabase from "@/lib/db";
 import { isAuthenticated } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -20,59 +20,43 @@ export async function GET(request: NextRequest) {
   const sortBy = searchParams.get("sort_by") || "created_at";
   const sortOrder = searchParams.get("sort_order") || "desc";
 
-  const db = getDb();
-
-  const conditions: string[] = [];
-  const params: (string | number)[] = [];
-
-  if (search) {
-    conditions.push("(name LIKE ? OR phone LIKE ?)");
-    params.push(`%${search}%`, `%${search}%`);
-  }
-  if (status) {
-    conditions.push("status = ?");
-    params.push(status);
-  }
-  if (interestType) {
-    conditions.push("interest_type LIKE ?");
-    params.push(`%${interestType}%`);
-  }
-  if (dateFrom) {
-    conditions.push("created_at >= ?");
-    params.push(dateFrom);
-  }
-  if (dateTo) {
-    conditions.push("created_at <= ?");
-    params.push(dateTo + " 23:59:59");
-  }
-
-  const where =
-    conditions.length > 0 ? "WHERE " + conditions.join(" AND ") : "";
-
-  const allowedSort = [
-    "id",
-    "name",
-    "phone",
-    "interest_type",
-    "status",
-    "created_at",
-  ];
+  const allowedSort = ["id", "name", "phone", "interest_type", "status", "created_at"];
   const safeSort = allowedSort.includes(sortBy) ? sortBy : "created_at";
-  const safeOrder = sortOrder === "asc" ? "ASC" : "DESC";
-
-  const { total } = db
-    .prepare(`SELECT COUNT(*) as total FROM registrations ${where}`)
-    .get(...params) as { total: number };
+  const ascending = sortOrder === "asc";
 
   const offset = (page - 1) * limit;
-  const data = db
-    .prepare(
-      `SELECT * FROM registrations ${where} ORDER BY ${safeSort} ${safeOrder} LIMIT ? OFFSET ?`,
-    )
-    .all(...params, limit, offset);
+
+  let query = supabase.from("registrations").select("*", { count: "exact" });
+
+  if (search) {
+    query = query.or(`name.ilike.%${search}%,phone.ilike.%${search}%`);
+  }
+  if (status) {
+    query = query.eq("status", status);
+  }
+  if (interestType) {
+    query = query.ilike("interest_type", `%${interestType}%`);
+  }
+  if (dateFrom) {
+    query = query.gte("created_at", dateFrom);
+  }
+  if (dateTo) {
+    query = query.lte("created_at", dateTo + "T23:59:59");
+  }
+
+  query = query.order(safeSort, { ascending }).range(offset, offset + limit - 1);
+
+  const { data, count, error } = await query;
+
+  if (error) {
+    console.error("List error:", error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+
+  const total = count || 0;
 
   return NextResponse.json({
-    data,
+    data: data || [],
     total,
     page,
     limit,

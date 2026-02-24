@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import getDb from "@/lib/db";
+import supabase from "@/lib/db";
 import { isAuthenticated } from "@/lib/auth";
 
 export async function PATCH(
@@ -18,16 +18,12 @@ export async function PATCH(
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
 
-    const db = getDb();
-    const result = db
-      .prepare(
-        "UPDATE registrations SET status = ?, updated_at = datetime('now', 'localtime') WHERE id = ?",
-      )
-      .run(status, params.id);
+    const { error } = await supabase
+      .from("registrations")
+      .update({ status, updated_at: new Date().toISOString() })
+      .eq("id", parseInt(params.id));
 
-    if (result.changes === 0) {
-      return NextResponse.json({ error: "Not found" }, { status: 404 });
-    }
+    if (error) throw error;
 
     return NextResponse.json({ success: true });
   } catch {
@@ -43,8 +39,14 @@ export async function DELETE(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const db = getDb();
-  db.prepare("DELETE FROM registrations WHERE id = ?").run(params.id);
+  const { error } = await supabase
+    .from("registrations")
+    .delete()
+    .eq("id", parseInt(params.id));
+
+  if (error) {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
 
   return NextResponse.json({ success: true });
 }

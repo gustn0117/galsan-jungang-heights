@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import getDb from "@/lib/db";
+import supabase from "@/lib/db";
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,16 +21,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const db = getDb();
-    const stmt = db.prepare(
-      "INSERT INTO registrations (name, phone, interest_type, message) VALUES (?, ?, ?, ?)",
-    );
-    const result = stmt.run(name, phone, interest_type, message || "");
+    const { data, error } = await supabase
+      .from("registrations")
+      .insert({ name, phone, interest_type, message: message || "" })
+      .select("id")
+      .single();
 
-    return NextResponse.json(
-      { success: true, id: result.lastInsertRowid },
-      { status: 201 },
-    );
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, id: data.id }, { status: 201 });
   } catch (error) {
     console.error("Registration error:", error);
     return NextResponse.json(
