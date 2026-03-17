@@ -136,7 +136,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent pointer-events-none" />
       )}
 
-      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-[76px]">
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-[90px]">
         {/* Logo */}
         <button
           onClick={() => { onTabChange("home"); setMegaOpen(false); }}
@@ -147,7 +147,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
             alt="중앙하이츠 갈산역 센트럴"
             width={180}
             height={40}
-            className="h-[34px] w-auto transition-[filter] duration-300"
+            className="h-[42px] w-auto transition-[filter] duration-300"
             style={logoWhite ? { filter: "brightness(0) invert(1)" } : undefined}
             priority
           />
@@ -160,7 +160,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
               key={item.id}
               onClick={() => { onTabChange(item.id); setMegaOpen(false); }}
               onMouseEnter={() => handleMegaEnter(!!item.subItems)}
-              className={`px-4 py-2.5 text-[14px] font-medium transition-all duration-300 relative
+              className={`px-5 py-3 text-[16px] font-medium transition-all duration-300 relative
                 ${activeTab === item.id
                   ? activeColor
                   : `${textMuted} hover:${textColor}`
@@ -183,7 +183,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
               d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          <span className="text-[15px] font-bold tracking-wider">1800-5636</span>
+          <span className="text-[17px] font-bold tracking-wider">1800-5636</span>
         </a>
 
         {/* Mobile Menu Button */}
@@ -228,7 +228,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                       className="group/cat flex items-center gap-2 mb-4"
                     >
                       <span className="w-1 h-4 bg-gold/60 rounded-full group-hover/cat:h-5 transition-all duration-300" />
-                      <span className="text-[13px] font-bold text-white tracking-wider group-hover/cat:text-gold transition-colors duration-300">
+                      <span className="text-[15px] font-bold text-white tracking-wider group-hover/cat:text-gold transition-colors duration-300">
                         {item.label}
                       </span>
                     </button>
@@ -238,7 +238,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                         <button
                           key={sub.id}
                           onClick={() => { onTabChange(item.id, sub.id); setMegaOpen(false); }}
-                          className="group/sub flex items-center gap-2.5 w-full text-left py-2 text-[13px] text-white/40 hover:text-gold transition-all duration-200"
+                          className="group/sub flex items-center gap-2.5 w-full text-left py-2.5 text-[14px] text-white/40 hover:text-gold transition-all duration-200"
                         >
                           <span className="w-0 group-hover/sub:w-3 h-px bg-gold transition-all duration-300" />
                           <span>{sub.label}</span>
@@ -269,7 +269,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-navy/[0.98] backdrop-blur-xl border-t border-white/[0.06] shadow-2xl max-h-[calc(100vh-76px)] overflow-y-auto">
+        <div className="lg:hidden bg-navy/[0.98] backdrop-blur-xl border-t border-white/[0.06] shadow-2xl max-h-[calc(100vh-90px)] overflow-y-auto">
           <div className="px-6 py-5">
             {menuItems.map((item) => (
               <div key={item.id} className="border-b border-white/[0.06] last:border-0">
@@ -283,7 +283,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                       setMobileOpen(false);
                     }
                   }}
-                  className={`flex items-center justify-between w-full text-left py-4 text-[16px] font-semibold transition-colors
+                  className={`flex items-center justify-between w-full text-left py-4 text-[18px] font-semibold transition-colors
                     ${activeTab === item.id ? "text-gold" : "text-white/90"}`}
                 >
                   <span>{item.label}</span>
@@ -301,7 +301,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
                             onTabChange(item.id, sub.id);
                             setMobileOpen(false);
                           }}
-                          className={`flex items-center gap-3 w-full text-left px-5 py-3.5 text-[15px] transition-colors active:bg-white/[0.04] ${si > 0 ? "border-t border-white/[0.04]" : ""} text-white/50 hover:text-gold`}
+                          className={`flex items-center gap-3 w-full text-left px-5 py-3.5 text-[16px] transition-colors active:bg-white/[0.04] ${si > 0 ? "border-t border-white/[0.04]" : ""} text-white/50 hover:text-gold`}
                         >
                           <span className="w-1 h-1 rounded-full bg-gold/40 flex-shrink-0" />
                           {sub.label}
