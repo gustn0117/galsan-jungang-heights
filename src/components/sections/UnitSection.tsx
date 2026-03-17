@@ -1,8 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import SectionBanner from "../SectionBanner";
+
+const PanoramaViewer = dynamic(() => import("../PanoramaViewer"), { ssr: false });
+
+const vrRooms = [
+  { id: "living", label: "거실", src: "/images/vr/거실.jpg" },
+  { id: "kitchen", label: "주방", src: "/images/vr/주방.jpg" },
+  { id: "bedroom1", label: "침실1", src: "/images/vr/침실1.jpg" },
+  { id: "bedroom2", label: "침실2", src: "/images/vr/침실2.jpg" },
+  { id: "bedroom3", label: "침실3", src: "/images/vr/침실3.jpg" },
+  { id: "bathroom-common", label: "공용욕실", src: "/images/vr/공용욕실.jpg" },
+  { id: "bathroom-master", label: "부부욕실", src: "/images/vr/부부욕실.jpg" },
+  { id: "hallway1", label: "복도1", src: "/images/vr/복도1.jpg" },
+  { id: "hallway2", label: "복도2", src: "/images/vr/복도2.jpg" },
+  { id: "entrance", label: "현관", src: "/images/vr/현관.jpg" },
+];
 
 const subTabs = [
   { id: "floorplan", label: "평면안내" },
@@ -35,6 +51,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "floorplan");
   const [viewMode, setViewMode] = useState("iso");
   const [isoIndex, setIsoIndex] = useState(0);
+  const [vrRoom, setVrRoom] = useState("living");
 
   return (
     <section className="pt-[72px]">
@@ -251,48 +268,60 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
           <div className="tab-content">
             <div className="text-center mb-10">
               <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">VIRTUAL REALITY</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>VR 영상</h3>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>VR 투어</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
-              <p className="text-gray-400 text-[14px]">360° VR 영상으로 미리 만나보는 중앙하이츠 갈산역 센트럴</p>
+              <p className="text-gray-400 text-[14px]">360° 파노라마로 미리 만나보는 중앙하이츠 갈산역 센트럴</p>
             </div>
 
-            {/* VR Video Embed Area */}
-            <div className="max-w-[900px] mx-auto">
-              <div className="relative bg-gradient-to-b from-navy to-[#0d1a30] rounded-2xl overflow-hidden shadow-2xl">
-                {/* Video Placeholder */}
-                <div className="relative aspect-video flex flex-col items-center justify-center">
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-[0.03]" style={{
-                    backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, white 20px, white 21px)`,
-                  }} />
+            <div className="max-w-[1000px] mx-auto">
+              {/* Room Selector */}
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+                {vrRooms.map((room) => (
+                  <button
+                    key={room.id}
+                    onClick={() => setVrRoom(room.id)}
+                    className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border
+                      ${vrRoom === room.id
+                        ? "bg-navy text-gold border-navy shadow-lg"
+                        : "bg-white text-gray-400 border-gray-200 hover:border-gold/40 hover:text-gray-600"
+                      }
+                    `}
+                  >
+                    {room.label}
+                  </button>
+                ))}
+              </div>
 
-                  {/* Play Button */}
-                  <div className="relative z-10 flex flex-col items-center gap-5">
-                    <div className="w-20 h-20 rounded-full border-2 border-gold/40 flex items-center justify-center bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-gold/60 transition-all duration-300 cursor-pointer group">
-                      <svg className="w-8 h-8 text-gold ml-1 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white/70 text-[14px] font-medium tracking-wide">VR 영상 준비중</p>
-                      <p className="text-white/30 text-[12px] mt-1">360° 파노라마 뷰로 제공 예정</p>
-                    </div>
-                  </div>
-
-                  {/* Corner Decorations */}
-                  <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/20" />
-                  <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-gold/20" />
-                  <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-gold/20" />
-                  <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/20" />
+              {/* Panorama Viewer */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                <PanoramaViewer
+                  key={vrRoom}
+                  src={vrRooms.find((r) => r.id === vrRoom)!.src}
+                  className="w-full aspect-[16/9] md:aspect-[2/1]"
+                />
+                {/* Room Label Overlay */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm border border-white/10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                  <span className="text-white text-[13px] font-medium">
+                    {vrRooms.find((r) => r.id === vrRoom)!.label}
+                  </span>
                 </div>
               </div>
+
+              {/* Drag Hint */}
+              <p className="text-center text-gray-300 text-[12px] mt-4 flex items-center justify-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                </svg>
+                드래그하여 360° 둘러보기 · 스크롤로 확대/축소
+              </p>
 
               {/* VR Info Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200 rounded-lg overflow-hidden mt-8 stagger-children">
                 {[
                   { num: "360°", title: "파노라마 뷰", desc: "실제 모델하우스를 360도로 둘러볼 수 있습니다" },
-                  { num: "ALL", title: "PC / 모바일", desc: "어디서든 편하게 VR 투어를 체험하세요" },
-                  { num: "VR", title: "실감형 체험", desc: "VR 기기로 더욱 몰입감 있는 체험 가능" },
+                  { num: String(vrRooms.length), title: "공간 투어", desc: "거실부터 현관까지 모든 공간을 체험하세요" },
+                  { num: "VR", title: "실감형 체험", desc: "마우스 드래그로 자유롭게 둘러보세요" },
                 ].map((item, i) => (
                   <div key={i} className={`group bg-white p-6 text-center hover:bg-navy/[0.02] transition-colors duration-300 ${i < 2 ? "border-b md:border-b-0 md:border-r border-gray-200" : ""}`}>
                     <span className="text-gold/60 text-[11px] tracking-[3px] font-medium">{item.num}</span>
