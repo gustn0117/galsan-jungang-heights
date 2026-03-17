@@ -90,7 +90,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                 {/* 섹션 헤더 */}
                 <div className="text-center mb-20">
                   <span className="text-gold text-[11px] tracking-[6px] font-medium uppercase">Infrastructure</span>
-                  <h3 className="text-navy text-[26px] lg:text-[36px] font-bold mt-5 leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  <h3 className="text-navy text-[26px] lg:text-[36px] font-bold mt-5 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                     부평 교통의 핵심 허브
                   </h3>
                   <div className="w-12 h-[2px] bg-gold mx-auto mt-6" />
@@ -111,18 +111,18 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                         {/* 좌측 골드 악센트 (hover) */}
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 group-hover:h-10 bg-gold transition-all duration-300 rounded-full" />
                         {/* 번호 */}
-                        <span className="text-gray-200 text-[32px] lg:text-[40px] font-bold leading-none w-14 flex-shrink-0 text-center group-hover:text-gold/30 transition-colors duration-300 pl-3" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                        <span className="text-gray-200 text-[32px] lg:text-[40px] font-bold leading-none w-14 flex-shrink-0 text-center group-hover:text-gold/30 transition-colors duration-300 pl-3" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                           {item.num}
                         </span>
                         {/* 노선 + 역 */}
                         <div className="flex-1 min-w-0">
                           <p className="text-gold text-[11px] tracking-[3px] font-medium mb-1.5">{item.line}</p>
-                          <h4 className="text-navy text-[18px] lg:text-[22px] font-bold group-hover:tracking-wide transition-all duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.station}</h4>
+                          <h4 className="text-navy text-[18px] lg:text-[22px] font-bold group-hover:tracking-wide transition-all duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.station}</h4>
                           <p className="text-gray-400 text-[13px] mt-2 hidden lg:block">{item.desc}</p>
                         </div>
                         {/* 소요시간 */}
                         <div className="text-right flex-shrink-0">
-                          <p className="text-navy text-[22px] lg:text-[28px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.time}</p>
+                          <p className="text-navy text-[22px] lg:text-[28px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.time}</p>
                         </div>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                 <div data-animate className="mb-24">
                   <div className="text-center mb-12">
                     <span className="text-gold text-[11px] tracking-[6px] font-medium uppercase">Location Map</span>
-                    <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                    <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                       위치도
                     </h3>
                     <div className="w-10 h-[2px] bg-gold mx-auto mt-5" />
@@ -166,7 +166,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                 <div data-animate className="mb-6">
                   <div className="text-center mb-14">
                     <span className="text-gold text-[11px] tracking-[6px] font-medium uppercase">Surrounding</span>
-                    <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                    <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                       풍부한 생활 인프라
                     </h3>
                     <div className="w-10 h-[2px] bg-gold mx-auto mt-5" />
@@ -218,11 +218,11 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                     <span className="text-gold/70 text-[11px] tracking-[6px] font-medium uppercase">Premium Value</span>
                     <span className="w-12 h-px bg-gold/40" />
                   </div>
-                  <h3 className="text-white text-[40px] lg:text-[56px] font-bold leading-none mb-2" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  <h3 className="text-white text-[40px] lg:text-[56px] font-bold leading-none mb-2" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                     프리미엄 <span className="text-gold">4</span>
                   </h3>
                   <div className="w-16 h-[2px] bg-gold mx-auto mt-6 mb-6 premium4-line" />
-                  <p className="text-white/40 text-[15px] lg:text-[17px] tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  <p className="text-white/40 text-[15px] lg:text-[17px] tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                     걸어서 누리는 완성된 프리미엄
                   </p>
                   <p className="text-white/25 text-[13px] mt-3 tracking-[1px]">
@@ -307,7 +307,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                         )}
                         {/* Number overlay */}
                         <div className={`absolute top-5 ${isReversed ? "right-5" : "left-5"} z-10`}>
-                          <span className="text-white/[0.07] text-[100px] lg:text-[140px] font-black leading-none select-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                          <span className="text-white/[0.07] text-[100px] lg:text-[140px] font-black leading-none select-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                             {item.num}
                           </span>
                         </div>
@@ -324,13 +324,13 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                         <div className="w-full max-w-[480px]">
                           {/* Number + Category */}
                           <div className="flex items-center gap-3 mb-7">
-                            <span className="text-gold/30 text-[13px] font-bold tracking-wider" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.num}</span>
+                            <span className="text-gold/30 text-[13px] font-bold tracking-wider" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
                             <span className="w-6 h-px bg-gold/40" />
                             <span className="text-gold text-[11px] tracking-[4px] font-medium uppercase">{item.category}</span>
                           </div>
 
                           {/* Title */}
-                          <h4 className="text-white text-[24px] lg:text-[30px] font-bold leading-[1.4] mb-6 whitespace-pre-line" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                          <h4 className="text-white text-[24px] lg:text-[30px] font-bold leading-[1.4] mb-6 whitespace-pre-line" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                             {item.title}
                           </h4>
 
@@ -376,7 +376,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                     { time: "10분", label: "교육 인프라", sub: "교육" },
                   ].map((item, i) => (
                     <div key={i} className="text-center group">
-                      <div className="text-gold text-[28px] lg:text-[36px] font-bold leading-none mb-2" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                      <div className="text-gold text-[28px] lg:text-[36px] font-bold leading-none mb-2" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                         {item.time}
                       </div>
                       <div className="w-6 h-px bg-gold/30 mx-auto mb-3 group-hover:w-10 transition-all duration-300" />

@@ -85,7 +85,7 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
         <div className="text-center mb-10">
           <p
             className="text-white/90 text-[22px] tracking-[0.2em] font-light"
-            style={{ fontFamily: "'Noto Serif KR', serif" }}
+            style={{ fontFamily: "'NanumSquare', sans-serif" }}
           >
             중앙하이츠
           </p>
@@ -148,7 +148,7 @@ function StatsRow({ stats }: { stats: RegistrationStats }) {
             <p
               className={`text-[28px] font-bold leading-none ${item.highlight ? `text-[${NAVY}]` : "text-gray-800"}`}
               style={{
-                fontFamily: "'Noto Serif KR', serif",
+                fontFamily: "'NanumSquare', sans-serif",
                 color: item.highlight ? NAVY : undefined,
               }}
             >
@@ -426,7 +426,7 @@ export default function AdminPage() {
           <div className="flex items-center gap-2.5">
             <p
               className="text-[15px] tracking-[0.08em] font-light"
-              style={{ fontFamily: "'Noto Serif KR', serif", color: NAVY }}
+              style={{ fontFamily: "'NanumSquare', sans-serif", color: NAVY }}
             >
               중앙하이츠
             </p>

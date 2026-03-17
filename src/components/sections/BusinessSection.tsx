@@ -63,7 +63,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <span className="w-6 h-px bg-gold/60" />
                   <span className="text-gold/70 text-[10px] tracking-[4px] font-medium uppercase">Project Overview</span>
                 </div>
-                <h3 className="text-white text-[24px] lg:text-[32px] font-bold leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <h3 className="text-white text-[24px] lg:text-[32px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   중앙하이츠 갈산역 센트럴
                 </h3>
                 <p className="text-white/35 text-[13px] mt-2 tracking-wide">
@@ -79,7 +79,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-white text-[28px] lg:text-[34px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.num}</span>
+                      <span className="text-white text-[28px] lg:text-[34px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
                       <span className="text-gold/60 text-[11px] font-medium">{item.unit}</span>
                     </div>
                     <p className="text-white/25 text-[10px] tracking-[1px] mt-1.5 uppercase">{item.label}</p>
@@ -97,7 +97,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div className="mb-14">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1 h-5 bg-gold rounded-full" />
-                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>조감도</h4>
+                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>조감도</h4>
                 </div>
                 <div className="relative p-3 lg:p-4 bg-white rounded-lg border border-gray-200/80 shadow-sm">
                   {/* 골드 코너 장식 */}
@@ -127,7 +127,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div data-animate className="bg-white overflow-hidden rounded-lg border border-gray-200/80 shadow-sm">
                 <div className="bg-navy/[0.03] px-6 lg:px-8 py-4 border-b border-gray-200/80 flex items-center gap-3">
                   <span className="w-1 h-5 bg-gold rounded-full" />
-                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>사업 정보</h4>
+                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>사업 정보</h4>
                 </div>
                 {[
                   { label: "사업명", value: "중앙하이츠 갈산역 센트럴", highlight: true },
@@ -163,7 +163,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <div key={i} className={`group relative bg-white p-6 text-center hover:bg-navy/[0.02] transition-colors duration-300 ${i < 3 ? "border-r border-gray-200/80" : ""} ${i < 2 ? "border-b lg:border-b-0 border-gray-200/80" : i === 2 ? "border-b lg:border-b-0 border-gray-200/80" : ""}`}>
                     <p className="text-gray-400 text-[10px] tracking-[2px] uppercase font-medium mb-3">{item.label}</p>
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-navy text-[22px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.value}</span>
+                      <span className="text-navy text-[22px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.value}</span>
                       <span className="text-gray-300 text-[11px] ml-0.5">{item.unit}</span>
                     </div>
                     <div className="w-5 h-px bg-gold/30 mx-auto mt-3 group-hover:w-8 transition-all duration-300" />
@@ -175,7 +175,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div data-animate className="mt-14">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1 h-5 bg-gold rounded-full" />
-                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>시행 · 시공</h4>
+                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>시행 · 시공</h4>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {[
@@ -187,7 +187,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                       <div className={`h-1 ${item.accent}`} />
                       <div className="p-6">
                         <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">{item.role}</span>
-                        <h5 className="text-navy text-[15px] font-bold mt-2.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                        <h5 className="text-navy text-[15px] font-bold mt-2.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                           {item.company}
                         </h5>
                         <p className="text-gray-400 text-[12px] mt-2">{item.desc}</p>
@@ -221,7 +221,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 <span className="w-8 h-px bg-gold" />
                 <span className="text-gold text-[10px] tracking-[4px] font-medium uppercase">Directions</span>
               </div>
-              <h3 className="text-navy text-[24px] lg:text-[28px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+              <h3 className="text-navy text-[24px] lg:text-[28px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 오시는길
               </h3>
               <p className="text-gray-400 text-[14px] mt-2">인천광역시 부평구 부평대로 258</p>
@@ -282,7 +282,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-5 bg-gold rounded-full" />
-                <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>교통 안내</h4>
+                <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>교통 안내</h4>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 stagger-children">
@@ -333,7 +333,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             <div data-animate className="overflow-hidden rounded-lg border border-gray-200">
               <div className="bg-gray-50 px-6 py-3.5 border-b border-gray-200 flex items-center gap-3">
                 <span className="w-1 h-4 bg-gold rounded-full" />
-                <h4 className="text-navy text-[14px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>분양홍보관 안내</h4>
+                <h4 className="text-navy text-[14px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>분양홍보관 안내</h4>
               </div>
               {[
                 { label: "주소", value: "인천광역시 부평구 부평대로 258" },
@@ -433,7 +433,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ].map((item, i) => (
                   <div key={i} className={`relative py-8 lg:py-10 text-center ${i < 3 ? "border-r border-white/[0.06]" : ""} ${i < 2 ? "border-b lg:border-b-0 border-white/[0.06]" : i === 2 ? "border-b lg:border-b-0 border-white/[0.06]" : ""}`}>
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-white text-[32px] lg:text-[40px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.num}</span>
+                      <span className="text-white text-[32px] lg:text-[40px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
                       <span className="text-gold/70 text-[12px] font-medium ml-0.5">{item.unit}</span>
                     </div>
                     <p className="text-white/50 text-[12px] font-medium mt-2 tracking-wide">{item.label}</p>
@@ -451,13 +451,13 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div data-animate className="text-center mb-20">
                 <span className="text-gold text-[10px] tracking-[6px] font-medium uppercase">Brand Slogan</span>
                 <div className="mt-8 mb-8">
-                  <p className="text-navy/30 text-[14px] tracking-[3px] mb-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>&ldquo;</p>
-                  <h3 className="text-navy text-[22px] lg:text-[30px] font-bold leading-[1.6]" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  <p className="text-navy/30 text-[14px] tracking-[3px] mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>&ldquo;</p>
+                  <h3 className="text-navy text-[22px] lg:text-[30px] font-bold leading-[1.6]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                     갈산역 <span className="text-gold">&lsquo;0분&rsquo;</span>의 가치
                     <br />
                     중앙하이츠에서 누리다
                   </h3>
-                  <p className="text-navy/30 text-[14px] tracking-[3px] mt-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>&rdquo;</p>
+                  <p className="text-navy/30 text-[14px] tracking-[3px] mt-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>&rdquo;</p>
                 </div>
                 <div className="flex items-center justify-center gap-2 mb-5">
                   <span className="w-8 h-px bg-gold/30" />
@@ -480,7 +480,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <div key={i} className={`group flex items-stretch border-b border-gray-200/80 ${i === 0 ? "border-t" : ""}`}>
                     {/* 넘버링 */}
                     <div className="hidden md:flex w-[80px] flex-shrink-0 items-center justify-center border-r border-gray-200/80">
-                      <span className="text-gold/30 text-[28px] font-light" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.num}</span>
+                      <span className="text-gold/30 text-[28px] font-light" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
                     </div>
                     {/* 라벨 */}
                     <div className="hidden lg:flex w-[140px] flex-shrink-0 items-center justify-center border-r border-gray-200/80 px-4">
@@ -511,7 +511,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div data-animate>
                 <div className="text-center mb-10">
                   <span className="text-gold text-[10px] tracking-[6px] font-medium uppercase">Project Partners</span>
-                  <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                  <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                     시행 · 시공
                   </h3>
                   <div className="w-10 h-[2px] bg-gold mx-auto mt-5" />
@@ -526,7 +526,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                       <div className={`h-1 ${item.accent}`} />
                       <div className="p-7 text-center">
                         <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">{item.role}</span>
-                        <h5 className="text-navy text-[15px] font-bold mt-3 group-hover:text-gold transition-colors duration-300 whitespace-pre-line" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                        <h5 className="text-navy text-[15px] font-bold mt-3 group-hover:text-gold transition-colors duration-300 whitespace-pre-line" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                           {item.company}
                         </h5>
                         <p className="text-gray-400 text-[12px] mt-2">{item.desc}</p>

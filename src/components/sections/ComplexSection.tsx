@@ -138,7 +138,7 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
             {/* 섹션 헤더 */}
             <div className="text-center mb-16">
               <span className="text-gold text-[11px] tracking-[6px] font-medium uppercase">Site Plan</span>
-              <h3 className="text-navy text-[28px] lg:text-[36px] font-bold mt-4 leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+              <h3 className="text-navy text-[28px] lg:text-[36px] font-bold mt-4 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 단지배치도
               </h3>
               <div className="w-12 h-[2px] bg-gold mx-auto mt-6" />
@@ -182,11 +182,11 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
                   {/* 동 번호 + 향 */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-navy text-[20px] font-bold" style={{ fontFamily: "'Noto Serif KR', serif" }}>{b.dong}</span>
+                      <span className="text-navy text-[20px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{b.dong}</span>
                       <span className="text-[10px] font-semibold text-gold tracking-[2px] px-2.5 py-1 bg-gold/[0.06] rounded-sm">{b.direction}</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-navy text-[26px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>{b.units}</span>
+                      <span className="text-navy text-[26px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{b.units}</span>
                       <span className="text-gray-400 text-[11px] ml-0.5">세대</span>
                     </div>
                   </div>

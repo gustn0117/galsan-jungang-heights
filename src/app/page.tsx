@@ -226,7 +226,7 @@ export default function Home() {
           </div>
 
           {/* 메인 타이틀 — 큰 세리프 + 넓은 자간 */}
-          <h1 className="landing-title text-navy text-[32px] md:text-[48px] lg:text-[58px] font-light" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+          <h1 className="landing-title text-navy text-[32px] md:text-[48px] lg:text-[58px] font-light" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
             중 앙 하 이 츠
           </h1>
 
@@ -247,7 +247,7 @@ export default function Home() {
               <div className="w-1 h-1 rounded-full bg-gold/20" />
               <div className="w-16 md:w-24 h-px bg-gradient-to-r from-gold/10 via-gold/25 to-gold/35" />
             </div>
-            <p className="text-navy/45 text-[13px] md:text-[16px] tracking-[0.35em]" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+            <p className="text-navy/45 text-[13px] md:text-[16px] tracking-[0.35em]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
               갈산역 센트럴
             </p>
             <div className="flex items-center gap-1.5">
@@ -257,7 +257,7 @@ export default function Home() {
           </div>
 
           {/* 한글 설명 */}
-          <p className="landing-desc text-navy/30 text-[12px] md:text-[14px] tracking-[0.08em] mt-8 md:mt-10" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+          <p className="landing-desc text-navy/30 text-[12px] md:text-[14px] tracking-[0.08em] mt-8 md:mt-10" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
             갈산역 초역세권 · 수변공원 초공세권 · 총 126세대
           </p>
 

@@ -79,7 +79,7 @@ export default function HomeSection() {
 
               {/* Main Quote */}
               <div className="mb-6">
-                <p className="text-white/60 text-[16px] lg:text-[18px] font-light tracking-wide mb-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <p className="text-white/60 text-[16px] lg:text-[18px] font-light tracking-wide mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   &ldquo; 갈산역 &lsquo;0분&rsquo;의 가치, 중앙하이츠에서 누리다 &rdquo;
                 </p>
                 <h1 className="text-white">
@@ -200,7 +200,7 @@ export default function HomeSection() {
             {/* Text Content */}
             <div className={`transition-all duration-[800ms] ${sec5.visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
               <span className="text-gold text-[13px] tracking-[4px] font-medium">ABOUT</span>
-              <h2 className="text-[32px] lg:text-[44px] font-bold text-gray-900 mt-4 mb-6 leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+              <h2 className="text-[32px] lg:text-[44px] font-bold text-gray-900 mt-4 mb-6 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 삶의 중심이 <span className="text-navy">되다.</span>
               </h2>
               <div className="flex items-center gap-3 mb-8">
@@ -275,7 +275,7 @@ export default function HomeSection() {
           {/* 섹션 타이틀 */}
           <div className={`text-center mb-20 transition-all duration-[800ms] ${sec1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <span className="text-gold text-[13px] tracking-[4px] font-medium">VALUE OF ZERO</span>
-            <h2 className="text-[30px] lg:text-[42px] font-bold text-gray-900 mt-4 leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+            <h2 className="text-[30px] lg:text-[42px] font-bold text-gray-900 mt-4 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
               갈산역 <span className="text-navy">「0분」</span>의 가치,
               <br />
               중앙하이츠에서 누리다
@@ -299,7 +299,7 @@ export default function HomeSection() {
               <div className="relative">
                 <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-[11px] tracking-[3px] font-semibold rounded-sm">STATION</span>
                 <p className="text-white/50 text-[14px] mt-5 mb-1">내집앞 갈산역</p>
-                <h3 className="text-white text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <h3 className="text-white text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초역세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-gold to-gold/0 mt-6 mb-7" />
@@ -330,7 +330,7 @@ export default function HomeSection() {
               <div className="relative">
                 <span className="inline-block px-3 py-1 bg-green-700/10 text-green-700 text-[11px] tracking-[3px] font-semibold rounded-sm">NATURE</span>
                 <p className="text-gray-500 text-[14px] mt-5 mb-1">내집앞 수변공원</p>
-                <h3 className="text-gray-900 text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+                <h3 className="text-gray-900 text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초공세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-green-600 to-green-600/0 mt-6 mb-7" />
@@ -372,7 +372,7 @@ export default function HomeSection() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className={`text-center mb-20 transition-all duration-[800ms] ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             <span className="text-gold text-[12px] tracking-[5px] font-medium">PREMIUM 4</span>
-            <h2 className="text-[30px] lg:text-[40px] font-bold text-white mt-5 leading-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+            <h2 className="text-[30px] lg:text-[40px] font-bold text-white mt-5 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
               걸어서 누리는 완성된 프리미엄
             </h2>
             <div className="flex items-center justify-center gap-3 mt-6">
@@ -480,7 +480,7 @@ export default function HomeSection() {
             <p className="text-gold text-[13px] tracking-[4px] font-medium">CONTACT</p>
             <span className="w-8 h-[1px] bg-gold/50" />
           </div>
-          <h2 className="text-white text-[34px] lg:text-[46px] font-bold mb-4" style={{ fontFamily: "'Noto Serif KR', serif" }}>분양문의</h2>
+          <h2 className="text-white text-[34px] lg:text-[46px] font-bold mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>분양문의</h2>
           <p className="text-white/50 text-[15px] mb-10 leading-relaxed">
             중앙하이츠 갈산역 센트럴에 대한
             <br className="sm:hidden" /> 자세한 상담을 받아보세요.

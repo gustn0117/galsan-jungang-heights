@@ -31,11 +31,11 @@ export default function SectionBanner({
       {/* 하단 그라데이션 - 탭바와의 분리감 */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0c1320]/90 to-transparent z-[1]" />
       <div className="relative z-10 text-center">
-        <h2 className="banner-title-animate text-white text-[42px] font-light tracking-[20px]" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+        <h2 className="banner-title-animate text-white text-[42px] font-light tracking-[20px]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
           {title}
         </h2>
       </div>
-      <p className="banner-sub-animate absolute bottom-8 text-white/60 text-[13px] text-center w-full z-10 tracking-wide" style={{ fontFamily: "'Noto Serif KR', serif" }}>
+      <p className="banner-sub-animate absolute bottom-8 text-white/60 text-[13px] text-center w-full z-10 tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
         {subtitle}
       </p>
 

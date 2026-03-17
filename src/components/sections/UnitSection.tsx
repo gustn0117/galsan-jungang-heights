@@ -68,6 +68,7 @@ const vrRooms = [
 
 const subTabs = [
   { id: "floorplan", label: "평면안내" },
+  { id: "interior", label: "세대 인테리어" },
   { id: "vr", label: "VR영상" },
 ];
 
@@ -227,7 +228,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 <div className="px-8 pt-10 pb-8 border-b border-white/[0.06]">
                   <p className="text-gold/50 text-[10px] tracking-[4px] font-medium uppercase mb-3">TYPE</p>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-white text-[42px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>59</span>
+                    <span className="text-white text-[42px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>59</span>
                     <span className="text-white/30 text-[16px]">㎡</span>
                   </div>
                   <p className="text-white/25 text-[12px] mt-3 tracking-wide">전용면적 기준 단일 타입</p>
@@ -238,14 +239,14 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <div className="px-8 py-7 border-r border-white/[0.06]">
                     <p className="text-gold/40 text-[9px] tracking-[2px] uppercase font-medium mb-2">공급면적</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-white text-[24px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>86.81</span>
+                      <span className="text-white text-[24px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>86.81</span>
                       <span className="text-white/20 text-[11px]">㎡</span>
                     </div>
                   </div>
                   <div className="px-8 py-7">
                     <p className="text-gold/40 text-[9px] tracking-[2px] uppercase font-medium mb-2">전용면적</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-gold text-[24px] font-bold leading-none" style={{ fontFamily: "'Noto Serif KR', serif" }}>59.79</span>
+                      <span className="text-gold text-[24px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>59.79</span>
                       <span className="text-gold/30 text-[11px]">㎡</span>
                     </div>
                   </div>
@@ -277,7 +278,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                       { num: "1", label: "주방" },
                     ].map((room, i) => (
                       <div key={i} className="text-center">
-                        <span className="text-white text-[22px] font-bold leading-none block" style={{ fontFamily: "'Noto Serif KR', serif" }}>{room.num}</span>
+                        <span className="text-white text-[22px] font-bold leading-none block" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{room.num}</span>
                         <span className="text-white/30 text-[11px] block mt-1.5">{room.label}</span>
                       </div>
                     ))}
@@ -302,7 +303,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 ].map((item, i) => (
                   <div key={i} className={`group relative p-8 md:p-10 ${i < 2 ? "md:border-r border-gray-100" : ""} hover:bg-[#faf9f7] transition-colors duration-300`}>
                     <span className="text-gold/25 text-[11px] tracking-[2px] font-medium">{item.num}</span>
-                    <h5 className="text-navy text-[16px] font-bold mt-3 mb-3 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.title}</h5>
+                    <h5 className="text-navy text-[16px] font-bold mt-3 mb-3 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.title}</h5>
                     <p className="text-gray-400 text-[13px] leading-[1.9]">{item.copy}</p>
                     <div className="w-6 h-px bg-gold/20 mt-5 group-hover:w-10 transition-all duration-500" />
                   </div>
@@ -310,86 +311,83 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
               </div>
             </div>
 
-            {/* ── Interior Gallery ── */}
-            <div className="mt-20 relative">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-gray-200" />
-                <span className="text-gold/50 text-[10px] tracking-[4px] font-medium uppercase">INTERIOR</span>
-                <div className="h-px flex-1 bg-gray-200" />
-              </div>
+          </div>
+        )}
 
-              <div className="text-center mb-10">
-                <h3 className="text-[28px] md:text-[32px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>인테리어 스틸컷</h3>
-                <div className="w-10 h-px bg-gold/40 mx-auto mt-4 mb-4" />
-                <p className="text-gray-400 text-[14px]">공간별 인테리어 디자인을 확인하세요</p>
-              </div>
-
-              {/* Space Selector */}
-              <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-                {interiorSpaces.map((space) => (
-                  <button
-                    key={space.id}
-                    onClick={() => setInteriorSpace(space.id)}
-                    className={`px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 border
-                      ${interiorSpace === space.id
-                        ? "bg-navy text-gold border-navy shadow-lg"
-                        : "bg-white text-gray-400 border-gray-200 hover:border-gold/40 hover:text-gray-600"
-                      }
-                    `}
-                  >
-                    {space.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Image Grid */}
-              {(() => {
-                const currentSpace = interiorSpaces.find((s) => s.id === interiorSpace);
-                if (!currentSpace) return null;
-                const images = currentSpace.images;
-                return (
-                  <div className={`grid gap-3 ${
-                    images.length === 1 ? "grid-cols-1 max-w-[700px] mx-auto" :
-                    images.length === 2 ? "grid-cols-1 md:grid-cols-2" :
-                    images.length === 3 ? "grid-cols-1 md:grid-cols-3" :
-                    "grid-cols-1 md:grid-cols-2"
-                  }`}>
-                    {images.map((img, i) => (
-                      <button
-                        key={img.src}
-                        onClick={() => setLightbox(img.src)}
-                        className={`group relative overflow-hidden rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
-                          images.length === 3 && i === 0 ? "md:col-span-2 md:row-span-1" :
-                          images.length === 4 && i === 0 ? "md:col-span-2" : ""
-                        }`}
-                      >
-                        <div className={`relative w-full ${
-                          (images.length === 3 && i === 0) || (images.length === 4 && i === 0)
-                            ? "aspect-[16/9]"
-                            : "aspect-[4/3]"
-                        }`}>
-                          <Image
-                            src={img.src}
-                            alt={img.alt}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-700"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                        </div>
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                          <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
-                            <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                            </svg>
-                          </div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                );
-              })()}
+        {activeSubTab === "interior" && (
+          <div className="tab-content">
+            <div className="text-center mb-10">
+              <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">INTERIOR</p>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>세대 인테리어</h3>
+              <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
+              <p className="text-gray-400 text-[14px]">공간별 인테리어 디자인을 확인하세요</p>
             </div>
+
+            {/* Space Selector */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+              {interiorSpaces.map((space) => (
+                <button
+                  key={space.id}
+                  onClick={() => setInteriorSpace(space.id)}
+                  className={`px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 border
+                    ${interiorSpace === space.id
+                      ? "bg-navy text-gold border-navy shadow-lg"
+                      : "bg-white text-gray-400 border-gray-200 hover:border-gold/40 hover:text-gray-600"
+                    }
+                  `}
+                >
+                  {space.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Image Grid */}
+            {(() => {
+              const currentSpace = interiorSpaces.find((s) => s.id === interiorSpace);
+              if (!currentSpace) return null;
+              const images = currentSpace.images;
+              return (
+                <div className={`grid gap-3 ${
+                  images.length === 1 ? "grid-cols-1 max-w-[700px] mx-auto" :
+                  images.length === 2 ? "grid-cols-1 md:grid-cols-2" :
+                  images.length === 3 ? "grid-cols-1 md:grid-cols-3" :
+                  "grid-cols-1 md:grid-cols-2"
+                }`}>
+                  {images.map((img, i) => (
+                    <button
+                      key={img.src}
+                      onClick={() => setLightbox(img.src)}
+                      className={`group relative overflow-hidden rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
+                        images.length === 3 && i === 0 ? "md:col-span-2 md:row-span-1" :
+                        images.length === 4 && i === 0 ? "md:col-span-2" : ""
+                      }`}
+                    >
+                      <div className={`relative w-full ${
+                        (images.length === 3 && i === 0) || (images.length === 4 && i === 0)
+                          ? "aspect-[16/9]"
+                          : "aspect-[4/3]"
+                      }`}>
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                          <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              );
+            })()}
           </div>
         )}
 
@@ -397,7 +395,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
           <div className="tab-content">
             <div className="text-center mb-10">
               <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">VIRTUAL REALITY</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>VR 투어</h3>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>VR 투어</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
               <p className="text-gray-400 text-[14px]">360° 파노라마로 미리 만나보는 중앙하이츠 갈산역 센트럴</p>
             </div>
@@ -454,7 +452,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 ].map((item, i) => (
                   <div key={i} className={`group bg-white p-6 text-center hover:bg-navy/[0.02] transition-colors duration-300 ${i < 2 ? "border-b md:border-b-0 md:border-r border-gray-200" : ""}`}>
                     <span className="text-gold/60 text-[11px] tracking-[3px] font-medium">{item.num}</span>
-                    <h4 className="text-navy text-[15px] font-bold mt-2 mb-1.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Noto Serif KR', serif" }}>{item.title}</h4>
+                    <h4 className="text-navy text-[15px] font-bold mt-2 mb-1.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.title}</h4>
                     <p className="text-gray-400 text-[12px] leading-relaxed">{item.desc}</p>
                   </div>
                 ))}

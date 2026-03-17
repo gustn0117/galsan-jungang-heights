@@ -41,6 +41,7 @@ const menuItems: MenuItem[] = [
     label: "세대안내",
     subItems: [
       { id: "floorplan", label: "평면안내" },
+      { id: "interior", label: "세대 인테리어" },
       { id: "vr", label: "VR영상" },
     ],
   },
