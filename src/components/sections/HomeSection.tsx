@@ -496,8 +496,7 @@ export default function HomeSection() {
             1800-5636
           </a>
           <div className="mt-8 flex flex-wrap justify-center gap-8 text-white/30 text-[13px]">
-            <span>시행 | 배조아파트소규모재건축사업조합</span>
-            <span>시공/분양 | 중앙건설산업(주)</span>
+            <span>온라인대행 | 바론플래닝㈜</span>
           </div>
         </div>
       </div>
