@@ -7,6 +7,52 @@ import SectionBanner from "../SectionBanner";
 
 const PanoramaViewer = dynamic(() => import("../PanoramaViewer"), { ssr: false });
 
+const interiorSpaces = [
+  {
+    id: "living",
+    label: "거실",
+    images: [
+      { src: "/images/interior/거실1.png", alt: "거실 인테리어 1" },
+      { src: "/images/interior/거실2.png", alt: "거실 인테리어 2" },
+      { src: "/images/interior/거실3.png", alt: "거실 인테리어 3" },
+    ],
+  },
+  {
+    id: "kitchen",
+    label: "주방",
+    images: [
+      { src: "/images/interior/주방1.png", alt: "주방 인테리어 1" },
+      { src: "/images/interior/주방2.png", alt: "주방 인테리어 2" },
+      { src: "/images/interior/주방3.png", alt: "주방 인테리어 3" },
+      { src: "/images/interior/주방4.png", alt: "주방 인테리어 4" },
+    ],
+  },
+  {
+    id: "master",
+    label: "안방",
+    images: [
+      { src: "/images/interior/안방.png", alt: "안방 인테리어 1" },
+      { src: "/images/interior/안방2.png", alt: "안방 인테리어 2" },
+    ],
+  },
+  {
+    id: "bedroom",
+    label: "침실",
+    images: [
+      { src: "/images/interior/침실2.png", alt: "침실2 인테리어" },
+      { src: "/images/interior/침실3.png", alt: "침실3 인테리어" },
+    ],
+  },
+  {
+    id: "bathroom",
+    label: "욕실",
+    images: [
+      { src: "/images/interior/공용욕실.png", alt: "공용욕실 인테리어" },
+      { src: "/images/interior/안방욕실.png", alt: "안방욕실 인테리어" },
+    ],
+  },
+];
+
 const vrRooms = [
   { id: "living", label: "거실", src: "/images/vr/거실.jpg" },
   { id: "kitchen", label: "주방", src: "/images/vr/주방.jpg" },
@@ -52,6 +98,8 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
   const [viewMode, setViewMode] = useState("iso");
   const [isoIndex, setIsoIndex] = useState(0);
   const [vrRoom, setVrRoom] = useState("living");
+  const [interiorSpace, setInteriorSpace] = useState("living");
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
     <section className="pt-[72px]">
@@ -261,6 +309,87 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 ))}
               </div>
             </div>
+
+            {/* ── Interior Gallery ── */}
+            <div className="mt-20 relative">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-gray-200" />
+                <span className="text-gold/50 text-[10px] tracking-[4px] font-medium uppercase">INTERIOR</span>
+                <div className="h-px flex-1 bg-gray-200" />
+              </div>
+
+              <div className="text-center mb-10">
+                <h3 className="text-[28px] md:text-[32px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'Noto Serif KR', serif" }}>인테리어 스틸컷</h3>
+                <div className="w-10 h-px bg-gold/40 mx-auto mt-4 mb-4" />
+                <p className="text-gray-400 text-[14px]">공간별 인테리어 디자인을 확인하세요</p>
+              </div>
+
+              {/* Space Selector */}
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+                {interiorSpaces.map((space) => (
+                  <button
+                    key={space.id}
+                    onClick={() => setInteriorSpace(space.id)}
+                    className={`px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 border
+                      ${interiorSpace === space.id
+                        ? "bg-navy text-gold border-navy shadow-lg"
+                        : "bg-white text-gray-400 border-gray-200 hover:border-gold/40 hover:text-gray-600"
+                      }
+                    `}
+                  >
+                    {space.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Image Grid */}
+              {(() => {
+                const currentSpace = interiorSpaces.find((s) => s.id === interiorSpace);
+                if (!currentSpace) return null;
+                const images = currentSpace.images;
+                return (
+                  <div className={`grid gap-3 ${
+                    images.length === 1 ? "grid-cols-1 max-w-[700px] mx-auto" :
+                    images.length === 2 ? "grid-cols-1 md:grid-cols-2" :
+                    images.length === 3 ? "grid-cols-1 md:grid-cols-3" :
+                    "grid-cols-1 md:grid-cols-2"
+                  }`}>
+                    {images.map((img, i) => (
+                      <button
+                        key={img.src}
+                        onClick={() => setLightbox(img.src)}
+                        className={`group relative overflow-hidden rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${
+                          images.length === 3 && i === 0 ? "md:col-span-2 md:row-span-1" :
+                          images.length === 4 && i === 0 ? "md:col-span-2" : ""
+                        }`}
+                      >
+                        <div className={`relative w-full ${
+                          (images.length === 3 && i === 0) || (images.length === 4 && i === 0)
+                            ? "aspect-[16/9]"
+                            : "aspect-[4/3]"
+                        }`}>
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        </div>
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                            <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         )}
 
@@ -334,6 +463,33 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
           </div>
         )}
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+            onClick={() => setLightbox(null)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="relative max-w-[1200px] max-h-[85vh] w-full h-full" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightbox}
+              alt="인테리어 확대"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
