@@ -171,24 +171,29 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ))}
               </div>
 
-              {/* 온라인대행 정보 카드 */}
+              {/* 시행/시공 정보 카드 */}
               <div data-animate className="mt-14">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1 h-5 bg-gold rounded-full" />
-                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>온라인대행</h4>
+                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>시행 · 시공</h4>
                 </div>
-                <div className="max-w-[400px]">
-                  <div className="group bg-white rounded-lg border border-gray-200/80 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300">
-                    <div className="h-1 bg-gold" />
-                    <div className="p-6">
-                      <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">온라인대행</span>
-                      <h5 className="text-navy text-[15px] font-bold mt-2.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                        바론플래닝㈜
-                      </h5>
-                      <p className="text-gray-400 text-[12px] mt-2">경기도 화성시 효행로 1059, 808-1호</p>
-                      <p className="text-gray-400 text-[12px] mt-1">사업자등록번호 135-86-50101</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  {[
+                    { role: "사업주체/시행", company: "백조아파트 소규모재건축정비사업조합", desc: "사업의 안정적 추진", accent: "bg-gold" },
+                    { role: "사업대행", company: "우리자산신탁 주식회사", desc: "신탁 기반 사업 관리", accent: "bg-navy" },
+                    { role: "시공", company: "씨에이이앤씨 주식회사", desc: "품격 있는 시공 퀄리티", accent: "bg-gold" },
+                  ].map((item, i) => (
+                    <div key={i} className="group bg-white rounded-lg border border-gray-200/80 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300">
+                      <div className={`h-1 ${item.accent}`} />
+                      <div className="p-6">
+                        <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">{item.role}</span>
+                        <h5 className="text-navy text-[15px] font-bold mt-2.5 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                          {item.company}
+                        </h5>
+                        <p className="text-gray-400 text-[12px] mt-2">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -502,27 +507,32 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ))}
               </div>
 
-              {/* 온라인대행 정보 */}
+              {/* 시행/시공 정보 */}
               <div data-animate>
                 <div className="text-center mb-10">
-                  <span className="text-gold text-[10px] tracking-[6px] font-medium uppercase">Online Agency</span>
+                  <span className="text-gold text-[10px] tracking-[6px] font-medium uppercase">Project Partners</span>
                   <h3 className="text-navy text-[22px] lg:text-[28px] font-bold mt-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                    온라인대행
+                    시행 · 시공
                   </h3>
                   <div className="w-10 h-[2px] bg-gold mx-auto mt-5" />
                 </div>
-                <div className="max-w-[400px] mx-auto stagger-children">
-                  <div className="group bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
-                    <div className="h-1 bg-gold" />
-                    <div className="p-7 text-center">
-                      <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">온라인대행</span>
-                      <h5 className="text-navy text-[15px] font-bold mt-3 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                        바론플래닝㈜
-                      </h5>
-                      <p className="text-gray-400 text-[12px] mt-2">경기도 화성시 효행로 1059, 808-1호</p>
-                      <p className="text-gray-400 text-[12px] mt-1">사업자등록번호 135-86-50101</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 stagger-children">
+                  {[
+                    { role: "사업주체/시행", company: "백조아파트 소규모\n재건축정비사업조합", desc: "사업의 안정적 추진", accent: "bg-gold" },
+                    { role: "사업대행", company: "우리자산신탁 주식회사", desc: "신탁 기반 사업 관리", accent: "bg-navy" },
+                    { role: "시공", company: "씨에이이앤씨 주식회사", desc: "품격 있는 시공 퀄리티", accent: "bg-gold" },
+                  ].map((item, i) => (
+                    <div key={i} className="group bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
+                      <div className={`h-1 ${item.accent}`} />
+                      <div className="p-7 text-center">
+                        <span className="text-gold text-[10px] tracking-[3px] font-semibold uppercase">{item.role}</span>
+                        <h5 className="text-navy text-[15px] font-bold mt-3 group-hover:text-gold transition-colors duration-300 whitespace-pre-line" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                          {item.company}
+                        </h5>
+                        <p className="text-gray-400 text-[12px] mt-2">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 

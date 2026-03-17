@@ -68,9 +68,10 @@ export default function Footer({ onTabChange }: FooterProps) {
               <span className="text-[18px] font-bold text-white tracking-wider">1800-5636</span>
             </div>
             <div className="mt-6 space-y-1.5 text-[12px] text-gray-600">
+              <p><span className="text-gray-500">사업주체/시행</span> 백조아파트 소규모재건축정비사업조합</p>
+              <p><span className="text-gray-500">사업대행</span> 우리자산신탁 주식회사</p>
+              <p><span className="text-gray-500">시공</span> 씨에이이앤씨 주식회사</p>
               <p><span className="text-gray-500">온라인대행</span> 바론플래닝㈜</p>
-              <p><span className="text-gray-500">주소</span> 경기도 화성시 효행로 1059, 808-1호(진안동, 미래프라자)</p>
-              <p><span className="text-gray-500">사업자등록번호</span> 135-86-50101</p>
             </div>
           </div>
 

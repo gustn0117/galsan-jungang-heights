@@ -496,7 +496,9 @@ export default function HomeSection() {
             1800-5636
           </a>
           <div className="mt-8 flex flex-wrap justify-center gap-8 text-white/30 text-[13px]">
-            <span>온라인대행 | 바론플래닝㈜</span>
+            <span>시행 | 백조아파트 소규모재건축정비사업조합</span>
+            <span>사업대행 | 우리자산신탁</span>
+            <span>시공 | 씨에이이앤씨</span>
           </div>
         </div>
       </div>
