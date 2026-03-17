@@ -50,6 +50,12 @@ const menuItems: MenuItem[] = [
     label: "분양안내",
     subItems: [
       { id: "schedule", label: "분양일정" },
+      { id: "supply", label: "공급안내" },
+      { id: "notice", label: "모집공고" },
+      { id: "documents", label: "서류안내" },
+      { id: "reserve", label: "예비당첨자 명단" },
+      { id: "contract", label: "계약안내" },
+      { id: "stamp", label: "인지세 납부 안내" },
     ],
   },
   {
