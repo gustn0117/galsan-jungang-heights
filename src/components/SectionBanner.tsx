@@ -31,7 +31,7 @@ export default function SectionBanner({
       {/* 하단 그라데이션 - 탭바와의 분리감 */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0c1320]/90 to-transparent z-[1]" />
       <div className="relative z-10 text-center">
-        <h2 className="banner-title-animate text-white text-[42px] font-light tracking-[20px]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+        <h2 className="banner-title-animate text-white text-[42px] font-bold tracking-[20px]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
           {title}
         </h2>
       </div>

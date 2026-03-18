@@ -22,7 +22,6 @@ export default function HomeSection() {
   const [vrLoaded, setVrLoaded] = useState(false);
 
   const sec1 = useInView();
-  const sec2 = useInView();
   const sec5 = useInView();
   const sec6 = useInView();
 
@@ -65,8 +64,8 @@ export default function HomeSection() {
         </div>
 
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/85 via-[#0a1628]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/60 via-transparent to-[#0a1628]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/50 via-[#0a1628]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/40 via-transparent to-[#0a1628]/15" />
 
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -159,14 +158,32 @@ export default function HomeSection() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Premium 4 Strip at Bottom */}
         <div
-          className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-all duration-1000 delay-1000 ${
-            loaded ? "opacity-100" : "opacity-0"
+          className={`absolute bottom-0 left-0 right-0 z-10 transition-all duration-[1200ms] delay-1000 ${
+            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="text-white/40 text-[11px] tracking-[3px] uppercase">Scroll</span>
-          <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent scroll-indicator" />
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {[
+              { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 1분, 서울 직결" },
+              { tag: "NATURE", badge: "도보 1분", title: "자연중심", desc: "갈산천수변공원 초근접" },
+              { tag: "LIVING", badge: "도보 2분", title: "생활중심", desc: "롯데마트, 부평중앙시장" },
+              { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈산초, 부평동중, 부평여고" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative px-6 py-5 lg:px-8 lg:py-6 bg-black/40 backdrop-blur-sm border-r border-white/[0.08] last:border-r-0 hover:bg-black/50 transition-all duration-300"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-gold text-[9px] tracking-[3px] font-medium">{item.tag}</span>
+                  <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] font-bold rounded-sm">{item.badge}</span>
+                </div>
+                <h3 className="text-white text-[18px] lg:text-[20px] font-bold">{item.title}</h3>
+                <p className="text-white/50 text-[11px] lg:text-[12px] mt-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Side Info Bar */}
@@ -376,95 +393,6 @@ export default function HomeSection() {
               <br />
               앞마당에 펼쳐진 중심상업지구를 통한 완벽한 생활인프라
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ===== PREMIUM 4 Highlights ===== */}
-      <div ref={sec2.ref} className="bg-[#0c1a2e] py-28 lg:py-36 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className={`text-center mb-20 transition-all duration-[800ms] ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="text-gold text-[12px] tracking-[5px] font-medium">PREMIUM 4</span>
-            <h2 className="text-[30px] lg:text-[40px] font-bold text-white mt-5 leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-              걸어서 누리는 완성된 프리미엄
-            </h2>
-            <div className="flex items-center justify-center gap-3 mt-6">
-              <span className="w-12 h-[1px] bg-gold/30" />
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              <span className="w-12 h-[1px] bg-gold/30" />
-            </div>
-          </div>
-
-          {/* 4개 카드 그리드 */}
-          <div className={`grid md:grid-cols-2 gap-4 transition-all duration-[800ms] delay-200 ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            {[
-              {
-                num: "01",
-                badge: "도보 0분",
-                tag: "TRANSPORTATION",
-                title: "교통중심",
-                desc: "갈산역 도보 1분! 인천1호선 운행 시 7호선 직결운행으로 서울 4대 중심 업무지구까지 한 번에",
-                image: "/images/premium-transport.jpg",
-              },
-              {
-                num: "02",
-                badge: "도보 1분",
-                tag: "NATURE",
-                title: "자연중심",
-                desc: "갈산천수변공원까지 1분! 단지에서 나오면 바로 수변공원이 펼쳐지는 자연친화적 주거환경",
-                image: "/images/premium-nature.jpg",
-              },
-              {
-                num: "03",
-                badge: "도보 2분",
-                tag: "LIVING",
-                title: "생활중심",
-                desc: "롯데마트, 부평문화의거리, 부평역지하상가, 부평중앙시장 등 풍부한 생활 인프라",
-                image: "/images/premium-life.jpg",
-              },
-              {
-                num: "04",
-                badge: "도보 10분",
-                tag: "EDUCATION",
-                title: "교육중심",
-                desc: "갈산초, 부평동중, 부평여고 등 우수한 교육 환경과 학원가가 가까이",
-                image: "/images/premium-edu.jpg",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className={`group relative h-[340px] overflow-hidden cursor-default ${sec2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                style={{ transitionDelay: sec2.visible ? `${200 + i * 100}ms` : "0ms", transitionDuration: "800ms" }}
-              >
-                <div className="absolute inset-0 bg-[#0f2238]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                {/* 그라데이션 오버레이 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
-                {/* 넘버링 */}
-                <span className="absolute top-5 right-7 text-[80px] font-black text-white/[0.04] leading-none select-none">{item.num}</span>
-                {/* 컨텐츠 */}
-                <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-gold/70 text-[10px] tracking-[4px] font-medium">{item.tag}</span>
-                  </div>
-                  <div>
-                    <span className="inline-block px-3 py-1 bg-gold/90 text-white text-[10px] font-bold tracking-[1px] rounded-sm mb-4">
-                      {item.badge}
-                    </span>
-                    <h3 className="text-white text-[26px] lg:text-[30px] font-bold mb-2">{item.title}</h3>
-                    <p className="text-white/55 text-[13px] leading-[1.8] max-w-[400px]">{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
