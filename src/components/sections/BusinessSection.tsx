@@ -8,6 +8,7 @@ const subTabs = [
   { id: "overview", label: "사업개요" },
   { id: "brand", label: "브랜드 소개" },
   { id: "directions", label: "오시는길" },
+  { id: "aerial-vr", label: "항공 VR" },
 ];
 
 interface BusinessSectionProps {
@@ -362,6 +363,37 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
 
             <p className="text-gray-300 text-[11px] text-center tracking-wide mt-10">
               * 분양홍보관 운영시간은 사정에 따라 변경될 수 있습니다. 방문 전 전화 문의를 권장합니다.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {activeSubTab === "aerial-vr" && (
+        <div className="tab-content bg-white">
+          <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-16 lg:py-20">
+            <div className="mb-10">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-8 h-px bg-gold" />
+                <span className="text-gold text-[10px] tracking-[4px] font-medium uppercase">Aerial VR Tour</span>
+              </div>
+              <h3 className="text-navy text-[24px] lg:text-[28px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                항공 VR
+              </h3>
+              <p className="text-gray-400 text-[14px] mt-2">360° 항공 파노라마로 단지 주변 환경을 확인하세요.</p>
+            </div>
+            <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-gray-100">
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  src="https://vr2.dreamvrad.net/bupyeong_heights/"
+                  className="absolute inset-0 w-full h-full"
+                  allow="gyroscope; accelerometer; fullscreen"
+                  allowFullScreen
+                  style={{ border: "none" }}
+                />
+              </div>
+            </div>
+            <p className="text-gray-300 text-[11px] text-center tracking-wide mt-6">
+              * 마우스 드래그 또는 터치로 360° 회전하여 주변 환경을 확인할 수 있습니다.
             </p>
           </div>
         </div>

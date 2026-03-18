@@ -17,6 +17,7 @@ const menuItems: MenuItem[] = [
       { id: "overview", label: "사업개요" },
       { id: "brand", label: "브랜드 소개" },
       { id: "directions", label: "오시는길" },
+      { id: "aerial-vr", label: "항공 VR" },
     ],
   },
   {
