@@ -73,87 +73,86 @@ export default function HomeSection() {
           backgroundSize: '80px 80px'
         }} />
 
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
-            <div
-              className={`max-w-[700px] transition-all duration-[1200ms] ease-out ${
-                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        {/* Hero Content - 가운데 정렬, 하단 배치 */}
+        <div className="absolute inset-0 flex items-end justify-center pb-[180px] lg:pb-[200px]">
+          <div
+            className={`text-center transition-all duration-[1200ms] ease-out ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            {/* Badge */}
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className="inline-block w-12 h-[1px] bg-gold" />
+              <span className="text-gold text-[13px] tracking-[4px] font-medium uppercase">
+                Premium Residence
+              </span>
+              <span className="inline-block w-12 h-[1px] bg-gold" />
+            </div>
+
+            {/* Main Quote */}
+            <div className="mb-6">
+              <p className="text-white/60 text-[16px] lg:text-[18px] font-light tracking-wide mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                &ldquo; 갈산역 &lsquo;0분&rsquo;의 가치, 중앙하이츠에서 누리다 &rdquo;
+              </p>
+              <h1 className="text-white">
+                <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-extralight leading-[1.15] tracking-tight">
+                  걸어서 누리는
+                </span>
+                <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-bold leading-[1.15] tracking-tight mt-1">
+                  완성된 <span className="text-gold">프리미엄</span>
+                </span>
+              </h1>
+            </div>
+
+            {/* Subtitle */}
+            <p
+              className={`text-white/60 text-[14px] lg:text-[16px] leading-[1.8] mb-10 transition-all duration-[1200ms] delay-300 ${
+                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              {/* Badge */}
-              <div className="flex items-center gap-3 mb-8">
-                <span className="inline-block w-12 h-[1px] bg-gold" />
-                <span className="text-gold text-[13px] tracking-[4px] font-medium uppercase">
-                  Premium Residence
-                </span>
-              </div>
+              내집앞 갈산역 초역세권, 내집앞 수변공원 초공세권
+              <br />
+              총 126세대 / 일반분양 50세대 / 59type 단일
+            </p>
 
-              {/* Main Quote */}
-              <div className="mb-6">
-                <p className="text-white/60 text-[16px] lg:text-[18px] font-light tracking-wide mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                  &ldquo; 갈산역 &lsquo;0분&rsquo;의 가치, 중앙하이츠에서 누리다 &rdquo;
-                </p>
-                <h1 className="text-white">
-                  <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-extralight leading-[1.15] tracking-tight">
-                    걸어서 누리는
-                  </span>
-                  <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-bold leading-[1.15] tracking-tight mt-1">
-                    완성된 <span className="text-gold">프리미엄</span>
-                  </span>
-                </h1>
-              </div>
+            {/* Brand Name */}
+            <div
+              className={`flex justify-center transition-all duration-[1200ms] delay-500 ${
+                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
+              <Image
+                src="/images/logo-bi.png"
+                alt="중앙하이츠 갈산역 센트럴"
+                width={360}
+                height={80}
+                className="h-[48px] lg:h-[56px] w-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            </div>
 
-              {/* Subtitle */}
-              <p
-                className={`text-white/60 text-[14px] lg:text-[16px] leading-[1.8] mb-10 max-w-[520px] transition-all duration-[1200ms] delay-300 ${
-                  loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
+            {/* CTA Buttons */}
+            <div
+              className={`mt-12 flex flex-wrap justify-center items-center gap-4 transition-all duration-[1200ms] delay-700 ${
+                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
+              <button className="group flex items-center gap-3 px-8 py-4 bg-gold/90 hover:bg-gold text-white text-[14px] font-semibold tracking-wider transition-all duration-300 hover:gap-5">
+                관심고객 사전등록
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+              <a
+                href="tel:1800-5636"
+                className="flex items-center gap-2 px-6 py-4 border border-white/30 text-white/80 hover:border-white hover:text-white text-[14px] font-medium tracking-wider transition-all duration-300"
               >
-                내집앞 갈산역 초역세권, 내집앞 수변공원 초공세권
-                <br />
-                총 126세대 / 일반분양 50세대 / 59type 단일
-              </p>
-
-              {/* Brand Name */}
-              <div
-                className={`transition-all duration-[1200ms] delay-500 ${
-                  loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                <Image
-                  src="/images/logo-bi.png"
-                  alt="중앙하이츠 갈산역 센트럴"
-                  width={360}
-                  height={80}
-                  className="h-[48px] lg:h-[56px] w-auto"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              </div>
-
-              {/* CTA Buttons */}
-              <div
-                className={`mt-12 flex flex-wrap items-center gap-4 transition-all duration-[1200ms] delay-700 ${
-                  loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                <button className="group flex items-center gap-3 px-8 py-4 bg-gold/90 hover:bg-gold text-white text-[14px] font-semibold tracking-wider transition-all duration-300 hover:gap-5">
-                  관심고객 사전등록
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-                <a
-                  href="tel:1800-5636"
-                  className="flex items-center gap-2 px-6 py-4 border border-white/30 text-white/80 hover:border-white hover:text-white text-[14px] font-medium tracking-wider transition-all duration-300"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  1800-5636
-                </a>
-              </div>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                1800-5636
+              </a>
             </div>
           </div>
         </div>
