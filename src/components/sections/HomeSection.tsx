@@ -19,6 +19,7 @@ function useInView(threshold = 0.15) {
 export default function HomeSection() {
   const [loaded, setLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [vrLoaded, setVrLoaded] = useState(false);
 
   const sec1 = useInView();
   const sec2 = useInView();
@@ -36,18 +37,30 @@ export default function HomeSection() {
     <section className="relative">
       {/* ===== Hero Section ===== */}
       <div className="relative h-[100vh] min-h-[700px] overflow-hidden">
-        {/* Background Image with Parallax */}
-        <div
-          className="absolute inset-0 scale-110"
-          style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
-        >
-          <Image
-            src="/images/hero-rendering.jpg"
-            alt="중앙하이츠 갈산역 센트럴 조감도"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
+        {/* Background: VR Aerial Panorama */}
+        <div className="absolute inset-0">
+          {/* Fallback image while VR loads */}
+          <div
+            className={`absolute inset-0 transition-opacity duration-1000 ${vrLoaded ? "opacity-0" : "opacity-100"}`}
+            style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
+          >
+            <Image
+              src="/images/hero-rendering.jpg"
+              alt="중앙하이츠 갈산역 센트럴 조감도"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+          {/* VR iframe background */}
+          <iframe
+            src="https://vr2.dreamvrad.net/bupyeong_heights/"
+            className={`absolute inset-0 w-full h-full border-0 pointer-events-none transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
+            style={{ transform: "scale(1.3)" }}
+            onLoad={() => setVrLoaded(true)}
+            title="항공 VR 배경"
+            allow="gyroscope; accelerometer"
           />
         </div>
 
