@@ -125,9 +125,9 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
 
               {/* 사업 정보 테이블 */}
               <div data-animate className="bg-white overflow-hidden rounded-lg border border-gray-200/80 shadow-sm">
-                <div className="bg-navy/[0.03] px-6 lg:px-8 py-4 border-b border-gray-200/80 flex items-center gap-3">
+                <div className="bg-navy/[0.03] px-6 lg:px-8 py-5 border-b border-gray-200/80 flex items-center gap-3">
                   <span className="w-1 h-5 bg-gold rounded-full" />
-                  <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>사업 정보</h4>
+                  <h4 className="text-navy text-[17px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>사업 정보</h4>
                 </div>
                 {[
                   { label: "사업명", value: "중앙하이츠 갈산역 센트럴", highlight: true },
@@ -142,11 +142,11 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   { label: "대지지분", value: "24.72㎡" },
                 ].map((item, i) => (
                   <div key={i} className={`flex ${i > 0 ? "border-t border-gray-100" : ""} ${item.highlight ? "bg-gold/[0.03]" : i % 2 === 1 ? "bg-gray-50/40" : "bg-white"} hover:bg-gold/[0.02] transition-colors duration-200`}>
-                    <div className="w-[130px] lg:w-[170px] flex-shrink-0 px-6 py-3.5 flex items-center border-r border-gray-100">
-                      <span className="text-[13px] text-navy font-semibold tracking-wide">{item.label}</span>
+                    <div className="w-[140px] lg:w-[200px] flex-shrink-0 px-6 lg:px-8 py-5 flex items-center border-r border-gray-100">
+                      <span className="text-[15px] text-navy font-semibold tracking-wide">{item.label}</span>
                     </div>
-                    <div className="flex-1 px-6 py-3.5 flex items-center">
-                      <span className={`text-[14px] ${item.highlight ? "text-navy font-bold" : "text-gray-600"}`}>{item.value}</span>
+                    <div className="flex-1 px-6 lg:px-8 py-5 flex items-center">
+                      <span className={`text-[16px] ${item.highlight ? "text-navy font-bold" : "text-gray-600"}`}>{item.value}</span>
                     </div>
                   </div>
                 ))}
@@ -160,13 +160,13 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   { label: "주거공용", value: "27.02", unit: "㎡" },
                   { label: "기타공용", value: "78.65", unit: "㎡" },
                 ].map((item, i) => (
-                  <div key={i} className={`group relative bg-white p-6 text-center hover:bg-navy/[0.02] transition-colors duration-300 ${i < 3 ? "border-r border-gray-200/80" : ""} ${i < 2 ? "border-b lg:border-b-0 border-gray-200/80" : i === 2 ? "border-b lg:border-b-0 border-gray-200/80" : ""}`}>
-                    <p className="text-gray-400 text-[10px] tracking-[2px] uppercase font-medium mb-3">{item.label}</p>
+                  <div key={i} className={`group relative bg-white p-7 text-center hover:bg-navy/[0.02] transition-colors duration-300 ${i < 3 ? "border-r border-gray-200/80" : ""} ${i < 2 ? "border-b lg:border-b-0 border-gray-200/80" : i === 2 ? "border-b lg:border-b-0 border-gray-200/80" : ""}`}>
+                    <p className="text-gray-400 text-[12px] tracking-[2px] uppercase font-medium mb-3">{item.label}</p>
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-navy text-[22px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.value}</span>
-                      <span className="text-gray-300 text-[11px] ml-0.5">{item.unit}</span>
+                      <span className="text-navy text-[28px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.value}</span>
+                      <span className="text-gray-300 text-[13px] ml-1">{item.unit}</span>
                     </div>
-                    <div className="w-5 h-px bg-gold/30 mx-auto mt-3 group-hover:w-8 transition-all duration-300" />
+                    <div className="w-5 h-px bg-gold/30 mx-auto mt-4 group-hover:w-8 transition-all duration-300" />
                   </div>
                 ))}
               </div>
