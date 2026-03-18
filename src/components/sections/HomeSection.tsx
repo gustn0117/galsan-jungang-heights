@@ -63,133 +63,99 @@ export default function HomeSection() {
           />
         </div>
 
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/50 via-[#0a1628]/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/40 via-transparent to-[#0a1628]/15" />
+        {/* 하단 그라데이션 - 컨텐츠 영역과 자연스럽게 연결 */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-transparent" />
 
-        {/* Decorative Grid Lines */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px'
-        }} />
-
-        {/* Hero Content - 가운데 정렬, 하단 배치 */}
-        <div className="absolute inset-0 flex items-end justify-center pb-[180px] lg:pb-[200px]">
-          <div
-            className={`text-center transition-all duration-[1200ms] ease-out ${
-              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            {/* Badge */}
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className="inline-block w-12 h-[1px] bg-gold" />
-              <span className="text-gold text-[13px] tracking-[4px] font-medium uppercase">
-                Premium Residence
-              </span>
-              <span className="inline-block w-12 h-[1px] bg-gold" />
-            </div>
-
-            {/* Main Quote */}
-            <div className="mb-6">
-              <p className="text-white/60 text-[16px] lg:text-[18px] font-light tracking-wide mb-4" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                &ldquo; 갈산역 &lsquo;0분&rsquo;의 가치, 중앙하이츠에서 누리다 &rdquo;
-              </p>
-              <h1 className="text-white">
-                <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-extralight leading-[1.15] tracking-tight">
+        {/* Hero Content - 하단 고정 레이아웃 */}
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            {/* 메인 타이틀 영역 */}
+            <div
+              className={`text-center mb-10 transition-all duration-[1200ms] ease-out ${
+                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <span className="w-8 h-[1px] bg-gold/50" />
+                <span className="text-gold text-[12px] tracking-[4px] font-medium uppercase">Premium Residence</span>
+                <span className="w-8 h-[1px] bg-gold/50" />
+              </div>
+              <h1 className="text-white mb-4">
+                <span className="block text-[36px] lg:text-[48px] xl:text-[56px] font-extralight leading-[1.15] tracking-tight">
                   걸어서 누리는
                 </span>
-                <span className="block text-[38px] lg:text-[52px] xl:text-[60px] font-bold leading-[1.15] tracking-tight mt-1">
+                <span className="block text-[36px] lg:text-[48px] xl:text-[56px] font-bold leading-[1.15] tracking-tight mt-1">
                   완성된 <span className="text-gold">프리미엄</span>
                 </span>
               </h1>
+              <p className="text-white/50 text-[13px] lg:text-[15px] leading-[1.8]">
+                내집앞 갈산역 초역세권, 내집앞 수변공원 초공세권 &nbsp;|&nbsp; 총 126세대 / 일반분양 50세대 / 59type 단일
+              </p>
             </div>
 
-            {/* Subtitle */}
-            <p
-              className={`text-white/60 text-[14px] lg:text-[16px] leading-[1.8] mb-10 transition-all duration-[1200ms] delay-300 ${
-                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            >
-              내집앞 갈산역 초역세권, 내집앞 수변공원 초공세권
-              <br />
-              총 126세대 / 일반분양 50세대 / 59type 단일
-            </p>
-
-            {/* Brand Name */}
+            {/* 로고 + CTA 가로 배치 */}
             <div
-              className={`flex justify-center transition-all duration-[1200ms] delay-500 ${
+              className={`flex flex-col sm:flex-row items-center justify-center gap-6 mb-10 transition-all duration-[1200ms] delay-500 ${
                 loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
               <Image
                 src="/images/logo-bi.png"
                 alt="중앙하이츠 갈산역 센트럴"
-                width={360}
-                height={80}
-                className="h-[48px] lg:h-[56px] w-auto"
+                width={280}
+                height={60}
+                className="h-[40px] lg:h-[46px] w-auto"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-            </div>
-
-            {/* CTA Buttons */}
-            <div
-              className={`mt-12 flex flex-wrap justify-center items-center gap-4 transition-all duration-[1200ms] delay-700 ${
-                loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            >
-              <button className="group flex items-center gap-3 px-8 py-4 bg-gold/90 hover:bg-gold text-white text-[14px] font-semibold tracking-wider transition-all duration-300 hover:gap-5">
-                관심고객 사전등록
-                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-              <a
-                href="tel:1800-5636"
-                className="flex items-center gap-2 px-6 py-4 border border-white/30 text-white/80 hover:border-white hover:text-white text-[14px] font-medium tracking-wider transition-all duration-300"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                1800-5636
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Premium 4 Strip at Bottom */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 z-10 transition-all duration-[1200ms] delay-1000 ${
-            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4">
-            {[
-              { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 1분, 서울 직결" },
-              { tag: "NATURE", badge: "도보 1분", title: "자연중심", desc: "갈산천수변공원 초근접" },
-              { tag: "LIVING", badge: "도보 2분", title: "생활중심", desc: "롯데마트, 부평중앙시장" },
-              { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈산초, 부평동중, 부평여고" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group relative px-6 py-5 lg:px-8 lg:py-6 bg-black/40 backdrop-blur-sm border-r border-white/[0.08] last:border-r-0 hover:bg-black/50 transition-all duration-300"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-gold text-[9px] tracking-[3px] font-medium">{item.tag}</span>
-                  <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] font-bold rounded-sm">{item.badge}</span>
-                </div>
-                <h3 className="text-white text-[18px] lg:text-[20px] font-bold">{item.title}</h3>
-                <p className="text-white/50 text-[11px] lg:text-[12px] mt-1">{item.desc}</p>
+              <div className="hidden sm:block w-[1px] h-8 bg-white/20" />
+              <div className="flex items-center gap-3">
+                <button className="group flex items-center gap-2 px-6 py-3 bg-gold/90 hover:bg-gold text-white text-[13px] font-semibold tracking-wider transition-all duration-300">
+                  관심고객 사전등록
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+                <a
+                  href="tel:1800-5636"
+                  className="flex items-center gap-2 px-5 py-3 border border-white/30 text-white/80 hover:border-white hover:text-white text-[13px] font-medium tracking-wider transition-all duration-300"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  1800-5636
+                </a>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
 
-        {/* Side Info Bar */}
-        <div className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6">
-          <div className="w-[1px] h-16 bg-white/20" />
-          <span className="text-white/40 text-[11px] tracking-[2px] writing-vertical">1800-5636</span>
-          <div className="w-[1px] h-16 bg-white/20" />
+          {/* Premium 4 Strip - 최하단 */}
+          <div
+            className={`transition-all duration-[1200ms] delay-800 ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {[
+                { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 1분, 서울 직결" },
+                { tag: "NATURE", badge: "도보 1분", title: "자연중심", desc: "갈산천수변공원 초근접" },
+                { tag: "LIVING", badge: "도보 2분", title: "생활중심", desc: "롯데마트, 부평중앙시장" },
+                { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈산초, 부평동중, 부평여고" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="group px-6 py-4 lg:px-8 lg:py-5 bg-navy/80 backdrop-blur-md border-r border-white/[0.06] last:border-r-0 hover:bg-navy/90 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-gold text-[9px] tracking-[2px] font-medium">{item.tag}</span>
+                    <span className="px-1.5 py-0.5 bg-gold/80 text-white text-[8px] font-bold rounded-sm">{item.badge}</span>
+                  </div>
+                  <h3 className="text-white text-[17px] lg:text-[19px] font-bold">{item.title}</h3>
+                  <p className="text-white/40 text-[11px] mt-0.5">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
