@@ -33,7 +33,14 @@ export default function HomeSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 드래그 종료 감지 (iframe 안에서 mouseup 시 document에서 못 잡으므로 pointermove로 체크)
+  // 휠 스크롤 시 즉시 오버레이 복원 (iframe에 휠이 가더라도 다음 스크롤부터 페이지로)
+  useEffect(() => {
+    const restore = () => setVrActive(false);
+    window.addEventListener("wheel", restore, { capture: true, passive: true });
+    return () => window.removeEventListener("wheel", restore, { capture: true });
+  }, []);
+
+  // 드래그 종료 감지
   useEffect(() => {
     if (!vrActive) return;
     const stop = () => setVrActive(false);
@@ -76,14 +83,15 @@ export default function HomeSection() {
             allow="gyroscope; accelerometer"
           />
           {/* 오버레이: 휠 스크롤은 페이지로, 마우스 드래그 시 iframe 활성화 */}
-          {!vrActive && (
-            <div
-              className="absolute inset-0 z-[5]"
-              style={{ cursor: "grab" }}
-              onMouseDown={() => setVrActive(true)}
-              onWheel={(e) => { window.scrollBy(0, e.deltaY); }}
-            />
-          )}
+          <div
+            className="absolute inset-0 z-[5]"
+            style={{
+              cursor: vrActive ? "grabbing" : "grab",
+              pointerEvents: vrActive ? "none" : "auto",
+            }}
+            onMouseDown={() => setVrActive(true)}
+            onWheel={(e) => { window.scrollBy(0, e.deltaY); }}
+          />
         </div>
 
         {/* 하단 그라데이션 - 하단부만 살짝, 상단은 밝게 */}
