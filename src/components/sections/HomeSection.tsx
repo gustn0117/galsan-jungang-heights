@@ -20,6 +20,7 @@ export default function HomeSection() {
   const [loaded, setLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [vrLoaded, setVrLoaded] = useState(false);
+  const [dragging, setDragging] = useState(false);
 
   const sec1 = useInView();
   const sec5 = useInView();
@@ -28,8 +29,13 @@ export default function HomeSection() {
   useEffect(() => {
     setLoaded(true);
     const handleScroll = () => setScrollY(window.scrollY);
+    const handleMouseUp = () => setDragging(false);
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
   }, []);
 
   return (
@@ -56,10 +62,16 @@ export default function HomeSection() {
           <iframe
             src="https://vr2.dreamvrad.net/bupyeong_heights/"
             className={`absolute inset-0 w-full h-full border-0 transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
-            style={{ transform: "scale(1.3)" }}
+            style={{ transform: "scale(1.3)", pointerEvents: dragging ? "auto" : "none" }}
             onLoad={() => setVrLoaded(true)}
             title="항공 VR 배경"
             allow="gyroscope; accelerometer"
+          />
+          {/* 드래그만 iframe으로 전달, 스크롤은 페이지로 */}
+          <div
+            className="absolute inset-0"
+            style={{ pointerEvents: dragging ? "none" : "auto", cursor: "grab" }}
+            onMouseDown={() => setDragging(true)}
           />
         </div>
 
@@ -141,14 +153,14 @@ export default function HomeSection() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="group px-6 py-4 lg:px-8 lg:py-5 bg-navy/80 backdrop-blur-md border-r border-white/[0.06] last:border-r-0 hover:bg-navy/90 transition-all duration-300"
+                  className="group px-6 py-5 lg:px-10 lg:py-7 bg-navy/80 backdrop-blur-md border-r border-white/[0.06] last:border-r-0 hover:bg-navy/90 transition-all duration-300 text-center"
                 >
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-gold text-[9px] tracking-[2px] font-medium">{item.tag}</span>
-                    <span className="px-1.5 py-0.5 bg-gold/80 text-white text-[8px] font-bold rounded-sm">{item.badge}</span>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-gold text-[10px] lg:text-[11px] tracking-[3px] font-medium">{item.tag}</span>
+                    <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] lg:text-[10px] font-bold rounded-sm">{item.badge}</span>
                   </div>
-                  <h3 className="text-white text-[17px] lg:text-[19px] font-bold">{item.title}</h3>
-                  <p className="text-white/40 text-[11px] mt-0.5">{item.desc}</p>
+                  <h3 className="text-white text-[22px] lg:text-[26px] font-bold">{item.title}</h3>
+                  <p className="text-white/40 text-[12px] lg:text-[13px] mt-1">{item.desc}</p>
                 </div>
               ))}
             </div>
