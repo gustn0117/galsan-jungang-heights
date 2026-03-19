@@ -291,7 +291,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   {
                     title: "지하철",
                     items: [
-                      { badge: "인천1호선", color: "bg-[#7CA8D5]", desc: "갈산역 하차", highlight: "도보 1분" },
+                      { badge: "인천1호선", color: "bg-[#7CA8D5]", desc: "갈산역 하차", highlight: "도보 0분" },
                       { badge: "서울7호선", color: "bg-[#6B8E4E]", desc: "부평구청역 하차", highlight: "도보 5분" },
                     ],
                   },
@@ -504,7 +504,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               {/* 4대 프리미엄 카피 */}
               <div data-animate className="space-y-0 mb-24">
                 {[
-                  { num: "01", label: "교통", eng: "TRANSPORT", copy: "내집앞 갈산역으로 여유가 스며드는 생활을 누리다", highlight: "갈산역 도보 1분" },
+                  { num: "01", label: "교통", eng: "TRANSPORT", copy: "내집앞 갈산역으로 여유가 스며드는 생활을 누리다", highlight: "갈산역 도보 0분" },
                   { num: "02", label: "자연", eng: "NATURE", copy: "내집앞 수변공원과 천변을 따라 조성된 산책로를 통해 에코 힐링 라이프를 누리다", highlight: "갈산천 수변공원 1분" },
                   { num: "03", label: "생활", eng: "LIFESTYLE", copy: "내집앞 중심상권과 대형마트, 부평구청 등 편리한 생활인프라를 원스톱으로 즐기다", highlight: "롯데마트 도보 2분" },
                   { num: "04", label: "교육", eng: "EDUCATION", copy: "도보권 내 우수한 학교와 도서관 등 풍부한 교육인프라를 누리다", highlight: "우수 학군 도보권" },

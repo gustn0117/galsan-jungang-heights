@@ -160,7 +160,7 @@ export default function HomeSection() {
           >
             <div className="grid grid-cols-2 lg:grid-cols-4">
               {[
-                { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 1분, 서울 직결" },
+                { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 0분, 서울 직결" },
                 { tag: "NATURE", badge: "도보 1분", title: "자연중심", desc: "갈산천수변공원 초근접" },
                 { tag: "LIVING", badge: "도보 2분", title: "생활중심", desc: "롯데마트, 부평중앙시장" },
                 { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈산초, 부평동중, 부평여고" },
@@ -226,7 +226,7 @@ export default function HomeSection() {
                 <div className="w-2 h-2 rounded-full bg-gold/40" />
               </div>
               <p className="text-gray-500 text-[15px] leading-[1.9] mb-4">
-                중앙하이츠 갈산역 센트럴은 갈산역 도보 1분의 초역세권에 위치하여
+                중앙하이츠 갈산역 센트럴은 갈산역 도보 0분의 초역세권에 위치하여
                 인천1호선은 물론 서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에 연결됩니다.
               </p>
               <p className="text-gray-500 text-[15px] leading-[1.9] mb-10">
@@ -324,7 +324,7 @@ export default function HomeSection() {
                 <p className="text-white/55 text-[14px] leading-[2]">
                   단지 바로 앞에서 이용가능한 지하철,
                   <br />
-                  인천1호선 갈산역 도보 1분!
+                  인천1호선 갈산역 도보 0분!
                   <br />
                   서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에
                 </p>

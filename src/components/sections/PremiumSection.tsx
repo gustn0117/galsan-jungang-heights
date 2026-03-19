@@ -72,7 +72,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   <div className="max-w-[500px]">
                     <span className="text-gold text-[12px] tracking-[4px] font-medium mb-4 block">LOCATION</span>
                     <h3 className="text-white text-[36px] lg:text-[44px] font-bold leading-tight mb-4">
-                      갈산역 도보 1분!
+                      갈산역 도보 0분!
                       <br />
                       초역세권의 가치
                     </h3>
@@ -102,7 +102,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                 {/* 교통 노선 — 심플 리스트 */}
                 <div className="space-y-0 mb-24">
                   {[
-                    { num: "01", line: "인천1호선", station: "갈산역", time: "도보 1분", desc: "인천1호선 갈산역 도보 1분의 초역세권 프리미엄" },
+                    { num: "01", line: "인천1호선", station: "갈산역", time: "도보 0분", desc: "인천1호선 갈산역 도보 0분의 초역세권 프리미엄" },
                     { num: "02", line: "서울7호선", station: "부평구청역", time: "1정거장", desc: "1정거장, 약 도보 5분이면 서울7호선 부평구청역 이용" },
                     { num: "03", line: "GTX-B", station: "부평역", time: "3정거장", desc: "서해라인 GTX-B(시행예정) 부평역, 광역교통망 수혜" },
                   ].map((item, i) => (
@@ -237,9 +237,9 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
               {[
                 {
                   num: "01",
-                  badge: "도보 1분",
+                  badge: "도보 0분",
                   category: "교통중심",
-                  title: "갈산역 도보 1분\n초역세권의 가치",
+                  title: "갈산역 도보 0분\n초역세권의 가치",
                   desc: "인천1호선(2C11) 운행 시 7호선과의 직결운행으로 서울 4대 중심 업무지구까지 한 번에! 1정거장이면 서울7호선 부평구청역, 3정거장이면 GTX-B(시행예정) 부평역",
                   highlights: ["인천1호선 갈산역", "서울7호선 부평구청역", "GTX-B 부평역"],
                   placeholderNum: 12,
