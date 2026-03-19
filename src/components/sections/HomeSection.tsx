@@ -64,10 +64,10 @@ export default function HomeSection() {
         </div>
 
         {/* 하단 그라데이션 - 컨텐츠 영역과 자연스럽게 연결 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-transparent pointer-events-none" />
 
         {/* Hero Content - 하단 고정 레이아웃 */}
-        <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             {/* 메인 타이틀 영역 */}
             <div
@@ -108,7 +108,7 @@ export default function HomeSection() {
                 style={{ filter: "brightness(0) invert(1)" }}
               />
               <div className="hidden sm:block w-[1px] h-8 bg-white/20" />
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 pointer-events-auto">
                 <button className="group flex items-center gap-2 px-6 py-3 bg-gold/90 hover:bg-gold text-white text-[13px] font-semibold tracking-wider transition-all duration-300">
                   관심고객 사전등록
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
