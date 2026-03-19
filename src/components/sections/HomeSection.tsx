@@ -28,15 +28,28 @@ export default function HomeSection() {
 
   useEffect(() => {
     setLoaded(true);
-    const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseUp = () => setDragging(false);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mouseup", handleMouseUp);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      setDragging(false);
     };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 드래그 해제: mouseup 또는 마우스가 히어로 밖으로 나갈 때
+  useEffect(() => {
+    if (!dragging) return;
+    const stop = () => setDragging(false);
+    document.addEventListener("mouseup", stop);
+    document.addEventListener("mouseleave", stop);
+    // iframe 안에서 mouseup 감지 불가하므로 3초 후 자동 해제
+    const timer = setTimeout(stop, 3000);
+    return () => {
+      document.removeEventListener("mouseup", stop);
+      document.removeEventListener("mouseleave", stop);
+      clearTimeout(timer);
+    };
+  }, [dragging]);
 
   return (
     <section className="relative">
@@ -68,11 +81,13 @@ export default function HomeSection() {
             allow="gyroscope; accelerometer"
           />
           {/* 드래그만 iframe으로 전달, 스크롤은 페이지로 */}
-          <div
-            className="absolute inset-0"
-            style={{ pointerEvents: dragging ? "none" : "auto", cursor: "grab" }}
-            onMouseDown={() => setDragging(true)}
-          />
+          {!dragging && (
+            <div
+              className="absolute inset-0 z-[5]"
+              style={{ cursor: "grab" }}
+              onMouseDown={() => setDragging(true)}
+            />
+          )}
         </div>
 
         {/* 하단 그라데이션 - 하단부만 살짝, 상단은 밝게 */}
