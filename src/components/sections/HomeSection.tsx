@@ -20,6 +20,7 @@ export default function HomeSection() {
   const [loaded, setLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [vrLoaded, setVrLoaded] = useState(false);
+  const [vrActive, setVrActive] = useState(false);
 
   const sec1 = useInView();
   const sec5 = useInView();
@@ -31,6 +32,19 @@ export default function HomeSection() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 드래그 종료 감지 (iframe 안에서 mouseup 시 document에서 못 잡으므로 pointermove로 체크)
+  useEffect(() => {
+    if (!vrActive) return;
+    const stop = () => setVrActive(false);
+    const checkRelease = (e: PointerEvent) => { if (e.buttons === 0) stop(); };
+    document.addEventListener("mouseup", stop);
+    document.addEventListener("pointermove", checkRelease);
+    return () => {
+      document.removeEventListener("mouseup", stop);
+      document.removeEventListener("pointermove", checkRelease);
+    };
+  }, [vrActive]);
 
   return (
     <section className="relative">
@@ -55,12 +69,21 @@ export default function HomeSection() {
           {/* VR iframe background */}
           <iframe
             src="https://vr2.dreamvrad.net/bupyeong_heights/"
-            className={`absolute inset-0 w-full h-full border-0 pointer-events-none transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
-            style={{ transform: "scale(1.3)" }}
+            className={`absolute inset-0 w-full h-full border-0 transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
+            style={{ transform: "scale(1.3)", pointerEvents: vrActive ? "auto" : "none" }}
             onLoad={() => setVrLoaded(true)}
             title="항공 VR 배경"
             allow="gyroscope; accelerometer"
           />
+          {/* 오버레이: 휠 스크롤은 페이지로, 마우스 드래그 시 iframe 활성화 */}
+          {!vrActive && (
+            <div
+              className="absolute inset-0 z-[5]"
+              style={{ cursor: "grab" }}
+              onMouseDown={() => setVrActive(true)}
+              onWheel={(e) => { window.scrollBy(0, e.deltaY); }}
+            />
+          )}
         </div>
 
         {/* 하단 그라데이션 - 하단부만 살짝, 상단은 밝게 */}
