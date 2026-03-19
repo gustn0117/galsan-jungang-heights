@@ -33,23 +33,18 @@ export default function HomeSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 휠 스크롤 시 즉시 오버레이 복원 (iframe에 휠이 가더라도 다음 스크롤부터 페이지로)
-  useEffect(() => {
-    const restore = () => setVrActive(false);
-    window.addEventListener("wheel", restore, { capture: true, passive: true });
-    return () => window.removeEventListener("wheel", restore, { capture: true });
-  }, []);
-
-  // 드래그 종료 감지
+  // 드래그 종료 감지: mouseup + pointermove 체크 + 2초 타임아웃 (iframe 내부 이벤트 감지 불가 대비)
   useEffect(() => {
     if (!vrActive) return;
     const stop = () => setVrActive(false);
     const checkRelease = (e: PointerEvent) => { if (e.buttons === 0) stop(); };
     document.addEventListener("mouseup", stop);
     document.addEventListener("pointermove", checkRelease);
+    const timer = setTimeout(stop, 2000);
     return () => {
       document.removeEventListener("mouseup", stop);
       document.removeEventListener("pointermove", checkRelease);
+      clearTimeout(timer);
     };
   }, [vrActive]);
 
