@@ -169,29 +169,23 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
             <div className="flex flex-col lg:flex-row gap-0 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
               {/* Left: Floor Plan Image */}
-              <div className="flex-[2] relative bg-white p-4 md:p-6">
-                {/* Corner frame decorations */}
-                <div className="absolute top-3 left-3 w-8 h-8 border-t border-l border-gold/20" />
-                <div className="absolute top-3 right-3 lg:hidden w-8 h-8 border-t border-r border-gold/20" />
-                <div className="absolute bottom-3 left-3 w-8 h-8 border-b border-l border-gold/20" />
-                <div className="absolute bottom-3 right-3 lg:hidden w-8 h-8 border-b border-r border-gold/20" />
+              <div className="flex-[2] relative bg-white p-2">
 
                 {/* Isometric View */}
                 {viewMode === "iso" && (
                   <div className="relative">
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
-                      <Image
-                        key={isoImages[isoIndex].src}
-                        src={isoImages[isoIndex].src}
-                        alt={`59타입 3D 입체도 ${isoImages[isoIndex].label}`}
-                        fill
-                        className="object-contain transition-opacity duration-500"
-                        sizes="(max-width: 1024px) 100vw, 60vw"
-                        priority
-                      />
-                    </div>
+                    <Image
+                      key={isoImages[isoIndex].src}
+                      src={isoImages[isoIndex].src}
+                      alt={`59타입 3D 입체도 ${isoImages[isoIndex].label}`}
+                      width={1200}
+                      height={900}
+                      className="w-full h-auto transition-opacity duration-500"
+                      sizes="(max-width: 1024px) 100vw, 65vw"
+                      priority
+                    />
                     {/* Iso View Switcher */}
-                    <div className="flex items-center justify-center gap-3 mt-5">
+                    <div className="flex items-center justify-center gap-3 mt-4 mb-2">
                       {isoImages.map((img, i) => (
                         <button
                           key={i}
@@ -213,16 +207,15 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
 
                 {/* Top View */}
                 {viewMode === "top" && (
-                  <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
-                    <Image
-                      src="/images/floorplan-topview.png"
-                      alt="59타입 평면도"
-                      fill
-                      className="object-contain transition-opacity duration-500"
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      priority
-                    />
-                  </div>
+                  <Image
+                    src="/images/floorplan-topview.png"
+                    alt="59타입 평면도"
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto transition-opacity duration-500"
+                    sizes="(max-width: 1024px) 100vw, 65vw"
+                    priority
+                  />
                 )}
               </div>
 
