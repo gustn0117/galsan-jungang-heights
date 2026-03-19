@@ -63,8 +63,8 @@ export default function HomeSection() {
           />
         </div>
 
-        {/* 하단 그라데이션 - 컨텐츠 영역과 자연스럽게 연결 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-transparent pointer-events-none" />
+        {/* 하단 그라데이션 - 하단부만 살짝, 상단은 밝게 */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-transparent to-transparent pointer-events-none" />
 
         {/* Hero Content - 하단 고정 레이아웃 */}
         <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
@@ -74,6 +74,7 @@ export default function HomeSection() {
               className={`text-center mb-10 transition-all duration-[1200ms] ease-out ${
                 loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
+              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.3)" }}
             >
               <div className="flex items-center justify-center gap-3 mb-5">
                 <span className="w-8 h-[1px] bg-gold/50" />
