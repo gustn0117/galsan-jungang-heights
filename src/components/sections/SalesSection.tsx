@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionBanner from "../SectionBanner";
 
 const subTabs = [
@@ -89,6 +89,10 @@ interface SalesSectionProps {
 
 export default function SalesSection({ initialSubTab }: SalesSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "schedule");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
 
   return (
     <section className="pt-[72px]">

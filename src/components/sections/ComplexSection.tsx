@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import ImagePlaceholder from "../ImagePlaceholder";
 import SectionBanner from "../SectionBanner";
@@ -95,6 +95,10 @@ const buildings = [
 export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "siteplan");
   const [activeBuilding, setActiveBuilding] = useState("101");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
 
   return (
     <section className="pt-[72px]">

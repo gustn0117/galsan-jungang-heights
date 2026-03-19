@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImagePlaceholder from "../ImagePlaceholder";
 import SectionBanner from "../SectionBanner";
 
@@ -15,6 +15,10 @@ interface PRSectionProps {
 
 export default function PRSection({ initialSubTab }: PRSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "news");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
 
   return (
     <section className="pt-[72px]">

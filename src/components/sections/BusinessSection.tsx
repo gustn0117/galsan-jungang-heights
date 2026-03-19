@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import SectionBanner from "../SectionBanner";
 
@@ -17,6 +17,10 @@ interface BusinessSectionProps {
 
 export default function BusinessSection({ initialSubTab }: BusinessSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "overview");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
 
   return (
     <section className="pt-[72px]">

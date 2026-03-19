@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import ImagePlaceholder from "../ImagePlaceholder";
 import SectionBanner from "../SectionBanner";
@@ -16,6 +16,10 @@ interface PremiumSectionProps {
 
 export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "location");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
 
   return (
     <section className="pt-[72px]">

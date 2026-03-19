@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import SectionBanner from "../SectionBanner";
@@ -97,6 +97,10 @@ interface UnitSectionProps {
 export default function UnitSection({ initialSubTab }: UnitSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "floorplan");
   const [viewMode, setViewMode] = useState("iso");
+
+  useEffect(() => {
+    if (initialSubTab) setActiveSubTab(initialSubTab);
+  }, [initialSubTab]);
   const [isoIndex, setIsoIndex] = useState(0);
   const [vrRoom, setVrRoom] = useState("living");
   const [interiorSpace, setInteriorSpace] = useState("living");
