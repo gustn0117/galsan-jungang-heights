@@ -653,6 +653,15 @@ body {
   animation: landingFadeOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+.landing-bg-zoom {
+  animation: landingBgZoom 20s ease-out forwards;
+}
+
+@keyframes landingBgZoom {
+  0% { transform: scale(1.15); }
+  100% { transform: scale(1.0); }
+}
+
 /* --- 메인 페이지 등장 --- */
 @keyframes mainRevealIn {
   0% { opacity: 0; transform: translateY(30px); }
