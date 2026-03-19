@@ -255,7 +255,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   highlights: ["갈산천 수변공원", "갈산근린공원", "자연친화 주거"],
                   placeholderNum: 9,
                   gradient: "gradient-aerial",
-                  imageSrc: "/images/premium-nature.jpg",
+                  imageSrc: "/lake.png",
                 },
                 {
                   num: "03",
