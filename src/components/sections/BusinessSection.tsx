@@ -109,8 +109,8 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <div className="relative overflow-hidden rounded">
                     <div className="relative aspect-[16/9]">
                       <Image
-                        src="/images/perspective.jpg"
-                        alt="중앙하이츠 갈산역 센트럴 투시도"
+                        src="/images/hero-rendering.jpg"
+                        alt="중앙하이츠 갈산역 센트럴 조감도"
                         fill
                         className="object-cover"
                         sizes="(max-width: 1100px) 100vw, 1100px"
