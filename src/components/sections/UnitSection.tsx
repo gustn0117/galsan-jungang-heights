@@ -142,7 +142,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="max-w-[1200px] mx-auto px-6 py-16">
+      <div className="max-w-[1600px] mx-auto px-6 py-16">
         {activeSubTab === "floorplan" && (
           <div className="tab-content">
 
@@ -169,7 +169,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
             <div className="flex flex-col lg:flex-row gap-0 rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
               {/* Left: Floor Plan Image */}
-              <div className="flex-1 relative bg-white p-3 md:p-4">
+              <div className="flex-[2] relative bg-white p-4 md:p-6">
                 {/* Corner frame decorations */}
                 <div className="absolute top-3 left-3 w-8 h-8 border-t border-l border-gold/20" />
                 <div className="absolute top-3 right-3 lg:hidden w-8 h-8 border-t border-r border-gold/20" />
@@ -179,7 +179,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 {/* Isometric View */}
                 {viewMode === "iso" && (
                   <div className="relative">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
                       <Image
                         key={isoImages[isoIndex].src}
                         src={isoImages[isoIndex].src}
@@ -213,7 +213,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
 
                 {/* Top View */}
                 {viewMode === "top" && (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                  <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg">
                     <Image
                       src="/images/floorplan-topview.png"
                       alt="59타입 평면도"
