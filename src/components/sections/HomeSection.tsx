@@ -55,7 +55,7 @@ export default function HomeSection() {
           {/* VR iframe background */}
           <iframe
             src="https://vr2.dreamvrad.net/bupyeong_heights/"
-            className={`absolute inset-0 w-full h-full border-0 pointer-events-none transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 w-full h-full border-0 transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ transform: "scale(1.3)" }}
             onLoad={() => setVrLoaded(true)}
             title="항공 VR 배경"
