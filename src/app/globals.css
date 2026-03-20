@@ -653,27 +653,51 @@ body {
   animation: landingFadeOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.landing-bg-zoom {
-  animation: landingBgZoom 25s ease-out forwards;
+/* 타이핑 커서 깜박임 */
+.landing-typewriter {
+  border-right: 2px solid rgba(26,39,68,0.5);
+  padding-right: 3px;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { border-color: rgba(26,39,68,0.5); }
+  50% { border-color: transparent; }
 }
 
-@keyframes landingBgZoom {
-  0% { transform: scale(1.2); }
-  100% { transform: scale(1.05); }
+/* 좌측에서 슬라이드 인 */
+.landing-slide-left {
+  animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-.landing-shimmer {
-  background: linear-gradient(110deg, rgba(201,169,110,0.8) 0%, rgba(201,169,110,1) 40%, rgba(255,255,255,0.9) 50%, rgba(201,169,110,1) 60%, rgba(201,169,110,0.8) 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s ease-in-out infinite;
+/* 우측에서 슬라이드 인 */
+.landing-slide-right {
+  animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes shimmer {
-  0%, 100% { background-position: 200% center; }
-  50% { background-position: -200% center; }
+/* 열차 좌측 — 왼쪽에서 달려옴 */
+.landing-train-left {
+  animation: trainLeft 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+@keyframes trainLeft {
+  from { opacity: 0; transform: translateX(-120px); }
+  to { opacity: 1; transform: translateX(-60%); }
+}
+
+/* 열차 우측 — 오른쪽에서 달려옴 */
+.landing-train-right {
+  animation: trainRight 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+@keyframes trainRight {
+  from { opacity: 0; transform: translateX(120px); }
+  to { opacity: 1; transform: translateX(60%); }
 }
 
 /* --- 메인 페이지 등장 --- */
