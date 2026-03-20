@@ -682,22 +682,13 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* 열차 좌측 — 왼쪽에서 달려옴 */
-.landing-train-left {
-  animation: trainLeft 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+/* 열차 등장 애니메이션 */
+.landing-train-enter {
+  animation: trainEnter 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
-@keyframes trainLeft {
-  from { opacity: 0; transform: translateX(-120px); }
-  to { opacity: 1; transform: translateX(-60%); }
-}
-
-/* 열차 우측 — 오른쪽에서 달려옴 */
-.landing-train-right {
-  animation: trainRight 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
-}
-@keyframes trainRight {
-  from { opacity: 0; transform: translateX(120px); }
-  to { opacity: 1; transform: translateX(60%); }
+@keyframes trainEnter {
+  from { opacity: 0; transform: translateX(-50%) scaleX(0.7); }
+  to { opacity: 1; transform: translateX(-50%) scaleX(1); }
 }
 
 /* --- 메인 페이지 등장 --- */

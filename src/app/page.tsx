@@ -89,22 +89,25 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 중앙 — 수변공원 일러스트 (열차 포함) */}
-            <div className="relative w-[160px] md:w-[260px] lg:w-[340px] flex-shrink-0">
-              {/* 열차 좌측 — 이동 애니메이션 */}
-              <div className="absolute left-0 top-[38%] -translate-x-[60%] md:-translate-x-[50%] landing-train-left">
-                <span className="text-[16px] md:text-[22px]">🚆</span>
-              </div>
-              {/* 열차 우측 — 이동 애니메이션 */}
-              <div className="absolute right-0 top-[38%] translate-x-[60%] md:translate-x-[50%] landing-train-right">
-                <span className="text-[16px] md:text-[22px] inline-block" style={{ transform: 'scaleX(-1)' }}>🚆</span>
+            {/* 중앙 — 수변공원 일러스트 + 열차 */}
+            <div className="relative w-[200px] md:w-[320px] lg:w-[420px] flex-shrink-0">
+              {/* 열차 — 양쪽에서 달려오는 애니메이션 */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-[30%] w-[280px] md:w-[460px] lg:w-[600px] landing-train-enter">
+                <Image
+                  src="/images/landing-train.png"
+                  alt="지하철"
+                  width={1800}
+                  height={86}
+                  className="w-full h-auto"
+                  style={{ opacity: 0.5 }}
+                />
               </div>
               <Image
                 src="/images/landing-trees.png"
                 alt="수변공원"
                 width={500}
                 height={140}
-                className="w-full h-auto"
+                className="relative z-[1] w-full h-auto"
                 style={{ opacity: 0.35, filter: 'saturate(0)' }}
               />
             </div>
