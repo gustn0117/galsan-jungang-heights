@@ -62,7 +62,7 @@ export default function Home() {
 
           {/* 상단 캐치카피 — 페이드업 등장 */}
           <div className="landing-en-heading mb-12 md:mb-16">
-            <p className="text-navy/70 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium landing-fadeup" style={{ fontFamily: "'NanumSquare', sans-serif", animationDelay: '0.3s' }}>
+            <p className="text-navy/70 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.08em] font-medium landing-fadeup" style={{ animationDelay: '0.3s' }}>
               &ldquo; 갈산역 「<span className="text-navy font-bold landing-highlight-pulse">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
             </p>
           </div>
@@ -83,10 +83,10 @@ export default function Home() {
           <div className="landing-title relative w-full flex items-center justify-center mb-8 md:mb-12">
             {/* 좌측 — 초역세권 */}
             <div className="landing-slide-left flex-1 text-right pr-4 md:pr-8">
-              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1">
                 내집앞 갈산역
               </p>
-              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow">
                 초역세권
               </p>
             </div>
@@ -125,10 +125,10 @@ export default function Home() {
 
             {/* 우측 — 초공세권 */}
             <div className="landing-slide-right flex-1 text-left pl-4 md:pl-8">
-              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1">
                 내집앞 수변공원
               </p>
-              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow">
                 초공세권
               </p>
             </div>
@@ -136,13 +136,13 @@ export default function Home() {
 
           {/* 설명 텍스트 */}
           <div className="landing-desc space-y-1 mb-12 md:mb-16">
-            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]">
               단지 바로 앞에서 이용가능한 지하철,
             </p>
-            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]">
               걸어서 누리는 수변공원과 생태하천을 통한 쾌적한 자연환경,
             </p>
-            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+            <p className="text-navy/40 text-[12px] md:text-[14px] tracking-[0.05em] leading-[2]">
               앞마당에 펼쳐진 중심상업지구를 통한 완벽한 생활인프라
             </p>
           </div>
