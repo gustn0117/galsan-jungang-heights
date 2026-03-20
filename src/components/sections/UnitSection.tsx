@@ -69,7 +69,6 @@ const vrRooms = [
 const subTabs = [
   { id: "floorplan", label: "평면안내" },
   { id: "interior", label: "세대 인테리어" },
-  { id: "exhibit", label: "전시품목표기" },
   { id: "vr", label: "VR영상" },
 ];
 
@@ -403,84 +402,81 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 </div>
               );
             })()}
-          </div>
-        )}
 
-        {activeSubTab === "exhibit" && (
-          <div className="tab-content">
-            {/* 섹션 헤더 */}
-            <div className="text-center mb-10">
-              <span className="text-gold text-[11px] tracking-[4px] font-medium uppercase">EXHIBIT ITEMS</span>
-              <h3 className="text-[24px] md:text-[30px] font-bold text-gray-900 mt-3" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-                전시품목표기
-              </h3>
-              <p className="text-gray-400 text-[13px] mt-3">
-                모델하우스에 전시된 품목을 확인하세요. 전시품목은 실제 시공과 다를 수 있습니다.
-              </p>
-            </div>
+            {/* ===== 전시품목표기 ===== */}
+            <div className="mt-20 pt-16 border-t border-gray-100">
+              <div className="text-center mb-10">
+                <span className="text-gold text-[11px] tracking-[4px] font-medium uppercase">EXHIBIT ITEMS</span>
+                <h3 className="text-[24px] md:text-[30px] font-bold text-gray-900 mt-3" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                  전시품목표기
+                </h3>
+                <p className="text-gray-400 text-[13px] mt-3">
+                  모델하우스에 전시된 품목을 확인하세요
+                </p>
+              </div>
 
-            {/* 공간별 필터 */}
-            {(() => {
-              const rooms = Array.from(new Set(exhibitData.map(e => e.room)));
-              return (
-                <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
-                  <button
-                    onClick={() => setExhibitFilter("all")}
-                    className={`px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 border ${
-                      exhibitFilter === "all"
-                        ? "bg-navy text-gold border-navy"
-                        : "bg-white text-gray-400 border-gray-200 hover:border-gold/40"
-                    }`}
-                  >전체</button>
-                  {rooms.map(room => (
+              {/* 공간별 필터 */}
+              {(() => {
+                const rooms = Array.from(new Set(exhibitData.map(e => e.room)));
+                return (
+                  <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
                     <button
-                      key={room}
-                      onClick={() => setExhibitFilter(room)}
+                      onClick={() => setExhibitFilter("all")}
                       className={`px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 border ${
-                        exhibitFilter === room
+                        exhibitFilter === "all"
                           ? "bg-navy text-gold border-navy"
                           : "bg-white text-gray-400 border-gray-200 hover:border-gold/40"
                       }`}
-                    >{room}</button>
-                  ))}
-                </div>
-              );
-            })()}
-
-            {/* 이미지 그리드 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {exhibitData
-                .filter(e => exhibitFilter === "all" || e.room === exhibitFilter)
-                .map((item) => (
-                <div key={item.id} className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
-                  onClick={() => setLightbox(item.src)}
-                >
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={item.src}
-                      alt={item.label}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                    >전체</button>
+                    {rooms.map(room => (
+                      <button
+                        key={room}
+                        onClick={() => setExhibitFilter(room)}
+                        className={`px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-300 border ${
+                          exhibitFilter === room
+                            ? "bg-navy text-gold border-navy"
+                            : "bg-white text-gray-400 border-gray-200 hover:border-gold/40"
+                        }`}
+                      >{room}</button>
+                    ))}
                   </div>
-                  {/* 하단 라벨 */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] font-bold rounded">{item.room}</span>
-                      <span className="text-white text-[13px] font-medium">{item.label}</span>
+                );
+              })()}
+
+              {/* 이미지 그리드 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {exhibitData
+                  .filter(e => exhibitFilter === "all" || e.room === exhibitFilter)
+                  .map((item) => (
+                  <div key={item.id} className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
+                    onClick={() => setLightbox(item.src)}
+                  >
+                    <div className="relative aspect-[16/10]">
+                      <Image
+                        src={item.src}
+                        alt={item.label}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] font-bold rounded">{item.room}</span>
+                        <span className="text-white text-[13px] font-medium">{item.label}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {/* 안내 문구 */}
-            <div className="mt-10 p-5 bg-gray-50 rounded-xl border border-gray-100">
-              <p className="text-gray-400 text-[12px] leading-[1.8]">
-                ※ 상기 이미지는 모델하우스를 촬영한 것으로, 실제 시공 시 차이가 있을 수 있습니다.<br />
-                ※ 전시품목으로 표기된 물품은 분양가에 포함되지 않으며 견본주택 전시 목적으로만 설치된 것입니다.
-              </p>
+              {/* 안내 문구 */}
+              <div className="mt-10 p-5 bg-gray-50 rounded-xl border border-gray-100">
+                <p className="text-gray-400 text-[12px] leading-[1.8]">
+                  ※ 상기 이미지는 모델하우스를 촬영한 것으로, 실제 시공 시 차이가 있을 수 있습니다.<br />
+                  ※ 전시품목으로 표기된 물품은 분양가에 포함되지 않으며 견본주택 전시 목적으로만 설치된 것입니다.
+                </p>
+              </div>
             </div>
           </div>
         )}
