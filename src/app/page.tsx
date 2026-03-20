@@ -94,7 +94,7 @@ export default function Home() {
             {/* 중앙 — 수변공원 일러스트 + 열차 */}
             <div className="relative w-[180px] md:w-[280px] lg:w-[360px] flex-shrink-0">
               {/* 좌측 열차 — 수변공원 바깥에 배치 */}
-              <div className="absolute right-[100%] mr-2 md:mr-4 top-[25%] w-[100px] md:w-[160px] lg:w-[200px] landing-train-left">
+              <div className="absolute right-[100%] mr-2 md:mr-4 top-[25%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-left">
                 <Image
                   src="/images/train-left.png"
                   alt="지하철"
@@ -104,7 +104,7 @@ export default function Home() {
                 />
               </div>
               {/* 우측 열차 — 수변공원 바깥에 배치 */}
-              <div className="absolute left-[100%] ml-2 md:ml-4 top-[25%] w-[100px] md:w-[160px] lg:w-[200px] landing-train-right">
+              <div className="absolute left-[100%] ml-2 md:ml-4 top-[25%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-right">
                 <Image
                   src="/images/train-right.png"
                   alt="지하철"
