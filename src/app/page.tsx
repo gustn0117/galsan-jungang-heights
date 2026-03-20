@@ -62,8 +62,8 @@ export default function Home() {
 
           {/* 상단 캐치카피 — 페이드업 등장 */}
           <div className="landing-en-heading mb-12 md:mb-16">
-            <p className="text-navy/60 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium landing-fadeup" style={{ fontFamily: "'NanumSquare', sans-serif", animationDelay: '0.3s' }}>
-              &ldquo; 갈산역 「<span className="text-navy font-black text-[20px] md:text-[28px] lg:text-[34px] landing-highlight-pulse">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
+            <p className="text-navy/70 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium landing-fadeup" style={{ fontFamily: "'NanumSquare', sans-serif", animationDelay: '0.3s' }}>
+              &ldquo; 갈산역 「<span className="text-navy font-bold landing-highlight-pulse">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
             </p>
           </div>
 
