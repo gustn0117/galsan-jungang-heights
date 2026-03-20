@@ -60,24 +60,10 @@ export default function Home() {
         {/* 중앙 콘텐츠 */}
         <div className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-[1000px]">
 
-          {/* 상단 캐치카피 — 글자별 순차 등장 */}
-          <div className="landing-en-heading mb-12 md:mb-16 overflow-hidden">
-            <p className="text-navy/60 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-              <span className="landing-char" style={{ animationDelay: '0.3s' }}>&ldquo;</span>
-              <span className="landing-char" style={{ animationDelay: '0.35s' }}> </span>
-              {['갈','산','역'].map((c, i) => <span key={i} className="landing-char" style={{ animationDelay: `${0.4 + i * 0.05}s` }}>{c}</span>)}
-              <span className="landing-char" style={{ animationDelay: '0.55s' }}> </span>
-              <span className="landing-char" style={{ animationDelay: '0.6s' }}>「</span>
-              <span className="landing-char-highlight text-navy font-black text-[20px] md:text-[28px] lg:text-[34px]" style={{ animationDelay: '0.7s' }}>0</span>
-              <span className="landing-char-highlight text-navy font-black text-[20px] md:text-[28px] lg:text-[34px]" style={{ animationDelay: '0.8s' }}>분</span>
-              <span className="landing-char" style={{ animationDelay: '0.9s' }}>」</span>
-              <span className="landing-char" style={{ animationDelay: '0.95s' }}>의</span>
-              <span className="landing-char" style={{ animationDelay: '1.0s' }}> </span>
-              {['가','치',',',' ','걸','어','서',' ','누','리','는',' ','완','성','된',' ','프','리','미','엄'].map((c, i) => (
-                <span key={i} className="landing-char" style={{ animationDelay: `${1.05 + i * 0.04}s` }}>{c}</span>
-              ))}
-              <span className="landing-char" style={{ animationDelay: '1.9s' }}> </span>
-              <span className="landing-char" style={{ animationDelay: '1.95s' }}>&rdquo;</span>
+          {/* 상단 캐치카피 — 페이드업 등장 */}
+          <div className="landing-en-heading mb-12 md:mb-16">
+            <p className="text-navy/60 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium landing-fadeup" style={{ fontFamily: "'NanumSquare', sans-serif", animationDelay: '0.3s' }}>
+              &ldquo; 갈산역 「<span className="text-navy font-black text-[20px] md:text-[28px] lg:text-[34px] landing-highlight-pulse">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
             </p>
           </div>
 
