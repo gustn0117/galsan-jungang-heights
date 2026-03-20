@@ -92,23 +92,23 @@ export default function Home() {
             {/* 중앙 — 수변공원 일러스트 + 열차 */}
             <div className="relative w-[200px] md:w-[320px] lg:w-[420px] flex-shrink-0">
               {/* 좌측 열차 — 왼쪽에서 달려옴 */}
-              <div className="absolute right-[50%] top-[28%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-left">
+              <div className="absolute right-[85%] md:right-[90%] top-[28%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-left">
                 <Image
                   src="/images/train-left.png"
                   alt="지하철"
                   width={1000}
                   height={172}
-                  className="w-full h-auto opacity-30"
+                  className="w-full h-auto opacity-25"
                 />
               </div>
               {/* 우측 열차 — 오른쪽에서 달려옴 */}
-              <div className="absolute left-[50%] top-[28%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-right">
+              <div className="absolute left-[85%] md:left-[90%] top-[28%] w-[140px] md:w-[220px] lg:w-[280px] landing-train-right">
                 <Image
                   src="/images/train-right.png"
                   alt="지하철"
                   width={1025}
                   height={172}
-                  className="w-full h-auto opacity-30"
+                  className="w-full h-auto opacity-25"
                 />
               </div>
               <Image
