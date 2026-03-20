@@ -60,10 +60,26 @@ export default function Home() {
         {/* 중앙 콘텐츠 */}
         <div className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-[1000px]">
 
-          {/* 상단 캐치카피 — 타이핑 애니메이션 */}
-          <p className="landing-en-heading text-navy/70 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium mb-12 md:mb-16" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
-            &ldquo; 갈산역 「<span className="text-navy font-bold landing-typewriter">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
-          </p>
+          {/* 상단 캐치카피 — 글자별 순차 등장 */}
+          <div className="landing-en-heading mb-12 md:mb-16 overflow-hidden">
+            <p className="text-navy/60 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.12em] font-medium" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <span className="landing-char" style={{ animationDelay: '0.3s' }}>&ldquo;</span>
+              <span className="landing-char" style={{ animationDelay: '0.35s' }}> </span>
+              {['갈','산','역'].map((c, i) => <span key={i} className="landing-char" style={{ animationDelay: `${0.4 + i * 0.05}s` }}>{c}</span>)}
+              <span className="landing-char" style={{ animationDelay: '0.55s' }}> </span>
+              <span className="landing-char" style={{ animationDelay: '0.6s' }}>「</span>
+              <span className="landing-char-highlight text-navy font-black text-[20px] md:text-[28px] lg:text-[34px]" style={{ animationDelay: '0.7s' }}>0</span>
+              <span className="landing-char-highlight text-navy font-black text-[20px] md:text-[28px] lg:text-[34px]" style={{ animationDelay: '0.8s' }}>분</span>
+              <span className="landing-char" style={{ animationDelay: '0.9s' }}>」</span>
+              <span className="landing-char" style={{ animationDelay: '0.95s' }}>의</span>
+              <span className="landing-char" style={{ animationDelay: '1.0s' }}> </span>
+              {['가','치',',',' ','걸','어','서',' ','누','리','는',' ','완','성','된',' ','프','리','미','엄'].map((c, i) => (
+                <span key={i} className="landing-char" style={{ animationDelay: `${1.05 + i * 0.04}s` }}>{c}</span>
+              ))}
+              <span className="landing-char" style={{ animationDelay: '1.9s' }}> </span>
+              <span className="landing-char" style={{ animationDelay: '1.95s' }}>&rdquo;</span>
+            </p>
+          </div>
 
           {/* 로고 BI */}
           <div className="landing-logo mb-10 md:mb-14">
@@ -81,10 +97,10 @@ export default function Home() {
           <div className="landing-title relative w-full flex items-center justify-center mb-8 md:mb-12">
             {/* 좌측 — 초역세권 */}
             <div className="landing-slide-left flex-1 text-right pr-4 md:pr-8">
-              <p className="text-navy/50 text-[13px] md:text-[16px] lg:text-[18px] tracking-[0.05em]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 내집앞 갈산역
               </p>
-              <p className="text-navy text-[22px] md:text-[32px] lg:text-[40px] font-black tracking-tight leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 초역세권
               </p>
             </div>
@@ -123,10 +139,10 @@ export default function Home() {
 
             {/* 우측 — 초공세권 */}
             <div className="landing-slide-right flex-1 text-left pl-4 md:pl-8">
-              <p className="text-navy/50 text-[13px] md:text-[16px] lg:text-[18px] tracking-[0.05em]" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy/40 text-[12px] md:text-[15px] lg:text-[17px] tracking-[0.08em] mb-1" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 내집앞 수변공원
               </p>
-              <p className="text-navy text-[22px] md:text-[32px] lg:text-[40px] font-black tracking-tight leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+              <p className="text-navy text-[24px] md:text-[36px] lg:text-[44px] font-black tracking-tight leading-tight landing-text-glow" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 초공세권
               </p>
             </div>
