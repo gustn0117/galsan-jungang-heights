@@ -70,7 +70,7 @@ export default function HomeSection() {
           </div>
           {/* VR iframe background */}
           <iframe
-            src="https://vr2.dreamvrad.net/bupyeong_heights/"
+            src="https://vr2.dreamvrad.net/bupyeong_heights_traffic/"
             className={`absolute inset-0 w-full h-full border-0 transition-opacity duration-1000 ${vrLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ transform: "scale(1.3)", pointerEvents: vrActive ? "auto" : "none" }}
             onLoad={() => setVrLoaded(true)}
