@@ -69,6 +69,7 @@ const vrRooms = [
 const subTabs = [
   { id: "floorplan", label: "평면안내" },
   { id: "interior", label: "세대 인테리어" },
+  { id: "finishing", label: "마감재 리스트" },
   { id: "vr", label: "VR영상" },
 ];
 
@@ -313,7 +314,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                 {[
                   { num: "01", title: "남향 위주 배치", copy: "채광과 통풍을 극대화한 남향 중심 단지 설계로 사계절 쾌적한 주거 환경" },
                   { num: "02", title: "3BAY 광폭 설계", copy: "개방감 있는 거실과 분리된 침실 공간, 모든 방에 자연 채광 확보" },
-                  { num: "03", title: "알파 수납 공간", copy: "드레스룸, 팬트리 등 풍부한 수납 설계로 깔끔한 생활 공간 실현" },
+                  { num: "03", title: "알파 수납 공간", copy: "팬트리 등 풍부한 수납 설계로 깔끔한 공간 실현" },
                 ].map((item, i) => (
                   <div key={i} className={`group relative p-8 md:p-10 ${i < 2 ? "md:border-r border-gray-100" : ""} hover:bg-[#faf9f7] transition-colors duration-300`}>
                     <span className="text-gold/25 text-[11px] tracking-[2px] font-medium">{item.num}</span>
@@ -477,6 +478,24 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   ※ 전시품목으로 표기된 물품은 분양가에 포함되지 않으며 견본주택 전시 목적으로만 설치된 것입니다.
                 </p>
               </div>
+            </div>
+          </div>
+        )}
+
+        {activeSubTab === "finishing" && (
+          <div className="tab-content">
+            <div className="text-center mb-10">
+              <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">FINISHING LIST</p>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>마감재 리스트</h3>
+              <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
+            </div>
+            <div className="max-w-[800px] mx-auto bg-navy/[0.03] rounded-2xl p-10 md:p-14 text-center">
+              <div className="w-16 h-16 rounded-full bg-navy/5 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-navy/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                </svg>
+              </div>
+              <p className="text-gray-400 text-[15px]">마감재 리스트가 준비되면 업로드됩니다.</p>
             </div>
           </div>
         )}

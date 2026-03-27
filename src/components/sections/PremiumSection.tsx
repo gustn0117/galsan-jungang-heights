@@ -181,8 +181,8 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                       {[
                         { name: "경인고속도로", sub: "IC 부평 인접", category: "도로" },
                         { name: "수도권제1순환", sub: "중동IC", category: "도로" },
-                        { name: "롯데마트", sub: "도보 약 2분", category: "쇼핑" },
-                        { name: "부평문화의거리", sub: "도보 약 2분", category: "문화" },
+                        { name: "롯데마트", sub: "인접", category: "쇼핑" },
+                        { name: "부평문화의거리", sub: "인접", category: "문화" },
                         { name: "부평역지하상가", sub: "인접", category: "쇼핑" },
                         { name: "부평중앙시장", sub: "인접", category: "전통시장" },
                         { name: "갈산천수변공원", sub: "도보 1분", category: "공원" },
@@ -194,7 +194,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                           <p className="text-navy text-[14px] font-bold group-hover:text-gold transition-colors duration-300">{item.name}</p>
                           <p className="text-gray-400 text-[12px] mt-1">{item.sub}</p>
                           <div className="w-4 h-px bg-gold/30 mx-auto mt-3 group-hover:w-6 group-hover:bg-gold/50 transition-all duration-300" />
-                          <p className="text-gray-300 text-[10px] mt-2 tracking-[2px] uppercase">{item.category}</p>
+                          <p className={`mt-2 tracking-[2px] uppercase ${item.category === "교통" ? "text-navy text-[13px] font-bold" : "text-gray-300 text-[10px]"}`}>{item.category}</p>
                         </div>
                       ))}
                     </div>

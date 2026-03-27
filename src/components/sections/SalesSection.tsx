@@ -9,8 +9,6 @@ const subTabs = [
   { id: "notice", label: "모집공고" },
   { id: "documents", label: "서류안내" },
   { id: "reserve", label: "예비당첨자 명단" },
-  { id: "contract", label: "계약안내" },
-  { id: "stamp", label: "인지세 납부 안내" },
 ];
 
 // ── 분양 일정 캘린더 데이터 ──
@@ -44,9 +42,9 @@ const calendarData: CalendarMonth[] = [
       { date: 7, label: "1순위 청약", color: "purple" },
       { date: 8, label: "2순위 청약", color: "purple" },
       { date: 15, label: "당첨자 발표", color: "teal" },
-      { date: 25, label: "정당계약 1일차", color: "pink" },
-      { date: 26, label: "정당계약 2일차", color: "pink" },
-      { date: 27, label: "정당계약 3일차", color: "pink" },
+      { date: 26, label: "정당계약 1일차", color: "pink" },
+      { date: 27, label: "정당계약 2일차", color: "pink" },
+      { date: 28, label: "정당계약 3일차", color: "pink" },
     ],
     notes: [
       { date: 16, text: "당첨자 서류접수 (4/15~4/24, 9일간)" },
@@ -143,17 +141,17 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             </div>
 
             {/* Calendar */}
-            <div className="space-y-12 max-w-[900px] mx-auto">
+            <div className="space-y-12 max-w-[1100px] mx-auto">
               {calendarData.map((cal) => {
                 const weeks = getCalendarGrid(cal.year, cal.month);
                 return (
                   <div key={`${cal.year}-${cal.month}`} className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
                     {/* Month Header */}
-                    <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5 flex items-baseline gap-3">
-                      <span className="text-white text-[28px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                    <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-6 flex items-baseline gap-3">
+                      <span className="text-white text-[32px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                         {cal.month}월
                       </span>
-                      <span className="text-white/40 text-[14px]">{cal.year}</span>
+                      <span className="text-white/40 text-[16px]">{cal.year}</span>
                     </div>
 
                     {/* Day Headers */}
@@ -161,7 +159,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                       {dayNames.map((d, i) => (
                         <div
                           key={d}
-                          className={`py-3 text-center text-[12px] font-bold tracking-wider ${
+                          className={`py-4 text-center text-[13px] font-bold tracking-wider ${
                             i === 0 ? "text-red-400" : i === 6 ? "text-blue-400" : "text-gray-400"
                           }`}
                         >
@@ -182,22 +180,22 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                           return (
                             <div
                               key={di}
-                              className={`relative min-h-[90px] md:min-h-[100px] p-2 md:p-3 border-r border-gray-50 last:border-0 transition-colors ${
+                              className={`relative min-h-[110px] md:min-h-[120px] p-2 md:p-3 border-r border-gray-50 last:border-0 transition-colors ${
                                 event ? "bg-gray-50/50" : ""
                               } ${!day ? "bg-gray-50/30" : ""}`}
                             >
                               {day && (
                                 <>
-                                  <span className={`text-[13px] font-medium ${
+                                  <span className={`text-[15px] font-medium ${
                                     isSun ? "text-red-400" : isSat ? "text-blue-400" : "text-gray-500"
                                   }`}>
                                     {day}
                                   </span>
                                   {event && (
                                     <div className={`mt-2 px-2 py-1.5 rounded-md border text-center ${eventColors[event.color]}`}>
-                                      <p className="text-[11px] md:text-[12px] font-bold leading-tight">{cal.month}.{event.date}</p>
+                                      <p className="text-[12px] md:text-[13px] font-bold leading-tight">{cal.month}.{event.date}</p>
                                       <div className="w-4 h-px bg-current opacity-30 mx-auto my-1" />
-                                      <p className="text-[10px] md:text-[11px] font-medium leading-tight">{event.label}</p>
+                                      <p className="text-[11px] md:text-[12px] font-medium leading-tight">{event.label}</p>
                                     </div>
                                   )}
                                   {note && (
@@ -218,11 +216,11 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             </div>
 
             {/* Schedule Summary Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-[900px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-[1100px] mx-auto">
               {[
                 { date: "3.27", label: "입주자 모집공고", color: "border-green-300 bg-green-50/50" },
                 { date: "4.6 ~ 4.8", label: "청약 접수", color: "border-purple-300 bg-purple-50/50" },
-                { date: "4.25 ~ 4.27", label: "정당계약", color: "border-pink-300 bg-pink-50/50" },
+                { date: "4.26 ~ 4.28", label: "정당계약", color: "border-pink-300 bg-pink-50/50" },
               ].map((item, i) => (
                 <div key={i} className={`rounded-xl border-2 p-6 text-center ${item.color}`}>
                   <p className="text-[22px] font-bold text-gray-800" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.date}</p>
@@ -310,43 +308,6 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           </div>
         )}
 
-        {/* ── 계약안내 ── */}
-        {activeSubTab === "contract" && (
-          <div className="tab-content">
-            <div className="text-center mb-10">
-              <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">CONTRACT</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>계약안내</h3>
-              <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
-            </div>
-            <div className="max-w-[800px] mx-auto bg-navy/[0.03] rounded-2xl p-10 md:p-14 text-center">
-              <div className="w-16 h-16 rounded-full bg-navy/5 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-navy/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                </svg>
-              </div>
-              <p className="text-gray-400 text-[15px]">계약안내 자료가 준비되면 업로드됩니다.</p>
-            </div>
-          </div>
-        )}
-
-        {/* ── 인지세 납부 안내 ── */}
-        {activeSubTab === "stamp" && (
-          <div className="tab-content">
-            <div className="text-center mb-10">
-              <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">STAMP TAX</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>인지세 납부 안내</h3>
-              <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
-            </div>
-            <div className="max-w-[800px] mx-auto bg-navy/[0.03] rounded-2xl p-10 md:p-14 text-center">
-              <div className="w-16 h-16 rounded-full bg-navy/5 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-navy/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                </svg>
-              </div>
-              <p className="text-gray-400 text-[15px]">인지세 납부 안내가 준비되면 업로드됩니다.</p>
-            </div>
-          </div>
-        )}
 
       </div>
     </section>
