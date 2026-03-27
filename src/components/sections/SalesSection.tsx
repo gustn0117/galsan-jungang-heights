@@ -337,25 +337,96 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
               </div>
 
-              {/* 납부일정 요약 */}
+              {/* 공급금액 및 납부일정 */}
               <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">납부일정</h4>
+                  <h4 className="text-white text-[20px] font-bold">공급금액 및 납부일정</h4>
+                  <p className="text-white/40 text-[13px] mt-1">단위: 세대, 원</p>
                 </div>
                 <div className="p-6 md:p-8">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                      { label: "계약금 (10%)", date: "계약 시" },
-                      { label: "중도금 1차 (40%)", date: "2026.05.27" },
-                      { label: "중도금 2차 (20%)", date: "2026.07.27" },
-                      { label: "잔금 (30%)", date: "입주지정일" },
-                    ].map((item, i) => (
-                      <div key={i} className="text-center p-5 bg-gray-50 rounded-xl border border-gray-100">
-                        <p className="text-navy text-[15px] font-bold mb-2">{item.label}</p>
-                        <div className="w-6 h-px bg-gold/40 mx-auto mb-2" />
-                        <p className="text-gray-500 text-[15px]">{item.date}</p>
-                      </div>
-                    ))}
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-[13px] border-collapse min-w-[900px]">
+                      <thead>
+                        <tr className="bg-navy/5">
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">동</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">층 구분</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">세대수</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">분양가(계)</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">계약금(10%)</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">중도금1차(40%)</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">중도금2차(20%)</th>
+                          <th className="px-2 py-3 text-center font-bold text-navy border border-gray-200">잔금(30%)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100">
+                        {[
+                          { dong: "101동", floor: "4층", cnt: "2", price: "485,925,000", down: "48,592,500", mid1: "194,370,000", mid2: "97,185,000", bal: "145,777,500" },
+                          { dong: "101동", floor: "8층", cnt: "1", price: "496,155,000", down: "49,615,500", mid1: "198,462,000", mid2: "99,231,000", bal: "148,846,500" },
+                          { dong: "101동", floor: "10~14층", cnt: "4", price: "506,385,000", down: "50,638,500", mid1: "202,554,000", mid2: "101,277,000", bal: "151,915,500" },
+                          { dong: "101동", floor: "15~16층", cnt: "2", price: "511,500,000", down: "51,150,000", mid1: "204,600,000", mid2: "102,300,000", bal: "153,450,000" },
+                          { dong: "102동", floor: "3층", cnt: "1", price: "480,810,000", down: "48,081,000", mid1: "192,324,000", mid2: "96,162,000", bal: "144,243,000" },
+                          { dong: "102동", floor: "4층", cnt: "1", price: "485,925,000", down: "48,592,500", mid1: "194,370,000", mid2: "97,185,000", bal: "145,777,500" },
+                          { dong: "102동", floor: "5~9층", cnt: "4", price: "496,155,000", down: "49,615,500", mid1: "198,462,000", mid2: "99,231,000", bal: "148,846,500" },
+                          { dong: "102동", floor: "10~13층", cnt: "5", price: "506,385,000", down: "50,638,500", mid1: "202,554,000", mid2: "101,277,000", bal: "151,915,500" },
+                          { dong: "102동", floor: "16층", cnt: "1", price: "511,500,000", down: "51,150,000", mid1: "204,600,000", mid2: "102,300,000", bal: "153,450,000" },
+                          { dong: "103동", floor: "2층", cnt: "2", price: "475,695,000", down: "47,569,500", mid1: "190,278,000", mid2: "95,139,000", bal: "142,708,500" },
+                          { dong: "103동", floor: "3층", cnt: "1", price: "480,810,000", down: "48,081,000", mid1: "192,324,000", mid2: "96,162,000", bal: "144,243,000" },
+                          { dong: "103동", floor: "4층", cnt: "2", price: "485,925,000", down: "48,592,500", mid1: "194,370,000", mid2: "97,185,000", bal: "145,777,500" },
+                          { dong: "103동", floor: "5~9층", cnt: "9", price: "496,155,000", down: "49,615,500", mid1: "198,462,000", mid2: "99,231,000", bal: "148,846,500" },
+                          { dong: "103동", floor: "10~13층", cnt: "7", price: "506,385,000", down: "50,638,500", mid1: "202,554,000", mid2: "101,277,000", bal: "151,915,500" },
+                          { dong: "103동", floor: "15~19층", cnt: "8", price: "511,500,000", down: "51,150,000", mid1: "204,600,000", mid2: "102,300,000", bal: "153,450,000" },
+                        ].map((row, i) => (
+                          <tr key={i} className="hover:bg-gray-50/50">
+                            <td className="px-2 py-2.5 text-center font-medium text-gray-700 border border-gray-100">{row.dong}</td>
+                            <td className="px-2 py-2.5 text-center text-gray-600 border border-gray-100">{row.floor}</td>
+                            <td className="px-2 py-2.5 text-center text-gray-600 border border-gray-100">{row.cnt}</td>
+                            <td className="px-2 py-2.5 text-right text-gray-600 border border-gray-100 font-mono">{row.price}</td>
+                            <td className="px-2 py-2.5 text-right text-gray-500 border border-gray-100 font-mono">{row.down}</td>
+                            <td className="px-2 py-2.5 text-right text-gray-500 border border-gray-100 font-mono">{row.mid1}</td>
+                            <td className="px-2 py-2.5 text-right text-gray-500 border border-gray-100 font-mono">{row.mid2}</td>
+                            <td className="px-2 py-2.5 text-right text-gray-500 border border-gray-100 font-mono">{row.bal}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                    <div className="p-3 bg-blue-50 rounded-lg"><p className="text-navy text-[12px] font-bold">계약금 납부</p><p className="text-gray-500 text-[13px]">계약 시</p></div>
+                    <div className="p-3 bg-blue-50 rounded-lg"><p className="text-navy text-[12px] font-bold">중도금 1차 (40%)</p><p className="text-gray-500 text-[13px]">2026.05.27</p></div>
+                    <div className="p-3 bg-blue-50 rounded-lg"><p className="text-navy text-[12px] font-bold">중도금 2차 (20%)</p><p className="text-gray-500 text-[13px]">2026.07.27</p></div>
+                    <div className="p-3 bg-blue-50 rounded-lg"><p className="text-navy text-[12px] font-bold">잔금 (30%)</p><p className="text-gray-500 text-[13px]">입주지정일</p></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 발코니 확장 */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
+                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
+                  <h4 className="text-white text-[20px] font-bold">발코니 확장 공사비</h4>
+                </div>
+                <div className="p-6 md:p-8">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-[14px] border-collapse">
+                      <thead>
+                        <tr className="bg-navy/5">
+                          <th className="px-4 py-3 text-center font-bold text-navy">구분</th>
+                          <th className="px-4 py-3 text-center font-bold text-navy">공급금액</th>
+                          <th className="px-4 py-3 text-center font-bold text-navy">계약금</th>
+                          <th className="px-4 py-3 text-center font-bold text-navy">잔금</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="hover:bg-gray-50/50">
+                          <td className="px-4 py-3 text-center font-medium text-gray-700">발코니확장 금액</td>
+                          <td className="px-4 py-3 text-center text-gray-600 font-mono">14,200,000원</td>
+                          <td className="px-4 py-3 text-center text-gray-600 font-mono">2,840,000원</td>
+                          <td className="px-4 py-3 text-center text-gray-600 font-mono">11,360,000원</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                    <p className="text-gray-500 text-[13px]">납부계좌: 우리은행 1005-104-829941 (백조아파트 소규모재건축정비사업조합 외3)</p>
                   </div>
                 </div>
               </div>
@@ -374,6 +445,24 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             </div>
 
             <div className="max-w-[1100px] mx-auto space-y-10">
+              {/* PDF 다운로드 */}
+              <div className="bg-gradient-to-r from-navy to-[#1e3358] rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <h4 className="text-white text-[20px] font-bold mb-2">입주자 모집공고문 전문</h4>
+                  <p className="text-white/50 text-[14px]">중앙하이츠 갈산역 센트럴 입주자 모집공고문 PDF를 다운로드하여 확인하실 수 있습니다.</p>
+                </div>
+                <a
+                  href="/docs/모집공고문.pdf"
+                  download
+                  className="flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white text-[15px] font-bold rounded-lg transition-all duration-300 hover:shadow-lg whitespace-nowrap"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  PDF 다운로드
+                </a>
+              </div>
+
               {/* 청약 일정 */}
               <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
@@ -484,10 +573,80 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
               </div>
 
+              {/* 청약 자격조건 상세 */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
+                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
+                  <h4 className="text-white text-[20px] font-bold">청약 자격조건 (추첨제)</h4>
+                </div>
+                <div className="p-6 md:p-8 space-y-6">
+                  <div>
+                    <h5 className="text-navy text-[16px] font-bold mb-3">대상자</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
+                      <p>입주자모집공고일(26.03.27) 현재 인천광역시 및 수도권(서울특별시, 경기도) 거주하는 만 19세 이상인 자 또는 세대주인 미성년자(자녀양육, 형제자매 부양)</p>
+                      <p>순위별 청약통장 자격요건을 만족한 자</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="text-navy text-[16px] font-bold mb-3">당첨자 선정 순서</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
+                      <p><strong>1순위 가점제:</strong> ①지역 → ②가점 → ③청약통장 가입기간 → ④추첨</p>
+                      <p><strong>1순위 후 추첨제:</strong> ①지역 → ②무주택 우선공급 → ③추첨</p>
+                      <p><strong>2순위:</strong> ①지역 → ②추첨</p>
+                      <p className="mt-2 text-gray-500 text-[13px]">①지역: 해당지역 거주자(인천광역시) → 기타지역 거주자(서울특별시, 경기도)</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="text-navy text-[16px] font-bold mb-3">유의사항</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
+                      <p>1순위 가점제 청약 시 유의사항: 입주자모집공고일(26.03.27) 기준 과거 2년 이내 가점제로 당첨된 본 및 그 세대원은 가점제 청약이 불가하며, 가점제로 청약하여 당첨 시 부적격 처리됩니다.</p>
+                      <p className="mt-1">1순위 가점제 당첨시 가점제 당첨 제한자로 관리되며, 당첨자 및 그 세대원은 당첨자발표일로부터 2년간 다른 민영주택의 1순위 가점제 청약이 불가합니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 청약신청 일정 상세 */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
+                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
+                  <h4 className="text-white text-[20px] font-bold">청약신청 일정</h4>
+                </div>
+                <div className="p-6 md:p-8">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-[14px] border-collapse">
+                      <thead>
+                        <tr className="bg-navy/5">
+                          <th className="px-3 py-3 text-center font-bold text-navy">구분</th>
+                          <th className="px-3 py-3 text-center font-bold text-navy">1순위</th>
+                          <th className="px-3 py-3 text-center font-bold text-navy">2순위</th>
+                          <th className="px-3 py-3 text-left font-bold text-navy">접수장소 및 시간</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100">
+                        <tr className="hover:bg-gray-50/50">
+                          <td className="px-3 py-3 text-center font-medium text-gray-700">일반공급</td>
+                          <td className="px-3 py-3 text-center text-gray-600">2026.4.6(화)</td>
+                          <td className="px-3 py-3 text-center text-gray-600">2026.4.7(수)</td>
+                          <td className="px-3 py-3 text-gray-500 text-[13px]">
+                            <p>청약Home 인터넷/모바일 09:00~17:30</p>
+                            <p>청약통장 가입은행 창구 방문 09:00~16:00</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="mt-4 p-4 bg-blue-50/50 rounded-lg text-[13px] text-gray-500 leading-[1.8]">
+                    <p>- 한국부동산원 청약홈 홈페이지(http://www.applyhome.co.kr) 또는 청약홈 모바일 앱에서 신청</p>
+                    <p>- 인터넷 청약이 원칙이며, 정보취약계층(만 65세 이상 고령자, 장애인 등)에 한하여 청약통장 가입은행 본·지점(09:00~16:00)에서 청약 가능</p>
+                    <p>- 은행 점업점별 업무시간이 상이할 수 있으므로 반드시 사전에 확인하시기 바랍니다.</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
                 <p className="text-gray-400 text-[14px] leading-[1.8]">
                   ※ 청약관련 사항은 관련 법령의 개정, 인허가 과정, 입주자모집공고 승인 시점에 따라 변경될 수 있습니다.<br />
-                  ※ 반드시 입주자모집공고문을 통해 청약자격, 유의사항 등을 숙지하시어 청약하시기 바랍니다.
+                  ※ 반드시 입주자모집공고문을 통해 청약자격, 유의사항 등을 숙지하시어 청약하시기 바랍니다.<br />
+                  ※ 청약자격 미숙지, 착오 등에 대해서는 청약자 본인에게 책임이 있으므로 불이익을 당하는 일이 없도록 유의하시기 바랍니다.
                 </p>
               </div>
             </div>
@@ -549,15 +708,33 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                     <h5 className="text-navy text-[16px] font-bold mb-3">기존주택 처분조건 청약자</h5>
                     <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
                       <p>- 기존주택 처분 관련 서약서 (본인)</p>
-                      <p>- 전세피해자 확인서류 (해당 시)</p>
+                      <p>- 전세피해자 낙찰주택 소유기간보증금의 전부 또는 일부를 돌려받지 못한 임차인이 그 임차주택을 경매 또는 공매로 낙찰 받아 소유한 기간을 무주택 기간으로 인정받기 위한 경우</p>
+                      <p>- ① 해당 임차주택 임대차계약서 사본 ② 낙찰 증빙서류, 매매허가결정서 또는 매각결정통지서 사본 ③ 해당 임차주택 등기사항증명서 원본 ④ 재건지가 확인서류, 배당표, 배당요구신청서 등의 사본 또는 배분계산서 등의 사본</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="text-navy text-[16px] font-bold mb-3">해외근무자 (단신부임)</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
+                      <p>- 출입국에 관한 사실증명 (배우자 및 직계존비속): 청약자가 해외에 체류 중인 기간 내 세대원 및 자녀 중 한명이라도 신청자와 동일국가 체류기간 여부 확인</p>
+                      <p>- 해외체류 증빙내역 및 재학증명서 등 (청약자 및 세대원): 여권 분실 및 재발급으로 체류국가 확인이 불가능한 경우</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="text-navy text-[16px] font-bold mb-3">부적격 통보를 받은 자</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
+                      <p>- 해당 주택에 대한 소명 자료</p>
+                      <p>- 등기사항전부증명서, 건축물대장등본, 무허가건물확인서, 건축물철거기멸실신고서 등</p>
+                      <p>- &quot;소형·저가주택 등&quot;임을 증명하는 서류 (주택공시가격 증명원 등)</p>
+                      <p>- 기타 무주택자임을 증명하는 서류</p>
                     </div>
                   </div>
                   <div>
                     <h5 className="text-navy text-[16px] font-bold mb-3">제3자 대리인 신청시 추가서류</h5>
                     <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
-                      <p>- 인감증명서, 인감도장 (청약자 본인 발급용만 인정)</p>
+                      <p>- 인감증명서, 인감도장 (주택 공급신청 위임용, 본인 발급용만 인정)</p>
                       <p>- 위임장 (당첨자 본인의 인감도장 날인, 홍보관에 비치)</p>
-                      <p>- 대리인 신분증 (주민등록증 또는 운전면허증)</p>
+                      <p>- 대리인 신분증 (주민등록증 또는 운전면허증, 여권(2020.12.21 이후 신규발급분 제외))</p>
+                      <p>- 재외동포: 국내거소신고증(국내거주사실증명서) / 외국인: 외국인 등록증(외국인등록사실증명서)</p>
                     </div>
                   </div>
                 </div>
