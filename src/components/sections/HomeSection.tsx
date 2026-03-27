@@ -102,18 +102,6 @@ export default function HomeSection() {
               }`}
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.3)" }}
             >
-              <div className="flex items-center justify-center gap-3 mb-5">
-                <span className="w-8 h-[1px] bg-gold/50" />
-                <span className="text-gold text-[12px] tracking-[4px] font-medium uppercase">Premium Residence</span>
-                <span className="w-8 h-[1px] bg-gold/50" />
-              </div>
-              <h1 className="text-white mb-4 whitespace-nowrap">
-                <span className="text-[28px] md:text-[42px] lg:text-[52px] xl:text-[60px] font-extralight tracking-tight">걸어서 누리는 </span>
-                <span className="text-[28px] md:text-[42px] lg:text-[52px] xl:text-[60px] font-bold tracking-tight">완성된 <span className="text-gold">프리미엄</span></span>
-              </h1>
-              <p className="text-white/50 text-[13px] lg:text-[15px] leading-[1.8]">
-                내집앞 갈산역 초역세권, 내집앞 수변공원 초공세권 &nbsp;|&nbsp; 총 126세대 / 일반분양 50세대 / 59type 단일
-              </p>
             </div>
 
             {/* 로고 + CTA 가로 배치 */}
