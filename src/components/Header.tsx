@@ -43,6 +43,7 @@ const menuItems: MenuItem[] = [
     subItems: [
       { id: "floorplan", label: "평면안내" },
       { id: "interior", label: "세대 인테리어" },
+      { id: "finishing", label: "마감재 리스트" },
       { id: "vr", label: "VR영상" },
     ],
   },
@@ -55,8 +56,6 @@ const menuItems: MenuItem[] = [
       { id: "notice", label: "모집공고" },
       { id: "documents", label: "서류안내" },
       { id: "reserve", label: "예비당첨자 명단" },
-      { id: "contract", label: "계약안내" },
-      { id: "stamp", label: "인지세 납부 안내" },
     ],
   },
   {
