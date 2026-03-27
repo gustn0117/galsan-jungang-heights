@@ -491,7 +491,7 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
               <p className="text-gray-400 text-[14px]">59㎡ TYPE 건립세대 기준</p>
             </div>
 
-            <div className="max-w-[1000px] mx-auto space-y-10">
+            <div className="max-w-[1100px] mx-auto space-y-10">
               {/* 창호 및 현관 */}
               <div>
                 <div className="flex items-center gap-2 mb-4">
@@ -502,18 +502,19 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">MAIN COLOR</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관</td><td className="px-4 py-3 text-gray-500">디지털도어락 / 도어카메라</td><td className="px-4 py-3 text-gray-500">코콤 KDL-7100SK / 코콤 KC-T80M9</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">목창호 도어/문틀/케이싱</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">PL창호 전체실 (실내측)</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">PL창호 대피실/실외기실</td><td className="px-4 py-3 text-gray-500">-</td><td className="px-4 py-3 text-gray-500">래핑 없음</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">몰딩 (기본천장)</td><td className="px-4 py-3 text-gray-500">PVC 몰딩 위 SHEET 래핑</td><td className="px-4 py-3 text-gray-500">백색 PVC 계단 몰딩</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">MAIN COLOR</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td><td className="px-4 py-2 text-center"><img src="/images/finishing/sheet-wrap.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관</td><td className="px-4 py-3 text-gray-500">디지털도어락 / 도어카메라</td><td className="px-4 py-3 text-gray-500">코콤 KDL-7100SK / KC-T80M9</td><td className="px-4 py-2 text-center"><img src="/images/finishing/doorlock.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">목창호 도어/문틀/케이싱</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td><td className="px-4 py-2 text-center"><img src="/images/finishing/sheet-wrap.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">PL창호 전체실 (실내측)</td><td className="px-4 py-3 text-gray-500">SHEET 래핑</td><td className="px-4 py-3 text-gray-500">현대L&C : PNTA2T</td><td className="px-4 py-2 text-center"><img src="/images/finishing/sheet-wrap.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">PL창호 대피실/실외기실</td><td className="px-4 py-3 text-gray-500">-</td><td className="px-4 py-3 text-gray-500">래핑 없음</td><td className="px-4 py-2"></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">몰딩 (기본천장)</td><td className="px-4 py-3 text-gray-500">PVC 몰딩 위 SHEET 래핑</td><td className="px-4 py-3 text-gray-500">백색 PVC 계단 몰딩</td><td className="px-4 py-2 text-center"><img src="/images/finishing/molding.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -529,17 +530,18 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">전체 천장</td><td className="px-4 py-3 text-gray-500">도배지</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 루체 87088-1</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관/복도/거실/주방/침실 벽</td><td className="px-4 py-3 text-gray-500">도배지 (메인)</td><td className="px-4 py-3 text-gray-500">개나리벽지 에비뉴 : 77292-1</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 에비뉴 77292-5</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">침실1 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 로하스 87428-4</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">침실2, 3 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 로하스 87423-5</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">전체 천장</td><td className="px-4 py-3 text-gray-500">도배지</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 루체 87088-1</td><td className="px-4 py-2 text-center"><img src="/images/finishing/wallpaper-ceiling.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관/복도/거실/주방/침실 벽</td><td className="px-4 py-3 text-gray-500">도배지 (메인)</td><td className="px-4 py-3 text-gray-500">개나리벽지 에비뉴 : 77292-1</td><td className="px-4 py-2 text-center"><img src="/images/finishing/wallpaper-main.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 에비뉴 77292-5</td><td className="px-4 py-2 text-center"><img src="/images/finishing/wallpaper-kitchen.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">침실1 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 로하스 87428-4</td><td className="px-4 py-2 text-center"><img src="/images/finishing/wallpaper-bed1.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">침실2, 3 벽</td><td className="px-4 py-3 text-gray-500">도배지 (포인트)</td><td className="px-4 py-3 text-gray-500">개나리벽지 : 로하스 87423-5</td><td className="px-4 py-2 text-center"><img src="/images/finishing/wallpaper-bed23.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -555,14 +557,15 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">전체</td><td className="px-4 py-3 text-gray-500">강마루 (95×800)</td><td className="px-4 py-3 text-gray-500">이건마루 SERA 하이브리드 어반그레이</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 천장</td><td className="px-4 py-3 text-gray-500">ABS 천장재</td><td className="px-4 py-3 text-gray-500">(주)새턴바스 제작</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">전체</td><td className="px-4 py-3 text-gray-500">강마루 (95×800)</td><td className="px-4 py-3 text-gray-500">이건마루 SERA 하이브리드 어반그레이</td><td className="px-4 py-2 text-center"><img src="/images/finishing/flooring.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 천장</td><td className="px-4 py-3 text-gray-500">ABS 천장재</td><td className="px-4 py-3 text-gray-500">(주)새턴바스 제작</td><td className="px-4 py-2 text-center"><img src="/images/finishing/ceiling-bath.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -578,21 +581,22 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관 바닥</td><td className="px-4 py-3 text-gray-500">타일 (600×600)</td><td className="px-4 py-3 text-gray-500">수입타일 6622 LG</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">거실 아트월</td><td className="px-4 py-3 text-gray-500">타일 (400×800)</td><td className="px-4 py-3 text-gray-500">수입타일 48081</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 벽</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">수입타일 DW-9185</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF4536</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 벽 메인</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">대동타일 : DW9387</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 벽 포인트</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">대동타일 : DW9367</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF4536</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 벽</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">기본: 대동타일 DW9357 / 포인트: 수립타일 CW7010</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF-4535</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관 바닥</td><td className="px-4 py-3 text-gray-500">타일 (600×600)</td><td className="px-4 py-3 text-gray-500">수입타일 6622 LG</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-entrance.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">거실 아트월</td><td className="px-4 py-3 text-gray-500">타일 (400×800)</td><td className="px-4 py-3 text-gray-500">수입타일 48081</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-artwall.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 벽</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">수입타일 DW-9185</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-kitchen.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF4536</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath1-floor.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 벽 메인</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">대동타일 : DW9387</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath1-wall.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 벽 포인트</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">대동타일 : DW9367</td><td className="px-4 py-2"></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF4536</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath2-floor.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 벽</td><td className="px-4 py-3 text-gray-500">타일 (300×600)</td><td className="px-4 py-3 text-gray-500">기본: 대동타일 DW9357 / 포인트: 수립타일 CW7010</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath2-wall.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 바닥</td><td className="px-4 py-3 text-gray-500">타일 (300×300)</td><td className="px-4 py-3 text-gray-500">대동타일 : DF-4535</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-utility.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -608,18 +612,19 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관 디딤판/걸레받이</td><td className="px-4 py-3 text-gray-500">인조강화석</td><td className="px-4 py-3 text-gray-500">(주)모노스톤 HSQ-SDBM2005</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 젠다이상판</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSE-011 벨라블릭</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 상판</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-010</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 도어 SILL</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSE-027 크리스탈</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 샤워부스 SILL</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-004 콘크리트무스</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실 바닥 단차</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-004 콘크리트무스</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">현관 디딤판/걸레받이</td><td className="px-4 py-3 text-gray-500">인조강화석</td><td className="px-4 py-3 text-gray-500">(주)모노스톤 HSQ-SDBM2005</td><td className="px-4 py-2 text-center"><img src="/images/finishing/stone-entrance.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 젠다이상판</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSE-011 벨라블릭</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath2-floor.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">주방 상판</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-010</td><td className="px-4 py-2 text-center"><img src="/images/finishing/stone-kitchen.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 도어 SILL</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSE-027 크리스탈</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-bath2-wall.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실 샤워부스 SILL</td><td className="px-4 py-3 text-gray-500">인조대리석</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-004 콘크리트무스</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-utility.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실 바닥 단차</td><td className="px-4 py-3 text-gray-500">인조대리��</td><td className="px-4 py-3 text-gray-500">(주)에스캠 HSB-004 콘크리트무스</td><td className="px-4 py-2 text-center"><img src="/images/finishing/tile-utility.jpg" alt="" className="w-14 h-14 object-cover rounded inline-block" /></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -635,16 +640,17 @@ export default function UnitSection({ initialSubTab }: UnitSectionProps) {
                   <table className="w-full text-[13px] border-collapse">
                     <thead>
                       <tr className="bg-navy text-white">
-                        <th className="px-4 py-3 text-left font-medium w-[25%]">구분</th>
-                        <th className="px-4 py-3 text-left font-medium w-[30%]">사양</th>
+                        <th className="px-4 py-3 text-left font-medium w-[22%]">구분</th>
+                        <th className="px-4 py-3 text-left font-medium w-[25%]">사양</th>
                         <th className="px-4 py-3 text-left font-medium">모델</th>
+                        <th className="px-4 py-3 text-center font-medium w-[80px]">사진</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 벽·천장</td><td className="px-4 py-3 text-gray-500">도장</td><td className="px-4 py-3 text-gray-500">(주)노루표페인트 수성 내부 1급 (NA101)</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 벽 하부</td><td className="px-4 py-3 text-gray-500">낙서방지 도장</td><td className="px-4 py-3 text-gray-500">(주)노루표페인트 광택스 (NCS S 5000-N)</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 세면대 하부</td><td className="px-4 py-3 text-gray-500">PVC 몰딩</td><td className="px-4 py-3 text-gray-500">PVC 코너비드</td></tr>
-                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 세면대 하부 / 타일 벽</td><td className="px-4 py-3 text-gray-500">PVC 몰딩</td><td className="px-4 py-3 text-gray-500">PVC 코너비드</td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 벽·천장</td><td className="px-4 py-3 text-gray-500">도장</td><td className="px-4 py-3 text-gray-500">(주)노루표페인트 수성 내부 1급 (NA101)</td><td className="px-4 py-2"></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">다용도실/발코니/대피실 벽 하부</td><td className="px-4 py-3 text-gray-500">낙서방지 도장</td><td className="px-4 py-3 text-gray-500">(주)노루표페인트 광택스 (NCS S 5000-N)</td><td className="px-4 py-2"></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실1 (공용) 세면대 하부</td><td className="px-4 py-3 text-gray-500">PVC 몰딩</td><td className="px-4 py-3 text-gray-500">PVC 코너비드</td><td className="px-4 py-2"></td></tr>
+                      <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-gray-600">욕실2 (부부) 세면대 하부 / 타일 벽</td><td className="px-4 py-3 text-gray-500">PVC 몰딩</td><td className="px-4 py-3 text-gray-500">PVC 코너비드</td><td className="px-4 py-2"></td></tr>
                     </tbody>
                   </table>
                 </div>
