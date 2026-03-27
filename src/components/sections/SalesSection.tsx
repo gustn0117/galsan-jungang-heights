@@ -256,8 +256,8 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                       { label: "입주시기", value: "2026년 9월 예정" },
                     ].map((item, i) => (
                       <div key={i} className="flex gap-3 p-4 bg-gray-50 rounded-lg">
-                        <span className="text-gold text-[13px] font-bold whitespace-nowrap min-w-[80px]">{item.label}</span>
-                        <span className="text-gray-600 text-[13px]">{item.value}</span>
+                        <span className="text-gold text-[15px] font-bold whitespace-nowrap min-w-[80px]">{item.label}</span>
+                        <span className="text-gray-600 text-[15px]">{item.value}</span>
                       </div>
                     ))}
                   </div>
@@ -271,7 +271,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-3 py-3 text-left font-bold text-navy">주택형</th>
@@ -297,7 +297,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                     </table>
                   </div>
                   <div className="mt-4 p-4 bg-blue-50/50 rounded-lg">
-                    <p className="text-gray-500 text-[12px] leading-[1.8]">
+                    <p className="text-gray-500 text-[13px] leading-[1.8]">
                       특별공급 29세대 : 기관추천 5세대, 다자녀가구 5세대, 신혼부부 12세대, 노부모부양 2세대, 생애최초 5세대
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-4 py-3 text-left font-bold text-navy">구분</th>
@@ -325,7 +325,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                           <td className="px-4 py-3 font-medium text-gray-700">분양대금 납부계좌</td>
                           <td className="px-4 py-3 text-center text-gray-500">우리은행</td>
                           <td className="px-4 py-3 text-center font-mono text-gray-600">1005-404-827253</td>
-                          <td className="px-4 py-3 text-center text-gray-500 text-[12px]">주택도시보증공사 서부피에프보금융지사 외 3</td>
+                          <td className="px-4 py-3 text-center text-gray-500 text-[13px]">주택도시보증공사 서부피에프보금융지사 외 3</td>
                         </tr>
                       </tbody>
                     </table>
@@ -351,9 +351,9 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                       { label: "잔금 (30%)", date: "입주지정일" },
                     ].map((item, i) => (
                       <div key={i} className="text-center p-5 bg-gray-50 rounded-xl border border-gray-100">
-                        <p className="text-navy text-[13px] font-bold mb-2">{item.label}</p>
+                        <p className="text-navy text-[15px] font-bold mb-2">{item.label}</p>
                         <div className="w-6 h-px bg-gold/40 mx-auto mb-2" />
-                        <p className="text-gray-500 text-[13px]">{item.date}</p>
+                        <p className="text-gray-500 text-[15px]">{item.date}</p>
                       </div>
                     ))}
                   </div>
@@ -381,7 +381,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-4 py-3 text-center font-bold text-navy">구분</th>
@@ -390,12 +390,12 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">특별공급</td><td className="px-4 py-3 text-center text-gray-600">2026.04.06 (월)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 사업주체 홍보관</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 1순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.07 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 청약통장 가입���행</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 2순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.08 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">PC/모바일 청약홈</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">당첨자 발표</td><td className="px-4 py-3 text-center text-gray-600">2026.04.15 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">-</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">서류접수</td><td className="px-4 py-3 text-center text-gray-600">2026.04.16 (목) ~ 04.25 (토)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">사업주체 홍보관</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">정당계약</td><td className="px-4 py-3 text-center text-gray-600">2026.04.26 (일) ~ 04.28 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[12px]">인천광역시 부평구 부평대로 258, 1층</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">특별공급</td><td className="px-4 py-3 text-center text-gray-600">2026.04.06 (월)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 사업주체 홍보관</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 1순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.07 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 청약통장 가입���행</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 2순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.08 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">당첨자 발표</td><td className="px-4 py-3 text-center text-gray-600">2026.04.15 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">-</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">서류접수</td><td className="px-4 py-3 text-center text-gray-600">2026.04.16 (목) ~ 04.25 (토)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">사업주체 홍보관</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">정당계약</td><td className="px-4 py-3 text-center text-gray-600">2026.04.26 (일) ~ 04.28 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">인천광역시 부평구 부평대로 258, 1층</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -420,9 +420,9 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                       <div key={i} className="p-5 bg-gray-50 rounded-xl border border-gray-100">
                         <div className="flex items-center gap-2 mb-3">
                           <span className="w-7 h-7 rounded-full bg-navy flex items-center justify-center text-white text-[11px] font-bold">{item.num}</span>
-                          <span className="text-navy text-[14px] font-bold">{item.title}</span>
+                          <span className="text-navy text-[16px] font-bold">{item.title}</span>
                         </div>
-                        <p className="text-gray-500 text-[12px] leading-[1.7]">{item.desc}</p>
+                        <p className="text-gray-500 text-[14px] leading-[1.7]">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -436,7 +436,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-4 py-3 text-center font-bold text-navy">구분</th>
@@ -463,7 +463,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[12px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-3 py-3 text-center font-bold text-navy" colSpan={2}>구분</th>
@@ -472,12 +472,12 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500" rowSpan={5}>특별공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">기관추천</td><td className="px-3 py-3 text-gray-500">해당 기관의 추천 및 인정서류를 받으신 분</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">다자녀</td><td className="px-3 py-3 text-gray-500">만 19세 미만의 자녀 2명 이상(태아 및 입양자녀 포함)</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">신혼부부</td><td className="px-3 py-3 text-gray-500">혼인기간 7년 이내, 혼인신고일부터 최초 입주자모집공고일 현재까지 계속 무주택자인 분</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">생애최초</td><td className="px-3 py-3 text-gray-500">생애최초로 주택을 구입하는 분, 현재 근로자 또는 자영업자로서 5년 이상 소득세 납부</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">청약통장 가입 후 12개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">노부모부양</td><td className="px-3 py-3 text-gray-500">만 65세 이상의 직계존속을 3년 이상 계속하여 부양하고 있는 분</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">무주택 세대주</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500">일반공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">1순위</td><td className="px-3 py-3 text-gray-500">청약통장 가입기간 12개월 경과, 지역별·면적별 예치금액 이상인 자 (세대주 및 세대원 모두 가능)</td><td className="px-3 py-3 text-center text-gray-400 text-[11px]">만 19세 이상</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500" rowSpan={5}>특별공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">기관추천</td><td className="px-3 py-3 text-gray-500">해당 기관의 추천 및 인정서류를 받으신 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">다자녀</td><td className="px-3 py-3 text-gray-500">만 19세 미만의 자녀 2명 이상(태아 및 입양자녀 포함)</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">신혼부부</td><td className="px-3 py-3 text-gray-500">혼인기간 7년 이내, 혼인신고일부터 최초 입주자모집공고일 현재까지 계속 무주택자인 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">생애최초</td><td className="px-3 py-3 text-gray-500">생애최초로 주택을 구입하는 분, 현재 근로자 또는 자영업자로서 5년 이상 소득세 납부</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 12개월</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">노부모부양</td><td className="px-3 py-3 text-gray-500">만 65세 이상의 직계존속을 3년 이상 계속하여 부양하고 있는 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">무주택 세대주</td></tr>
+                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500">일반공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">1순위</td><td className="px-3 py-3 text-gray-500">청약통장 가입기간 12개월 경과, 지역별·면적별 예치금액 이상인 자 (세대주 및 세대원 모두 가능)</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">만 19세 이상</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -485,7 +485,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               </div>
 
               <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="text-gray-400 text-[12px] leading-[1.8]">
+                <p className="text-gray-400 text-[14px] leading-[1.8]">
                   ※ 청약관련 사항은 관련 법령의 개정, 인허가 과정, 입주자모집공고 승인 시점에 따라 변경될 수 있습니다.<br />
                   ※ 반드시 입주자모집공고문을 통해 청약자격, 유의사항 등을 숙지하시어 청약하시기 바랍니다.
                 </p>
@@ -512,7 +512,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[12px] border-collapse">
+                    <table className="w-full text-[14px] border-collapse">
                       <thead>
                         <tr className="bg-navy/5">
                           <th className="px-3 py-3 text-center font-bold text-navy w-[15%]">구분</th>
@@ -546,15 +546,15 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </div>
                 <div className="p-6 md:p-8 space-y-6">
                   <div>
-                    <h5 className="text-navy text-[14px] font-bold mb-3">기존주택 처분조건 청약자</h5>
-                    <div className="p-4 bg-gray-50 rounded-lg text-[12px] text-gray-500 leading-[1.8]">
+                    <h5 className="text-navy text-[16px] font-bold mb-3">기존주택 처분조건 청약자</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
                       <p>- 기존주택 처분 관련 서약서 (본인)</p>
                       <p>- 전세피해자 확인서류 (해당 시)</p>
                     </div>
                   </div>
                   <div>
-                    <h5 className="text-navy text-[14px] font-bold mb-3">제3자 대리인 신청시 추가서류</h5>
-                    <div className="p-4 bg-gray-50 rounded-lg text-[12px] text-gray-500 leading-[1.8]">
+                    <h5 className="text-navy text-[16px] font-bold mb-3">제3자 대리인 신청시 추가서류</h5>
+                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-500 leading-[1.8]">
                       <p>- 인감증명서, 인감도장 (청약자 본인 발급용만 인정)</p>
                       <p>- 위임장 (당첨자 본인의 인감도장 날인, 홍보관에 비치)</p>
                       <p>- 대리인 신분증 (주민등록증 또는 운전면허증)</p>
@@ -564,7 +564,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               </div>
 
               <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="text-gray-400 text-[12px] leading-[1.8]">
+                <p className="text-gray-400 text-[14px] leading-[1.8]">
                   ※ 서류접수 기간: 2026.04.16 (목) ~ 04.25 (토)<br />
                   ※ 접수장소: 사업주체 홍보관 (인천광역시 부평구 부평대로 258, 1층)<br />
                   ※ 상기 서류는 공고일 기준이며, 변경될 수 있으니 반드시 입주자모집공고문을 확인하시기 바랍니다.
