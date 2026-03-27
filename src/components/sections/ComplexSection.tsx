@@ -284,6 +284,17 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
               </div>
             </div>
 
+            {/* 동호배치도 이미지 */}
+            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg mb-12 border border-gray-100">
+              <Image
+                src="/images/unitplan.jpg"
+                alt="동·호수 배치도"
+                fill
+                className="object-contain bg-white"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+            </div>
+
             {/* Building Selector Tabs */}
             <div className="flex justify-center mb-8">
               <div className="inline-flex bg-gray-50 rounded-xl p-1.5 border border-gray-100">
@@ -404,19 +415,67 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
 
         {activeSubTab === "community" && (
           <div className="tab-content">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">커뮤니티</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[24, 25, 26, 27].map((num, i) => (
-                <ImagePlaceholder
-                  key={num}
-                  number={num}
-                  gradient={i % 2 === 0 ? "gradient-community" : "gradient-silver"}
-                  height="h-[300px]"
-                  label={`커뮤니티 시설 ${i + 1}`}
-                  dark
-                  className="rounded-lg"
+            <div className="text-center mb-14">
+              <span className="text-gold text-[12px] tracking-[5px] font-medium">COMMUNITY</span>
+              <h3 className="text-[28px] lg:text-[34px] font-bold text-gray-900 mt-3 tracking-tight">커뮤니티</h3>
+              <p className="text-gray-400 text-[14px] mt-3">입주민을 위한 프리미엄 커뮤니티 시설</p>
+              <div className="flex items-center justify-center gap-3 mt-5">
+                <span className="w-10 h-[1px] bg-gold/40" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <span className="w-10 h-[1px] bg-gold/40" />
+              </div>
+            </div>
+
+            {/* 피트니스 대표 이미지 */}
+            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg mb-8">
+              <Image
+                src="/images/community-1.jpg"
+                alt="CENTRAL Fitness Gym"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-8">
+                <span className="text-gold text-[11px] tracking-[3px] font-medium">FITNESS CENTER</span>
+                <h4 className="text-white text-[24px] font-bold mt-1">CENTRAL Fitness Gym</h4>
+              </div>
+            </div>
+
+            {/* 나머지 이미지 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src="/images/community-2.jpg"
+                  alt="피트니스 평면도"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              ))}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <p className="text-white text-[16px] font-bold">커뮤니티 시설 평면도</p>
+                  <p className="text-white/60 text-[13px] mt-1">B101호 피트니스 센터</p>
+                </div>
+              </div>
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src="/images/community-3.jpg"
+                  alt="피트니스 내부"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <p className="text-white text-[16px] font-bold">피트니스 센터 내부</p>
+                  <p className="text-white/60 text-[13px] mt-1">최신 운동기구 완비</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 bg-gray-50 rounded-lg border border-gray-100 px-6 py-5">
+              <p className="text-[12px] text-gray-400 leading-[1.8]">
+                ※ 상기 이미지는 CG로 제작된 것으로 실제와 차이가 있을 수 있습니다.<br />
+                ※ 커뮤니티 시설은 사업주체 및 관계기관의 사정에 따라 변경될 수 있습니다.
+              </p>
             </div>
           </div>
         )}
