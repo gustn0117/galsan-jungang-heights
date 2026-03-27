@@ -443,15 +443,15 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
 
             {/* 나머지 이미지 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md">
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md bg-white">
                 <Image
                   src="/images/community-2.jpg"
                   alt="피트니스 평면도"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                   <p className="text-white text-[16px] font-bold">커뮤니티 시설 평면도</p>
                   <p className="text-white/60 text-[13px] mt-1">B101호 피트니스 센터</p>
                 </div>
