@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import SectionBanner from "../SectionBanner";
+import SupplyContent from "./SupplyContent";
+import DocumentsContent from "./DocumentsContent";
 
 const subTabs = [
   { id: "schedule", label: "분양일정" },
@@ -240,10 +242,8 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>공급안내</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
-            <div className="max-w-[1100px] mx-auto space-y-1">
-              {[1, 2, 3, 4].map((n) => (
-                <img key={n} src={`/images/sales/supply-${n}.jpg`} alt={`공급안내 ${n}페이지`} className="w-full h-auto" loading="lazy" />
-              ))}
+            <div className="max-w-[1100px] mx-auto">
+              <SupplyContent />
             </div>
           </div>
         )}
@@ -475,10 +475,8 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>서류안내</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
-            <div className="max-w-[1100px] mx-auto space-y-1">
-              {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-                <img key={n} src={`/images/sales/documents-${n}.jpg`} alt={`서류안내 ${n}페이지`} className="w-full h-auto" loading="lazy" />
-              ))}
+            <div className="max-w-[1100px] mx-auto">
+              <DocumentsContent />
             </div>
           </div>
         )}
