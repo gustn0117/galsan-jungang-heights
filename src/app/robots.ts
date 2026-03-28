@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://galsan.hsweb.pics/sitemap.xml",
+    sitemap: "https://중앙하이츠갈산역센트럴.kr/sitemap.xml",
   };
 }

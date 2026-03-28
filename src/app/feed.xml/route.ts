@@ -1,4 +1,4 @@
-const BASE_URL = "https://galsan.hsweb.pics";
+const BASE_URL = "https://중앙하이츠갈산역센트럴.kr";
 
 export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

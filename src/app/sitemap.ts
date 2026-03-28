@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://galsan.hsweb.pics";
+const BASE_URL = "https://중앙하이츠갈산역센트럴.kr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
