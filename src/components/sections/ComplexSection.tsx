@@ -23,7 +23,7 @@ const building101Floors = [
   { floor: "13F", units: ["1301", "1302"] },
   { floor: "12F", units: ["1201", "1202"] },
   { floor: "11F", units: ["1101", "1102"] },
-  { floor: "10F", units: ["보류지", "1002"] },
+  { floor: "10F", units: [null, "1002"] },
   { floor: "9F", units: ["901", "902"] },
   { floor: "8F", units: ["801", "802"] },
   { floor: "7F", units: ["701", "702"] },
@@ -31,7 +31,7 @@ const building101Floors = [
   { floor: "5F", units: ["501", "502"] },
   { floor: "4F", units: ["401", "402"] },
   { floor: "3F", units: ["301", null] },
-  { floor: "2F", units: ["상가", "상가"] },
+  { floor: "2F", units: [null, null] },
   { floor: "1F", units: [null, null] },
   { floor: "B1F", units: [null, null] },
 ];
@@ -44,7 +44,7 @@ const building102Floors = [
   { floor: "13F", units: ["1301", "1302"] },
   { floor: "12F", units: ["1201", "1202"] },
   { floor: "11F", units: ["1101", "1102"] },
-  { floor: "10F", units: ["1001", "보류지"] },
+  { floor: "10F", units: ["1001", null] },
   { floor: "9F", units: ["901", "902"] },
   { floor: "8F", units: ["801", "802"] },
   { floor: "7F", units: ["701", "702"] },
@@ -52,7 +52,7 @@ const building102Floors = [
   { floor: "5F", units: ["501", "502"] },
   { floor: "4F", units: ["401", "402"] },
   { floor: "3F", units: [null, "302"] },
-  { floor: "2F", units: ["상가", "상가"] },
+  { floor: "2F", units: [null, null] },
   { floor: "1F", units: [null, null] },
   { floor: "B1F", units: [null, null] },
 ];
@@ -61,14 +61,14 @@ const building102Floors = [
 const building103Floors = [
   { floor: "19F", units: ["1901", "1902", "1903", "1904"] },
   { floor: "18F", units: ["1801", "1802", "1803", "1804"] },
-  { floor: "17F", units: ["1701", "1702", "보류지", "보류지"] },
+  { floor: "17F", units: ["1701", "1702", null, null] },
   { floor: "16F", units: ["1601", "1602", "1603", "1604"] },
   { floor: "15F", units: ["1501", "1502", "1503", "1504"] },
   { floor: "14F", units: ["1401", "1402", "1403", "1404"] },
   { floor: "13F", units: ["1301", "1302", "1303", "1304"] },
   { floor: "12F", units: ["1201", "1202", "1203", "1204"] },
   { floor: "11F", units: ["1101", "1102", "1103", "1104"] },
-  { floor: "10F", units: ["보류지", "1002", "1003", "1004"] },
+  { floor: "10F", units: [null, "1002", "1003", "1004"] },
   { floor: "9F", units: ["901", "902", "903", "904"] },
   { floor: "8F", units: ["801", "802", "803", "804"] },
   { floor: "7F", units: ["701", "702", "703", "704"] },
@@ -81,8 +81,6 @@ const building103Floors = [
 
 function getUnitStyle(unit: string | null): string {
   if (!unit) return "";
-  if (unit === "보류지") return "bg-amber-100 text-amber-700 font-medium";
-  if (unit === "상가") return "bg-gray-200 text-gray-600 font-medium";
   return "bg-white";
 }
 
@@ -263,24 +261,6 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
                   </div>
                   <p className="text-white/30 text-[11px] mt-1">단일 평형</p>
                 </div>
-                {/* 조합원 */}
-                <div className="flex flex-col items-center justify-center py-8 px-6 border-r border-white/10">
-                  <p className="text-white/40 text-[10px] tracking-[3px] font-medium uppercase mb-2">조합원</p>
-                  <p className="text-white text-[32px] font-bold leading-none">71</p>
-                  <p className="text-white/30 text-[11px] mt-1">세대</p>
-                </div>
-                {/* 일반 */}
-                <div className="flex flex-col items-center justify-center py-8 px-6 border-r border-white/10">
-                  <p className="text-white/40 text-[10px] tracking-[3px] font-medium uppercase mb-2">일반분양</p>
-                  <p className="text-white text-[32px] font-bold leading-none">50</p>
-                  <p className="text-white/30 text-[11px] mt-1">세대</p>
-                </div>
-                {/* 보류지 */}
-                <div className="flex flex-col items-center justify-center py-8 px-6">
-                  <p className="text-white/40 text-[10px] tracking-[3px] font-medium uppercase mb-2">보류지</p>
-                  <p className="text-amber-400 text-[32px] font-bold leading-none">5</p>
-                  <p className="text-white/30 text-[11px] mt-1">세대</p>
-                </div>
               </div>
             </div>
 
@@ -295,21 +275,6 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
               />
             </div>
 
-            {/* 범례 */}
-            <div className="bg-gray-50/80 px-8 py-4 border border-gray-100 rounded-lg">
-              <div className="flex items-center justify-center gap-6">
-                {[
-                  { color: "bg-white border-gray-300", label: "조합원 / 일반" },
-                  { color: "bg-amber-100 border-amber-300", label: "보류지" },
-                  { color: "bg-gray-200 border-gray-300", label: "상가" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span className={`w-3.5 h-3.5 rounded-[2px] border ${item.color}`} />
-                    <span className="text-[13px] text-gray-400">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* 안내 문구 */}
             <div className="mt-14 bg-gray-50 rounded-lg border border-gray-100 px-6 py-5">
