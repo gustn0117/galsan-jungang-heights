@@ -235,29 +235,18 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             {/* 지도 */}
             <div data-animate className="mb-10">
               <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-gray-50">
-                {/* 지도 이미지 — /images/map-directions.jpg (권장: 1200x600px) */}
-                <div className="relative h-[300px] sm:h-[400px] lg:h-[480px] flex items-center justify-center">
-                  <Image
-                    src="/images/map-directions.jpg"
-                    alt="중앙하이츠 갈산역 센트럴 오시는길 약도"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1100px) 100vw, 1100px"
+                <div className="relative h-[300px] sm:h-[400px] lg:h-[480px]">
+                  <iframe
+                    src="https://www.google.com/maps?q=37.4975,126.7218&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="중앙하이츠 갈산역 센트럴 위치"
+                    className="absolute inset-0 w-full h-full"
                   />
-                  {/* 하단 주소 오버레이 */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-5">
-                    <div className="flex items-end justify-between gap-4">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-gold/90 flex items-center justify-center flex-shrink-0">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                        </div>
-                        <p className="text-white text-[13px] font-medium">인천광역시 부평구 부평대로 258</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-3 mt-3">
