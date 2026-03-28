@@ -276,7 +276,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-5 bg-gold rounded-full" />
-                <h4 className="text-navy text-[15px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>교통 안내</h4>
+                <h4 className="text-navy text-[18px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>교통 안내</h4>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 stagger-children">
@@ -303,17 +303,17 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                     ],
                   },
                 ].map((card, i) => (
-                  <div key={i} className="rounded-lg border border-gray-200 p-5">
-                    <h5 className="text-navy text-[13px] font-bold tracking-wide mb-4">{card.title}</h5>
-                    <div className="space-y-2.5">
+                  <div key={i} className="rounded-lg border border-gray-200 p-6">
+                    <h5 className="text-navy text-[16px] font-bold tracking-wide mb-5">{card.title}</h5>
+                    <div className="space-y-3">
                       {card.items.map((item, j) => (
-                        <div key={j} className="flex items-start gap-2.5">
-                          <span className={`${item.color} text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide flex-shrink-0 mt-0.5`}>
+                        <div key={j} className="flex items-start gap-3">
+                          <span className={`${item.color} text-white text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide flex-shrink-0 mt-0.5`}>
                             {item.badge}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <span className="text-gray-500 text-[12px]">{item.desc}</span>
-                            <span className="text-navy font-bold text-[12px] ml-1.5">{item.highlight}</span>
+                            <span className="text-gray-500 text-[14px]">{item.desc}</span>
+                            <span className="text-navy font-bold text-[14px] ml-1.5">{item.highlight}</span>
                           </div>
                         </div>
                       ))}
@@ -327,7 +327,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
             <div data-animate className="overflow-hidden rounded-lg border border-gray-200">
               <div className="bg-gray-50 px-6 py-3.5 border-b border-gray-200 flex items-center gap-3">
                 <span className="w-1 h-4 bg-gold rounded-full" />
-                <h4 className="text-navy text-[14px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>분양홍보관 안내</h4>
+                <h4 className="text-navy text-[17px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>분양홍보관 안내</h4>
               </div>
               {[
                 { label: "주소", value: "인천광역시 부평구 부평대로 258" },
@@ -335,26 +335,26 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 { label: "운영시간", value: "평일 10:00 ~ 18:00 / 주말·공휴일 10:00 ~ 17:00" },
               ].map((item, i) => (
                 <div key={i} className={`flex ${i > 0 ? "border-t border-gray-100" : ""}`}>
-                  <div className="w-[120px] lg:w-[150px] flex-shrink-0 px-5 py-3.5 flex items-center bg-gray-50/60 border-r border-gray-100">
-                    <span className="text-[12px] text-navy font-semibold">{item.label}</span>
+                  <div className="w-[130px] lg:w-[160px] flex-shrink-0 px-5 py-4 flex items-center bg-gray-50/60 border-r border-gray-100">
+                    <span className="text-[14px] text-navy font-semibold">{item.label}</span>
                   </div>
-                  <div className="flex-1 px-5 py-3.5 flex items-center">
+                  <div className="flex-1 px-5 py-4 flex items-center">
                     {item.isPhone ? (
-                      <a href="tel:18005636" className="text-[13px] text-navy font-bold hover:text-gold transition-colors flex items-center gap-1.5">
+                      <a href="tel:18005636" className="text-[15px] text-navy font-bold hover:text-gold transition-colors flex items-center gap-1.5">
                         <svg className="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                         {item.value}
                       </a>
                     ) : (
-                      <span className="text-[13px] text-gray-600">{item.value}</span>
+                      <span className="text-[15px] text-gray-600">{item.value}</span>
                     )}
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="text-gray-300 text-[11px] text-center tracking-wide mt-10">
+            <p className="text-gray-300 text-[13px] text-center tracking-wide mt-10">
               * 분양홍보관 운영시간은 사정에 따라 변경될 수 있습니다. 방문 전 전화 문의를 권장합니다.
             </p>
           </div>
