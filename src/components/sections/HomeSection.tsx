@@ -158,11 +158,11 @@ export default function HomeSection() {
                   className="group px-6 py-5 lg:px-10 lg:py-7 bg-navy/80 backdrop-blur-md border-r border-white/[0.06] last:border-r-0 hover:bg-navy/90 transition-all duration-300 text-center"
                 >
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-gold text-[10px] lg:text-[11px] tracking-[3px] font-medium">{item.tag}</span>
-                    <span className="px-2 py-0.5 bg-gold/80 text-white text-[9px] lg:text-[10px] font-bold rounded-sm">{item.badge}</span>
+                    <span className="text-gold text-[11px] lg:text-[13px] tracking-[3px] font-medium">{item.tag}</span>
+                    <span className="px-2.5 py-1 bg-gold/80 text-white text-[10px] lg:text-[12px] font-bold rounded-sm">{item.badge}</span>
                   </div>
-                  <h3 className="text-white text-[22px] lg:text-[26px] font-bold">{item.title}</h3>
-                  <p className="text-white/40 text-[12px] lg:text-[13px] mt-1">{item.desc}</p>
+                  <h3 className="text-white text-[26px] lg:text-[32px] font-bold">{item.title}</h3>
+                  <p className="text-white/40 text-[13px] lg:text-[15px] mt-1.5">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -187,8 +187,8 @@ export default function HomeSection() {
               key={i}
               className="group px-8 py-7 border-r border-b lg:border-b-0 border-white/[0.06] last:border-r-0 hover:bg-white/[0.03] transition-all duration-300 cursor-default"
             >
-              <p className="text-gold/50 text-[10px] tracking-[3px] font-medium uppercase">{item.label}</p>
-              <p className="text-white text-[15px] font-semibold mt-2.5 group-hover:text-gold transition-colors duration-300">{item.value}</p>
+              <p className="text-gold/50 text-[12px] tracking-[3px] font-medium uppercase">{item.label}</p>
+              <p className="text-white text-[18px] lg:text-[20px] font-semibold mt-2.5 group-hover:text-gold transition-colors duration-300">{item.value}</p>
               <div className="w-4 h-px bg-gold/20 mt-3 group-hover:w-8 transition-all duration-300" />
             </div>
           ))}
@@ -229,11 +229,11 @@ export default function HomeSection() {
                   { num: "0", unit: "분", desc: "갈산역 초역세권" },
                 ].map((stat, i) => (
                   <div key={i} className="py-5 border-l-2 border-gold/30 pl-5 hover:border-gold transition-colors duration-300">
-                    <p className="text-navy text-[32px] font-bold leading-none">
+                    <p className="text-navy text-[40px] lg:text-[48px] font-bold leading-none">
                       {stat.num}
-                      <span className="text-gold text-[14px] font-medium ml-1">{stat.unit}</span>
+                      <span className="text-gold text-[16px] lg:text-[18px] font-medium ml-1">{stat.unit}</span>
                     </p>
-                    <p className="text-gray-400 text-[12px] mt-2 tracking-wide">{stat.desc}</p>
+                    <p className="text-gray-400 text-[14px] lg:text-[15px] mt-2 tracking-wide">{stat.desc}</p>
                   </div>
                 ))}
               </div>
