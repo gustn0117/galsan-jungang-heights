@@ -238,7 +238,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-gray-50">
                 <div className="relative h-[300px] sm:h-[400px] lg:h-[480px]">
                   <iframe
-                    src="https://www.google.com/maps?q=37.4975,126.7218&z=16&output=embed"
+                    src="https://www.google.com/maps?q=%EC%9D%B8%EC%B2%9C+%EB%B6%80%ED%8F%89%EA%B5%AC+%EB%B6%80%ED%8F%89%EB%8C%80%EB%A1%9C+258&z=16&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
