@@ -41,14 +41,13 @@ export default function Home() {
   // Popup
   const [showPopup, setShowPopup] = useState(false);
 
-  // 팝업 비활성화 (필요 시 아래 주석 해제)
-  // useEffect(() => {
-  //   if (!showLanding && !mainRevealing) {
-  //     const hideUntil = localStorage.getItem("popup_hide_until");
-  //     if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
-  //     setShowPopup(true);
-  //   }
-  // }, [showLanding, mainRevealing]);
+  useEffect(() => {
+    if (!showLanding && !mainRevealing) {
+      const hideUntil = localStorage.getItem("popup_hide_until");
+      if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
+      setShowPopup(true);
+    }
+  }, [showLanding, mainRevealing]);
 
   const closePopup = () => setShowPopup(false);
   const closePopupToday = () => {
@@ -216,7 +215,7 @@ export default function Home() {
             </button>
             {/* 팝업 이미지 */}
             <Image
-              src="/images/popup.png"
+              src="/images/popup2.png"
               alt="중앙하이츠 갈산역 센트럴 안내"
               width={960}
               height={1200}
