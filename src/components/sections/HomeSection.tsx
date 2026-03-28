@@ -252,7 +252,7 @@ export default function HomeSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
               </div>
               {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px]">
+              <div className="absolute -top-6 -left-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px]">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-6 h-[1px] bg-gold" />
                   <p className="text-gold text-[11px] tracking-[3px] font-semibold">LOCATION</p>
