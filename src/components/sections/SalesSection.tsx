@@ -5,6 +5,60 @@ import SectionBanner from "../SectionBanner";
 import SupplyContent from "./SupplyContent";
 import DocumentsContent from "./DocumentsContent";
 
+function PdfViewer({ src, title }: { src: string; title: string }) {
+  return (
+    <>
+      {/* 데스크톱: iframe */}
+      <div className="hidden md:block rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white">
+        <iframe
+          src={src}
+          className="w-full border-0"
+          style={{ height: "calc(100vh - 200px)", minHeight: "800px" }}
+          title={title}
+        />
+      </div>
+      {/* 모바일: 바로보기 + 다운로드 */}
+      <div className="md:hidden space-y-3">
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full py-4 bg-navy text-white text-[15px] font-bold rounded-xl shadow-lg"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          PDF 바로보기
+        </a>
+        <a
+          href={src}
+          download
+          className="flex items-center justify-center gap-2 w-full py-4 border-2 border-navy text-navy text-[15px] font-bold rounded-xl"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          PDF 다운로드
+        </a>
+      </div>
+      {/* 데스크톱 다운로드 버튼 */}
+      <div className="hidden md:block mt-4 text-center">
+        <a
+          href={src}
+          download
+          className="inline-flex items-center gap-2 px-6 py-3 bg-navy hover:bg-navy-light text-white text-[14px] font-medium rounded-lg transition-all duration-300"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          PDF 다운로드
+        </a>
+      </div>
+    </>
+  );
+}
+
 const subTabs = [
   { id: "schedule", label: "분양일정" },
   { id: "supply", label: "공급안내" },
@@ -243,26 +297,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
             <div className="max-w-[1100px] mx-auto">
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white">
-                <iframe
-                  src="/docs/공급안내.pdf"
-                  className="w-full border-0"
-                  style={{ height: "calc(100vh - 200px)", minHeight: "800px" }}
-                  title="공급안내 PDF"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <a
-                  href="/docs/공급안내.pdf"
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-navy hover:bg-navy-light text-white text-[14px] font-medium rounded-lg transition-all duration-300"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  PDF 다운로드
-                </a>
-              </div>
+              <PdfViewer src="/docs/공급안내.pdf" title="공급안내 PDF" />
             </div>
           </div>
         )}
@@ -325,26 +360,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
             <div className="max-w-[1100px] mx-auto">
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white">
-                <iframe
-                  src="/docs/서류안내.pdf"
-                  className="w-full border-0"
-                  style={{ height: "calc(100vh - 200px)", minHeight: "800px" }}
-                  title="서류안내 PDF"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <a
-                  href="/docs/서류안내.pdf"
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-navy hover:bg-navy-light text-white text-[14px] font-medium rounded-lg transition-all duration-300"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  PDF 다운로드
-                </a>
-              </div>
+              <PdfViewer src="/docs/서류안내.pdf" title="서류안내 PDF" />
             </div>
           </div>
         )}
