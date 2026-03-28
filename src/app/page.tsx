@@ -38,6 +38,24 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Popup
+  const [showPopup, setShowPopup] = useState(false);
+
+  // 랜딩 → 메인 전환 시 팝업 표시 (오늘 하루 안보기 체크)
+  useEffect(() => {
+    if (!showLanding && !mainRevealing) {
+      const hideUntil = localStorage.getItem("popup_hide_until");
+      if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
+      setShowPopup(true);
+    }
+  }, [showLanding, mainRevealing]);
+
+  const closePopup = () => setShowPopup(false);
+  const closePopupToday = () => {
+    localStorage.setItem("popup_hide_until", String(new Date().getTime() + 24 * 60 * 60 * 1000));
+    setShowPopup(false);
+  };
+
   // Floating CTA button
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
   useEffect(() => {
@@ -182,6 +200,47 @@ export default function Home() {
   return (
     <div className={`min-h-screen flex flex-col ${mainRevealing ? "main-reveal" : ""}`}>
       <Header activeTab={activeTab} onTabChange={handleTabChange} />
+
+      {/* ===== Popup ===== */}
+      {showPopup && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={closePopup}>
+          <div className="relative w-full max-w-[480px] bg-white rounded-2xl shadow-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            {/* 닫기 버튼 */}
+            <button
+              onClick={closePopup}
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-white transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            {/* 팝업 이미지 */}
+            <Image
+              src="/images/popup.png"
+              alt="중앙하이츠 갈산역 센트럴 안내"
+              width={960}
+              height={1200}
+              className="w-full h-auto"
+              priority
+            />
+            {/* 하단 버튼 */}
+            <div className="flex border-t border-gray-200">
+              <button
+                onClick={closePopupToday}
+                className="flex-1 py-3.5 text-gray-400 text-[13px] hover:bg-gray-50 transition-colors border-r border-gray-200"
+              >
+                오늘 하루 안보기
+              </button>
+              <button
+                onClick={closePopup}
+                className="flex-1 py-3.5 text-gray-600 text-[13px] font-medium hover:bg-gray-50 transition-colors"
+              >
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main className="flex-1">
         {activeTab === "home" && <HomeSection />}
