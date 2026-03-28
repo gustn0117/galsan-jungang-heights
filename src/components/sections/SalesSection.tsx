@@ -5,12 +5,7 @@ import SectionBanner from "../SectionBanner";
 import SupplyContent from "./SupplyContent";
 import DocumentsContent from "./DocumentsContent";
 
-const SITE_URL = "https://중앙하이츠갈산역센트럴.kr";
-
-function PdfViewer({ src, title }: { src: string; title: string }) {
-  const fullUrl = `${SITE_URL}${src}`;
-  const googleViewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true`;
-
+function PdfViewer({ src, title, images }: { src: string; title: string; images: string[] }) {
   return (
     <>
       {/* 데스크톱: 직접 iframe */}
@@ -22,14 +17,11 @@ function PdfViewer({ src, title }: { src: string; title: string }) {
           title={title}
         />
       </div>
-      {/* 모바일: Google Docs Viewer iframe */}
-      <div className="md:hidden rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white">
-        <iframe
-          src={googleViewerUrl}
-          className="w-full border-0"
-          style={{ height: "calc(100vh - 150px)", minHeight: "600px" }}
-          title={title}
-        />
+      {/* 모바일: 이미지로 표시 */}
+      <div className="md:hidden space-y-1">
+        {images.map((img, i) => (
+          <img key={i} src={img} alt={`${title} ${i + 1}페이지`} className="w-full h-auto" loading="lazy" />
+        ))}
       </div>
       {/* 다운로드 버튼 */}
       <div className="mt-4 text-center">
@@ -286,7 +278,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
             <div className="max-w-[1100px] mx-auto">
-              <PdfViewer src="/docs/공급안내.pdf" title="공급안내 PDF" />
+              <PdfViewer src="/docs/공급안내.pdf" title="공급안내" images={[1,2,3,4].map(n => `/images/sales/supply-${n}.jpg`)} />
             </div>
           </div>
         )}
@@ -349,7 +341,7 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
             <div className="max-w-[1100px] mx-auto">
-              <PdfViewer src="/docs/서류안내.pdf" title="서류안내 PDF" />
+              <PdfViewer src="/docs/서류안내.pdf" title="서류안내" images={[1,2,3,4,5,6,7].map(n => `/images/sales/documents-${n}.jpg`)} />
             </div>
           </div>
         )}
