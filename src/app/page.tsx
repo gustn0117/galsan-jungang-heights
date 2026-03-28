@@ -80,8 +80,8 @@ export default function Home() {
 
           {/* 상단 캐치카피 */}
           <div className="landing-en-heading mb-10 md:mb-14">
-            <p className="text-navy/50 text-[14px] md:text-[18px] lg:text-[22px] tracking-[0.1em] font-light landing-fadeup whitespace-nowrap" style={{ animationDelay: '0.3s' }}>
-              &ldquo; 갈산역 「<span className="text-navy/80 font-normal landing-highlight-pulse">0분</span>」의 가치 &rdquo;
+            <p className="text-navy/50 text-[12px] md:text-[18px] lg:text-[22px] tracking-[0.1em] font-light landing-fadeup whitespace-nowrap" style={{ animationDelay: '0.3s' }}>
+              &ldquo; 갈산역 「<span className="text-navy/80 font-normal landing-highlight-pulse">0분</span>」의 가치, 걸어서 누리는 완성된 프리미엄 &rdquo;
             </p>
           </div>
 
@@ -104,7 +104,7 @@ export default function Home() {
               <p className="text-navy/35 text-[11px] md:text-[13px] lg:text-[15px] tracking-[0.06em] font-light mb-1">
                 내집앞 갈산역
               </p>
-              <p className="text-navy text-[20px] md:text-[30px] lg:text-[38px] font-black tracking-tight leading-tight landing-text-glow">
+              <p className="text-navy text-[18px] md:text-[30px] lg:text-[38px] font-black tracking-tight leading-tight landing-text-glow whitespace-nowrap">
                 초역세권
               </p>
             </div>
@@ -146,16 +146,22 @@ export default function Home() {
               <p className="text-navy/35 text-[11px] md:text-[13px] lg:text-[15px] tracking-[0.06em] font-light mb-1">
                 내집앞 수변공원
               </p>
-              <p className="text-navy text-[20px] md:text-[30px] lg:text-[38px] font-black tracking-tight leading-tight landing-text-glow">
+              <p className="text-navy text-[18px] md:text-[30px] lg:text-[38px] font-black tracking-tight leading-tight landing-text-glow whitespace-nowrap">
                 초공세권
               </p>
             </div>
           </div>
 
           {/* 설명 텍스트 */}
-          <div className="landing-desc mb-10 md:mb-14">
-            <p className="text-navy/30 text-[11px] md:text-[13px] tracking-[0.04em] leading-[2.2] font-light whitespace-nowrap">
-              걸어서 누리는 완성된 프리미엄
+          <div className="landing-desc space-y-0.5 mb-10 md:mb-14">
+            <p className="text-navy/30 text-[10px] md:text-[13px] tracking-[0.04em] leading-[2] font-light">
+              단지 바로 앞에서 이용가능한 지하철,
+            </p>
+            <p className="text-navy/30 text-[10px] md:text-[13px] tracking-[0.04em] leading-[2] font-light">
+              걸어서 누리는 수변공원과 생태하천을 통한 쾌적한 자연환경,
+            </p>
+            <p className="text-navy/30 text-[10px] md:text-[13px] tracking-[0.04em] leading-[2] font-light">
+              앞마당에 펼쳐진 중심상업지구를 통한 완벽한 생활인프라
             </p>
           </div>
 
