@@ -245,15 +245,15 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
               <div className="absolute inset-0 opacity-[0.03]" style={{
                 backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(201,169,110,0.4) 20px, rgba(201,169,110,0.4) 21px)`
               }} />
-              <div className="relative grid grid-cols-2 lg:grid-cols-5">
+              <div className="relative grid grid-cols-2">
                 {/* 총 세대수 */}
-                <div className="col-span-2 lg:col-span-1 flex flex-col items-center justify-center py-8 px-6 border-b lg:border-b-0 lg:border-r border-white/10">
+                <div className="flex flex-col items-center justify-center py-8 px-6 border-r border-white/10">
                   <p className="text-white/40 text-[10px] tracking-[3px] font-medium uppercase mb-2">총 세대수</p>
                   <p className="text-white text-[48px] lg:text-[52px] font-bold leading-none">126</p>
                   <p className="text-gold text-[12px] font-medium mt-1">세대</p>
                 </div>
                 {/* 59 TYPE */}
-                <div className="col-span-2 lg:col-span-1 flex flex-col items-center justify-center py-8 px-6 border-b lg:border-b-0 lg:border-r border-white/10">
+                <div className="flex flex-col items-center justify-center py-8 px-6">
                   <p className="text-white/40 text-[10px] tracking-[3px] font-medium uppercase mb-2">평형</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-gold text-[48px] lg:text-[52px] font-bold leading-none">59</span>
