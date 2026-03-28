@@ -84,10 +84,10 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-white text-[28px] lg:text-[34px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
-                      <span className="text-gold/60 text-[11px] font-medium">{item.unit}</span>
+                      <span className="text-white text-[32px] lg:text-[40px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
+                      <span className="text-gold/60 text-[13px] font-medium">{item.unit}</span>
                     </div>
-                    <p className="text-white/25 text-[10px] tracking-[1px] mt-1.5 uppercase">{item.label}</p>
+                    <p className="text-white/40 text-[12px] tracking-[1px] mt-1.5 uppercase">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -458,11 +458,11 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 ].map((item, i) => (
                   <div key={i} className={`relative py-8 lg:py-10 text-center ${i < 3 ? "border-r border-white/[0.06]" : ""} ${i < 2 ? "border-b lg:border-b-0 border-white/[0.06]" : i === 2 ? "border-b lg:border-b-0 border-white/[0.06]" : ""}`}>
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-white text-[32px] lg:text-[40px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
-                      <span className="text-gold/70 text-[12px] font-medium ml-0.5">{item.unit}</span>
+                      <span className="text-white text-[36px] lg:text-[46px] font-bold leading-none" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.num}</span>
+                      <span className="text-gold/70 text-[14px] font-medium ml-0.5">{item.unit}</span>
                     </div>
-                    <p className="text-white/50 text-[12px] font-medium mt-2 tracking-wide">{item.label}</p>
-                    <p className="text-white/20 text-[10px] mt-1 tracking-[2px] uppercase">{item.sub}</p>
+                    <p className="text-white text-[14px] font-medium mt-2 tracking-wide">{item.label}</p>
+                    <p className="text-white/40 text-[12px] mt-1 tracking-[2px] uppercase">{item.sub}</p>
                   </div>
                 ))}
               </div>
@@ -499,7 +499,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 {[
                   { num: "01", label: "교통", eng: "TRANSPORT", copy: "내집앞 갈산역으로 여유가 스며드는 생활을 누리다", highlight: "갈산역 도보 0분" },
                   { num: "02", label: "자연", eng: "NATURE", copy: "내집앞 수변공원과 천변을 따라 조성된 산책로를 통해 에코 힐링 라이프를 누리다", highlight: "갈산천 수변공원 1분" },
-                  { num: "03", label: "생활", eng: "LIFESTYLE", copy: "내집앞 중심상권과 대형마트, 부평구청 등 편리한 생활인프라를 원스톱으로 즐기다", highlight: "롯데마트 도보 2분" },
+                  { num: "03", label: "생활", eng: "LIFESTYLE", copy: "내집앞 중심상권과 대형마트, 부평구청 등 편리한 생활인프라를 원스톱으로 즐기다", highlight: "생활시설 도보 2분" },
                   { num: "04", label: "교육", eng: "EDUCATION", copy: "도보권 내 우수한 학교와 도서관 등 풍부한 교육인프라를 누리다", highlight: "우수 학군 도보권" },
                 ].map((item, i) => (
                   <div key={i} className={`group flex items-stretch border-b border-gray-200/80 ${i === 0 ? "border-t" : ""}`}>
@@ -521,12 +521,12 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                           <span className="text-gold/40 text-[14px] font-light">{item.num}</span>
                           <span className="text-navy text-[13px] font-bold">{item.label}</span>
                         </div>
-                        <p className="text-gray-600 text-[14px] leading-[1.8]">{item.copy}</p>
+                        <p className="text-gray-600 text-[15px] lg:text-[16px] leading-[1.8]">{item.copy}</p>
                       </div>
                     </div>
                     {/* 하이라이트 */}
                     <div className="hidden sm:flex w-[180px] flex-shrink-0 items-center justify-center border-l border-gray-200/80 px-4">
-                      <span className="text-gold text-[12px] font-semibold tracking-wide group-hover:text-navy transition-colors duration-300">{item.highlight}</span>
+                      <span className="text-gold text-[13px] lg:text-[14px] font-semibold tracking-wide group-hover:text-navy transition-colors duration-300">{item.highlight}</span>
                     </div>
                   </div>
                 ))}

@@ -196,7 +196,7 @@ export default function SupplyContent() {
       {/* ■ 발코니확장 공사비 및 납부계좌 */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
         <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-          <h4 className="text-white text-[20px] font-bold">발코니확장 공사��� 및 납부계좌</h4>
+          <h4 className="text-white text-[20px] font-bold">발코니확장 공사비 및 납부계좌</h4>
         </div>
         <div className="p-6 md:p-8 space-y-4">
           <p className="text-right text-[12px] text-gray-400">[단위 : 원]</p>

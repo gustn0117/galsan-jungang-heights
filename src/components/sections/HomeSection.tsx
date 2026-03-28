@@ -161,8 +161,8 @@ export default function HomeSection() {
                     <span className="text-gold text-[11px] lg:text-[13px] tracking-[3px] font-medium">{item.tag}</span>
                     <span className="px-2.5 py-1 bg-gold/80 text-white text-[10px] lg:text-[12px] font-bold rounded-sm">{item.badge}</span>
                   </div>
-                  <h3 className="text-white text-[26px] lg:text-[32px] font-bold">{item.title}</h3>
-                  <p className="text-white/40 text-[13px] lg:text-[15px] mt-1.5">{item.desc}</p>
+                  <h3 className="text-white text-[28px] lg:text-[36px] font-bold">{item.title}</h3>
+                  <p className="text-white/40 text-[14px] lg:text-[16px] mt-1.5">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -188,7 +188,7 @@ export default function HomeSection() {
               className="group px-8 py-7 border-r border-b lg:border-b-0 border-white/[0.06] last:border-r-0 hover:bg-white/[0.03] transition-all duration-300 cursor-default"
             >
               <p className="text-gold/50 text-[12px] tracking-[3px] font-medium uppercase">{item.label}</p>
-              <p className="text-white text-[18px] lg:text-[20px] font-semibold mt-2.5 group-hover:text-gold transition-colors duration-300">{item.value}</p>
+              <p className="text-white text-[20px] lg:text-[22px] font-semibold mt-2.5 group-hover:text-gold transition-colors duration-300">{item.value}</p>
               <div className="w-4 h-px bg-gold/20 mt-3 group-hover:w-8 transition-all duration-300" />
             </div>
           ))}
@@ -229,11 +229,11 @@ export default function HomeSection() {
                   { num: "0", unit: "분", desc: "갈산역 초역세권" },
                 ].map((stat, i) => (
                   <div key={i} className="py-5 border-l-2 border-gold/30 pl-5 hover:border-gold transition-colors duration-300">
-                    <p className="text-navy text-[40px] lg:text-[48px] font-bold leading-none">
+                    <p className="text-navy text-[48px] lg:text-[56px] font-bold leading-none">
                       {stat.num}
-                      <span className="text-gold text-[16px] lg:text-[18px] font-medium ml-1">{stat.unit}</span>
+                      <span className="text-gold text-[18px] lg:text-[20px] font-medium ml-1">{stat.unit}</span>
                     </p>
-                    <p className="text-gray-400 text-[14px] lg:text-[15px] mt-2 tracking-wide">{stat.desc}</p>
+                    <p className="text-gray-400 text-[15px] lg:text-[16px] mt-2 tracking-wide">{stat.desc}</p>
                   </div>
                 ))}
               </div>
@@ -251,8 +251,8 @@ export default function HomeSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
               </div>
-              {/* Floating Card */}
-              <div className="absolute -top-6 -left-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px]">
+              {/* Floating Card - 상단 배치 */}
+              <div className="absolute -top-6 -right-6 bg-navy text-white p-7 lg:p-9 shadow-2xl max-w-[280px] z-10">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-6 h-[1px] bg-gold" />
                   <p className="text-gold text-[11px] tracking-[3px] font-semibold">LOCATION</p>
@@ -304,12 +304,12 @@ export default function HomeSection() {
               <span className="absolute top-6 right-8 text-[120px] font-black text-white/[0.03] leading-none">0</span>
               <div className="relative">
                 <span className="inline-block px-3 py-1.5 bg-gold/10 text-gold text-[13px] tracking-[3px] font-semibold rounded-sm">STATION</span>
-                <p className="text-white/50 text-[17px] mt-5 mb-1">내집앞 갈산역</p>
-                <h3 className="text-white text-[42px] lg:text-[52px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                <p className="text-white/50 text-[18px] lg:text-[20px] mt-5 mb-1">내집앞 갈산역</p>
+                <h3 className="text-white text-[48px] lg:text-[60px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초역세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-gold to-gold/0 mt-6 mb-7" />
-                <p className="text-white/55 text-[16px] lg:text-[17px] leading-[2]">
+                <p className="text-white/55 text-[17px] lg:text-[19px] leading-[2]">
                   단지 바로 앞에서 이용가능한 지하철,
                   <br />
                   인천1호선 갈산역 도보 0분!
@@ -335,12 +335,12 @@ export default function HomeSection() {
               <span className="absolute top-6 right-8 text-[120px] font-black text-green-800/[0.04] leading-none">1</span>
               <div className="relative">
                 <span className="inline-block px-3 py-1.5 bg-green-700/10 text-green-700 text-[13px] tracking-[3px] font-semibold rounded-sm">NATURE</span>
-                <p className="text-gray-500 text-[17px] mt-5 mb-1">내집앞 수변공원</p>
-                <h3 className="text-gray-900 text-[42px] lg:text-[52px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                <p className="text-gray-500 text-[18px] lg:text-[20px] mt-5 mb-1">내집앞 수변공원</p>
+                <h3 className="text-gray-900 text-[48px] lg:text-[60px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초공세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-green-600 to-green-600/0 mt-6 mb-7" />
-                <p className="text-gray-500 text-[16px] lg:text-[17px] leading-[2]">
+                <p className="text-gray-500 text-[17px] lg:text-[19px] leading-[2]">
                   걸어서 누리는 수변공원과 생태하천을 통한
                   <br />
                   쾌적한 자연환경,

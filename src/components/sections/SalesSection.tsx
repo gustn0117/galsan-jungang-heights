@@ -255,10 +255,25 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">RECRUITMENT NOTICE</p>
               <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>모집공고</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
-              <p className="text-gray-400 text-[14px]">중앙하이츠 갈산역 센트럴 입주자 모집공고 주요 내용</p>
             </div>
 
             <div className="max-w-[1100px] mx-auto space-y-10">
+              {/* 조감도 이미지 */}
+              <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                <img
+                  src="/images/hero-rendering.jpg"
+                  alt="중앙하이츠 갈산역 센트럴"
+                  className="w-full h-auto"
+                />
+                <div className="absolute top-6 left-6 flex items-center gap-2">
+                  <img src="/images/logo-bi.png" alt="중앙하이츠" className="h-[36px] w-auto" style={{ filter: "brightness(0) invert(1)" }} />
+                  <span className="text-white/80 text-[14px] font-medium ml-2">갈산역 센트럴</span>
+                </div>
+                <p className="absolute bottom-4 left-0 right-0 text-center text-white/50 text-[11px] px-4">
+                  ※ 본 홍보물에 사용된 CG 이미지는 소비자의 이해를 돕기 위해 제작된 것으로 실제와 차이가 있을 수 있으며, 향후 개발계획 및 인허가 과정이나 설계변경 등의 이유로 실제 시공과 상이할 수 있습니다.
+                </p>
+              </div>
+
               {/* PDF 다운로드 */}
               <div className="bg-gradient-to-r from-navy to-[#1e3358] rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
@@ -277,196 +292,11 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
                 </a>
               </div>
 
-              {/* 청약 일정 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">청약 및 계약 주요일정</h4>
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-[14px] border-collapse">
-                      <thead>
-                        <tr className="bg-navy/5">
-                          <th className="px-4 py-3 text-center font-bold text-navy">구분</th>
-                          <th className="px-4 py-3 text-center font-bold text-navy">일정</th>
-                          <th className="px-4 py-3 text-center font-bold text-navy">방법</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">특별공급</td><td className="px-4 py-3 text-center text-gray-600">2026.04.06 (월)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 사업주체 홍보관</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 1순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.07 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈 (09:00~17:30)<br/>현장접수: 청약통장 가입���행</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">일반공급 2순위</td><td className="px-4 py-3 text-center text-gray-600">2026.04.08 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">PC/모바일 청약홈</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">당첨자 발표</td><td className="px-4 py-3 text-center text-gray-600">2026.04.15 (수)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">-</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">서류접수</td><td className="px-4 py-3 text-center text-gray-600">2026.04.16 (목) ~ 04.25 (토)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">사업주체 홍보관</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-4 py-3 text-center font-medium text-gray-700">정당계약</td><td className="px-4 py-3 text-center text-gray-600">2026.04.26 (일) ~ 04.28 (화)</td><td className="px-4 py-3 text-center text-gray-500 text-[13px]">인천광역시 부평구 부평대로 258, 1층</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              {/* 1순위 청약 체크 포인트 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">1순위 청약 체크 포인트</h4>
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {[
-                      { num: "01", title: "만 19세 이상 누구나", desc: "세대주 및 세대원 청약 가능, 세대 구성원 중복청약 가능" },
-                      { num: "02", title: "수도권 전 지역 거주자", desc: "입주자 모집공고일 현재 경기, 서울, 인천 거주자 청약 가능" },
-                      { num: "03", title: "유주택자 청약 가능", desc: "주택수와 상관없이 청약 가능 (일반공급 해당)" },
-                      { num: "04", title: "재당첨 제한 없음", desc: "기존 당첨 사실이 있어도 청약 가능 (2년 내 가점제 당첨 시 가점제 불가, 추첨제 가능)" },
-                      { num: "05", title: "청약통장 12개월", desc: "청약통장 가입기간 및 지역별·면적별 예치금 충족 시" },
-                      { num: "06", title: "청약 예치금 기준", desc: "전용 85㎡ 이하: 인천 250만원, 서울 300만원, 경기도 200만원" },
-                    ].map((item, i) => (
-                      <div key={i} className="p-5 bg-gray-50 rounded-xl border border-gray-100">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="w-7 h-7 rounded-full bg-navy flex items-center justify-center text-white text-[11px] font-bold">{item.num}</span>
-                          <span className="text-navy text-[16px] font-bold">{item.title}</span>
-                        </div>
-                        <p className="text-gray-500 text-[14px] leading-[1.7]">{item.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* 1순위 가점제/추첨제 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">1순위 가점제·추첨제 적용 비율</h4>
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-[14px] border-collapse">
-                      <thead>
-                        <tr className="bg-navy/5">
-                          <th className="px-4 py-3 text-center font-bold text-navy">구분</th>
-                          <th className="px-4 py-3 text-center font-bold text-navy">가점제</th>
-                          <th className="px-4 py-3 text-center font-bold text-navy">추첨제</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="hover:bg-gray-50/50">
-                          <td className="px-4 py-3 text-center font-medium text-gray-700">전용면적 60㎡ 이하</td>
-                          <td className="px-4 py-3 text-center text-gray-600 font-bold">40%</td>
-                          <td className="px-4 py-3 text-center text-gray-600 font-bold">60%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              {/* 유형별 청약 기본자격 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">유형별 청약 기본자격 요건</h4>
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-[14px] border-collapse">
-                      <thead>
-                        <tr className="bg-navy/5">
-                          <th className="px-3 py-3 text-center font-bold text-navy" colSpan={2}>구분</th>
-                          <th className="px-3 py-3 text-left font-bold text-navy">기본자격</th>
-                          <th className="px-3 py-3 text-center font-bold text-navy">요건</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500" rowSpan={5}>특별공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">기관추천</td><td className="px-3 py-3 text-gray-500">해당 기관의 추천 및 인정서류를 받으신 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">다자녀</td><td className="px-3 py-3 text-gray-500">만 19세 미만의 자녀 2명 이상(태아 및 입양자녀 포함)</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">신혼부부</td><td className="px-3 py-3 text-gray-500">혼인기간 7년 이내, 혼인신고일부터 최초 입주자모집공고일 현재까지 계속 무주택자인 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 6개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">생애최초</td><td className="px-3 py-3 text-gray-500">생애최초로 주택을 구입하는 분, 현재 근로자 또는 자영업자로서 5년 이상 소득세 납부</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">청약통장 가입 후 12개월</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center font-medium text-gray-700">노부모부양</td><td className="px-3 py-3 text-gray-500">만 65세 이상의 직계존속을 3년 이상 계속하여 부양하고 있는 분</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">무주택 세대주</td></tr>
-                        <tr className="hover:bg-gray-50/50"><td className="px-3 py-3 text-center text-gray-500">일반공급</td><td className="px-3 py-3 text-center font-medium text-gray-700">1순위</td><td className="px-3 py-3 text-gray-500">청약통장 가입기간 12개월 경과, 지역별·면적별 예치금액 이상인 자 (세대주 및 세대원 모두 가능)</td><td className="px-3 py-3 text-center text-gray-400 text-[13px]">만 19세 이상</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              {/* 청약 자격조건 상세 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">청약 자격조건 (추첨제)</h4>
-                </div>
-                <div className="p-6 md:p-8 space-y-6">
-                  <div>
-                    <h5 className="text-navy text-[16px] font-bold mb-3">대상자</h5>
-                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
-                      <p>입주자모집공고일(26.03.27) 현재 인천광역시 및 수도권(서울특별시, 경기도) 거주하는 만 19세 이상인 자 또는 세대주인 미성년자(자녀양육, 형제자매 부양)</p>
-                      <p>순위별 청약통장 자격요건을 만족한 자</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="text-navy text-[16px] font-bold mb-3">당첨자 선정 순서</h5>
-                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
-                      <p><strong>1순위 가점제:</strong> ①지역 → ②가점 → ③청약통장 가입기간 → ④추첨</p>
-                      <p><strong>1순위 후 추첨제:</strong> ①지역 → ②무주택 우선공급 → ③추첨</p>
-                      <p><strong>2순위:</strong> ①지역 → ②추첨</p>
-                      <p className="mt-2 text-gray-500 text-[13px]">①지역: 해당지역 거주자(인천광역시) → 기타지역 거주자(서울특별시, 경기도)</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="text-navy text-[16px] font-bold mb-3">유의사항</h5>
-                    <div className="p-4 bg-gray-50 rounded-lg text-[14px] text-gray-600 leading-[1.9]">
-                      <p>1순위 가점제 청약 시 유의사항: 입주자모집공고일(26.03.27) 기준 과거 2년 이내 가점제로 당첨된 본 및 그 세대원은 가점제 청약이 불가하며, 가점제로 청약하여 당첨 시 부적격 처리됩니다.</p>
-                      <p className="mt-1">1순위 가점제 당첨시 가점제 당첨 제한자로 관리되며, 당첨자 및 그 세대원은 당첨자발표일로부터 2년간 다른 민영주택의 1순위 가점제 청약이 불가합니다.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 청약신청 일정 상세 */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-navy to-[#1e3358] px-8 py-5">
-                  <h4 className="text-white text-[20px] font-bold">청약신청 일정</h4>
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-[14px] border-collapse">
-                      <thead>
-                        <tr className="bg-navy/5">
-                          <th className="px-3 py-3 text-center font-bold text-navy">구분</th>
-                          <th className="px-3 py-3 text-center font-bold text-navy">1순위</th>
-                          <th className="px-3 py-3 text-center font-bold text-navy">2순위</th>
-                          <th className="px-3 py-3 text-left font-bold text-navy">접수장소 및 시간</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50/50">
-                          <td className="px-3 py-3 text-center font-medium text-gray-700">일반공급</td>
-                          <td className="px-3 py-3 text-center text-gray-600">2026.4.6(화)</td>
-                          <td className="px-3 py-3 text-center text-gray-600">2026.4.7(수)</td>
-                          <td className="px-3 py-3 text-gray-500 text-[13px]">
-                            <p>청약Home 인터넷/모바일 09:00~17:30</p>
-                            <p>청약통장 가입은행 창구 방문 09:00~16:00</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="mt-4 p-4 bg-blue-50/50 rounded-lg text-[13px] text-gray-500 leading-[1.8]">
-                    <p>- 한국부동산원 청약홈 홈페이지(http://www.applyhome.co.kr) 또는 청약홈 모바일 앱에서 신청</p>
-                    <p>- 인터넷 청약이 원칙이며, 정보취약계층(만 65세 이상 고령자, 장애인 등)에 한하여 청약통장 가입은행 본·지점(09:00~16:00)에서 청약 가능</p>
-                    <p>- 은행 점업점별 업무시간이 상이할 수 있으므로 반드시 사전에 확인하시기 바랍니다.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="text-gray-400 text-[14px] leading-[1.8]">
-                  ※ 청약관련 사항은 관련 법령의 개정, 인허가 과정, 입주자모집공고 승인 시점에 따라 변경될 수 있습니다.<br />
-                  ※ 반드시 입주자모집공고문을 통해 청약자격, 유의사항 등을 숙지하시어 청약하시기 바랍니다.<br />
-                  ※ 청약자격 미숙지, 착오 등에 대해서는 청약자 본인에게 책임이 있으므로 불이익을 당하는 일이 없도록 유의하시기 바랍니다.
-                </p>
-              </div>
             </div>
           </div>
         )}
 
+        {/* ── 모집공고 상세 내용은 PDF로 대체 ── */}
         {/* ── 서류안내 ── */}
         {activeSubTab === "documents" && (
           <div className="tab-content">

@@ -924,3 +924,37 @@ body {
 .landing-footer {
   animation: landingRevealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 2.0s both;
 }
+
+/* ── 모바일 폰트 크기 보정 ── */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  /* 테이블 텍스트 크기 */
+  table {
+    font-size: 13px;
+  }
+  table th, table td {
+    padding: 8px 6px;
+    word-break: keep-all;
+  }
+
+  /* 섹션 배너 모바일 폰트 */
+  .section-banner-title {
+    font-size: 28px !important;
+  }
+
+  /* unit-table 모바일 최적화 */
+  .unit-table th, .unit-table td {
+    font-size: 11px;
+    padding: 4px 3px;
+    min-width: 42px;
+  }
+
+  /* 분양안내 테이블 줄바꿈 방지 */
+  .supply-table td, .supply-table th {
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+}

@@ -120,13 +120,13 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                         </span>
                         {/* 노선 + 역 */}
                         <div className="flex-1 min-w-0">
-                          <p className="text-gold text-[11px] tracking-[3px] font-medium mb-1.5">{item.line}</p>
-                          <h4 className="text-navy text-[18px] lg:text-[22px] font-bold group-hover:tracking-wide transition-all duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.station}</h4>
-                          <p className="text-gray-400 text-[13px] mt-2 hidden lg:block">{item.desc}</p>
+                          <p className="text-gold text-[12px] lg:text-[13px] tracking-[3px] font-medium mb-1.5">{item.line}</p>
+                          <h4 className="text-navy text-[22px] lg:text-[28px] font-bold group-hover:tracking-wide transition-all duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.station}</h4>
+                          <p className="text-gray-400 text-[14px] lg:text-[15px] mt-2 hidden lg:block">{item.desc}</p>
                         </div>
                         {/* 소요시간 */}
                         <div className="text-right flex-shrink-0">
-                          <p className="text-navy text-[22px] lg:text-[28px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.time}</p>
+                          <p className="text-navy text-[26px] lg:text-[34px] font-bold leading-none group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.time}</p>
                         </div>
                       </div>
                     </div>
@@ -191,8 +191,8 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                         { name: "부평역", sub: "도로 인접", category: "교통" },
                       ].map((item, i) => (
                         <div key={i} className="text-center group cursor-default">
-                          <p className="text-navy text-[14px] font-bold group-hover:text-gold transition-colors duration-300">{item.name}</p>
-                          <p className="text-gray-400 text-[12px] mt-1">{item.sub}</p>
+                          <p className="text-navy text-[15px] lg:text-[16px] font-bold group-hover:text-gold transition-colors duration-300">{item.name}</p>
+                          <p className="text-gray-400 text-[13px] lg:text-[14px] mt-1">{item.sub}</p>
                           <div className="w-4 h-px bg-gold/30 mx-auto mt-3 group-hover:w-6 group-hover:bg-gold/50 transition-all duration-300" />
                           <p className={`mt-2 tracking-[2px] uppercase ${item.category === "교통" ? "text-navy text-[13px] font-bold" : "text-gray-300 text-[10px]"}`}>{item.category}</p>
                         </div>
@@ -266,7 +266,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   badge: "도보 2분",
                   category: "생활중심",
                   title: "롯데마트 · 부평문화의거리\n완벽한 생활 인프라",
-                  desc: "부평역지하상가, 부평중앙시장 등 풍부한 생활편의시설이 도보 약 2분 거리에! 일상의 편리함을 걸어서 누리는 완벽한 생활 인프라",
+                  desc: "부평역지하상가, 부평중앙시장 등 풍부한 생활편의시설이 인접한 거리에! 일상의 편리함을 걸어서 누리는 완벽한 생활 인프라",
                   highlights: ["롯데마트", "부평문화의거리", "부평역지하상가"],
                   placeholderNum: 10,
                   gradient: "gradient-night",
@@ -315,12 +315,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                             {item.num}
                           </span>
                         </div>
-                        {/* Badge */}
-                        <div className={`absolute bottom-5 ${isReversed ? "right-5" : "left-5"} z-10`}>
-                          <span className="bg-gold/90 backdrop-blur-sm text-[#0a0f1a] text-[11px] font-bold px-4 py-2 tracking-[1px]">
-                            {item.badge}
-                          </span>
-                        </div>
+                        {/* Badge removed per client request */}
                       </div>
 
                       {/* Text Content */}
@@ -334,7 +329,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                           </div>
 
                           {/* Title */}
-                          <h4 className="text-white text-[24px] lg:text-[30px] font-bold leading-[1.4] mb-6 whitespace-pre-line" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                          <h4 className="text-white text-[28px] lg:text-[36px] font-bold leading-[1.4] mb-6 whitespace-pre-line" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                             {item.title}
                           </h4>
 
@@ -342,7 +337,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                           <div className="w-10 h-[2px] bg-gradient-to-r from-gold/60 to-transparent mb-6" />
 
                           {/* Description */}
-                          <p className="text-white/45 text-[14px] lg:text-[15px] leading-[1.9] mb-8">
+                          <p className="text-white/45 text-[15px] lg:text-[17px] leading-[1.9] mb-8">
                             {item.desc}
                           </p>
 
@@ -376,16 +371,16 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   {[
                     { time: "1분", label: "갈산역", sub: "교통" },
                     { time: "1분", label: "수변공원", sub: "자연" },
-                    { time: "2분", label: "롯데마트", sub: "생활" },
+                    { time: "2분", label: "생활시설", sub: "생활" },
                     { time: "10분", label: "교육 인프라", sub: "교육" },
                   ].map((item, i) => (
                     <div key={i} className="text-center group">
-                      <div className="text-gold text-[28px] lg:text-[36px] font-bold leading-none mb-2" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                      <div className="text-gold text-[34px] lg:text-[44px] font-bold leading-none mb-2" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                         {item.time}
                       </div>
                       <div className="w-6 h-px bg-gold/30 mx-auto mb-3 group-hover:w-10 transition-all duration-300" />
-                      <div className="text-white/80 text-[14px] font-medium mb-1">{item.label}</div>
-                      <div className="text-white/30 text-[11px] tracking-[2px] uppercase">{item.sub}</div>
+                      <div className="text-white/80 text-[16px] lg:text-[18px] font-medium mb-1">{item.label}</div>
+                      <div className="text-white/30 text-[12px] lg:text-[13px] tracking-[2px] uppercase">{item.sub}</div>
                     </div>
                   ))}
                 </div>
