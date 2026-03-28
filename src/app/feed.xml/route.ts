@@ -13,7 +13,7 @@ export function GET() {
     <item>
       <title>중앙하이츠 갈산역 센트럴 입주자 모집공고</title>
       <link>${BASE_URL}/#sales</link>
-      <description>인천광역시 부평구 갈산동 181-1 외 1필지, 총 126세대 중 일반분양 50세대. 특별공급 2026.04.06, 1순위 2026.04.07, 2순위 2026.04.08</description>
+      <description>인천 부평구 갈산동 181-11, 총 126세대 중 일반분양 50세대. 특별공급 2026.04.06, 1순위 2026.04.07, 2순위 2026.04.08</description>
       <pubDate>${new Date("2026-03-27").toUTCString()}</pubDate>
       <guid>${BASE_URL}/#sales</guid>
     </item>

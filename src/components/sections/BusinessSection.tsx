@@ -72,7 +72,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   중앙하이츠 갈산역 센트럴
                 </h3>
                 <p className="text-white/35 text-[13px] mt-2 tracking-wide">
-                  인천광역시 부평구 갈산동 181-1 외 1필지 · 지하 1층 ~ 지상 19층
+                  인천 부평구 갈산동 181-11 · 지하 1층 ~ 지상 19층
                 </p>
               </div>
               <div className="flex items-center gap-6 lg:gap-8">
@@ -136,7 +136,8 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 </div>
                 {[
                   { label: "사업명", value: "중앙하이츠 갈산역 센트럴", highlight: true },
-                  { label: "위치", value: "인천광역시 부평구 갈산동 181-1 외 1필지" },
+                  { label: "현장", value: "인천 부평구 갈산동 181-11" },
+                  { label: "홍보관", value: "인천 부평구 갈산동 181-2 (부평대로 258)" },
                   { label: "규모", value: "지하 1층 ~ 지상 19층, 3개동 총 126세대" },
                   { label: "일반분양", value: "50세대" },
                   { label: "타입", value: "59TYPE 단일 (전용 59.79㎡ / 공급 86.81㎡)" },
@@ -229,7 +230,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <h3 className="text-navy text-[24px] lg:text-[28px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                 오시는길
               </h3>
-              <p className="text-gray-400 text-[14px] mt-2">인천광역시 부평구 갈산동 181-1 외 1필지</p>
+              <p className="text-gray-400 text-[14px] mt-2">현장 : 인천 부평구 갈산동 181-11 &nbsp;|&nbsp; 홍보관 : 인천 부평구 갈산동 181-2 (부평대로 258)</p>
             </div>
 
             {/* 지도 */}
@@ -330,7 +331,8 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                 <h4 className="text-navy text-[17px] font-bold" style={{ fontFamily: "'NanumSquare', sans-serif" }}>분양홍보관 안내</h4>
               </div>
               {[
-                { label: "주소", value: "인천광역시 부평구 갈산동 181-1 외 1필지" },
+                { label: "현장주소", value: "인천 부평구 갈산동 181-11" },
+                { label: "홍보관", value: "인천 부평구 갈산동 181-2 (부평대로 258)" },
                 { label: "분양문의", value: "1800-5636", isPhone: true },
                 { label: "운영시간", value: "평일 10:00 ~ 18:00 / 주말·공휴일 10:00 ~ 17:00" },
               ].map((item, i) => (
