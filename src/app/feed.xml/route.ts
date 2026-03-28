@@ -1,4 +1,4 @@
-const BASE_URL = "https://galsan-jungang-heights.vercel.app";
+const BASE_URL = "https://galsan.hsweb.pics";
 
 export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://galsan-jungang-heights.vercel.app/sitemap.xml",
+    sitemap: "https://galsan.hsweb.pics/sitemap.xml",
   };
 }
