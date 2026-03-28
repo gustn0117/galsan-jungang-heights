@@ -303,13 +303,13 @@ export default function HomeSection() {
               {/* 대형 배경 숫자 */}
               <span className="absolute top-6 right-8 text-[120px] font-black text-white/[0.03] leading-none">0</span>
               <div className="relative">
-                <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-[11px] tracking-[3px] font-semibold rounded-sm">STATION</span>
-                <p className="text-white/50 text-[14px] mt-5 mb-1">내집앞 갈산역</p>
-                <h3 className="text-white text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                <span className="inline-block px-3 py-1.5 bg-gold/10 text-gold text-[13px] tracking-[3px] font-semibold rounded-sm">STATION</span>
+                <p className="text-white/50 text-[17px] mt-5 mb-1">내집앞 갈산역</p>
+                <h3 className="text-white text-[42px] lg:text-[52px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초역세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-gold to-gold/0 mt-6 mb-7" />
-                <p className="text-white/55 text-[14px] leading-[2]">
+                <p className="text-white/55 text-[16px] lg:text-[17px] leading-[2]">
                   단지 바로 앞에서 이용가능한 지하철,
                   <br />
                   인천1호선 갈산역 도보 0분!
@@ -317,12 +317,12 @@ export default function HomeSection() {
                   서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에
                 </p>
                 <div className="mt-10 flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-gold/60 text-gold text-[24px] font-bold group-hover:bg-gold/10 transition-all duration-500">
+                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-gold/60 text-gold text-[30px] font-bold group-hover:bg-gold/10 transition-all duration-500">
                     0
                   </span>
                   <div>
-                    <span className="text-white/70 text-[15px] font-semibold">분</span>
-                    <p className="text-white/35 text-[12px] mt-0.5">거리의 역세권</p>
+                    <span className="text-white/70 text-[18px] font-semibold">분</span>
+                    <p className="text-white/35 text-[14px] mt-0.5">거리의 역세권</p>
                   </div>
                 </div>
               </div>
@@ -334,13 +334,13 @@ export default function HomeSection() {
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-green-600/[0.04] rounded-full" />
               <span className="absolute top-6 right-8 text-[120px] font-black text-green-800/[0.04] leading-none">1</span>
               <div className="relative">
-                <span className="inline-block px-3 py-1 bg-green-700/10 text-green-700 text-[11px] tracking-[3px] font-semibold rounded-sm">NATURE</span>
-                <p className="text-gray-500 text-[14px] mt-5 mb-1">내집앞 수변공원</p>
-                <h3 className="text-gray-900 text-[36px] lg:text-[42px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
+                <span className="inline-block px-3 py-1.5 bg-green-700/10 text-green-700 text-[13px] tracking-[3px] font-semibold rounded-sm">NATURE</span>
+                <p className="text-gray-500 text-[17px] mt-5 mb-1">내집앞 수변공원</p>
+                <h3 className="text-gray-900 text-[42px] lg:text-[52px] font-bold leading-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>
                   초공세권
                 </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-green-600 to-green-600/0 mt-6 mb-7" />
-                <p className="text-gray-500 text-[14px] leading-[2]">
+                <p className="text-gray-500 text-[16px] lg:text-[17px] leading-[2]">
                   걸어서 누리는 수변공원과 생태하천을 통한
                   <br />
                   쾌적한 자연환경,
@@ -348,12 +348,12 @@ export default function HomeSection() {
                   단지에서 나오면 바로 펼쳐지는 갈산천수변공원
                 </p>
                 <div className="mt-10 flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-green-600/60 text-green-700 text-[24px] font-bold group-hover:bg-green-600/10 transition-all duration-500">
+                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-green-600/60 text-green-700 text-[30px] font-bold group-hover:bg-green-600/10 transition-all duration-500">
                     1
                   </span>
                   <div>
-                    <span className="text-gray-700 text-[15px] font-semibold">분</span>
-                    <p className="text-gray-400 text-[12px] mt-0.5">거리의 공세권</p>
+                    <span className="text-gray-700 text-[18px] font-semibold">분</span>
+                    <p className="text-gray-400 text-[14px] mt-0.5">거리의 공세권</p>
                   </div>
                 </div>
               </div>
