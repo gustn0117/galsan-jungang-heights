@@ -178,7 +178,7 @@ export default function HomeSection() {
         }} />
         <div className="relative max-w-[1400px] mx-auto grid grid-cols-2 lg:grid-cols-4">
           {[
-            { label: "위치", value: "인천 부평구 부평대로 258" },
+            { label: "위치", value: "인천 부평구 갈산동 181-1 외 1필지" },
             { label: "총 세대수", value: "126세대 (일반 50세대)" },
             { label: "타입", value: "59type 단일" },
             { label: "분양문의", value: "1800-5636" },

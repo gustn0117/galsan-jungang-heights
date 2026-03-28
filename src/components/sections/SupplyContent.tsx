@@ -21,7 +21,7 @@ export default function SupplyContent() {
           <h4 className="text-white text-[20px] font-bold">공급 개요</h4>
         </div>
         <div className="p-6 md:p-8 space-y-4 text-[14px] text-gray-700 leading-[1.9]">
-          <p><strong className="text-navy">■ 공급위치 :</strong> 인천광역시 부평구 부평대로 268 외 1필지</p>
+          <p><strong className="text-navy">■ 공급위치 :</strong> 인천광역시 부평구 갈산동 181-1 외 1필지</p>
           <p><strong className="text-navy">■ 공급규모 :</strong> 아파트 지하 1층, 지상 19층, 3개동 총 126세대 중 일반분양 50세대(조합원 71세대, 보류지 5세대)<br />
             <span className="ml-[88px]">[특별공급 29세대(기관추천 5세대, 다자녀가구 5세대, 신혼부부 12세대, 노부모부양 2세대, 생애최초 5세대 포함)] 및 부대복리시설</span>
           </p>
@@ -287,7 +287,7 @@ export default function SupplyContent() {
                   <td className={td}>• (PC·모바일) 청약홈</td>
                   <td className={td}></td>
                   <td className={td}>• 사업주체 홍보관</td>
-                  <td className={td}>인천광역시 부평구 부평대로 258, 1층</td>
+                  <td className={td}>인천광역시 부평구 갈산동 181-1 외 1필지</td>
                 </tr>
               </tbody>
             </table>

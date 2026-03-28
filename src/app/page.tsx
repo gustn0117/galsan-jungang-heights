@@ -41,14 +41,14 @@ export default function Home() {
   // Popup
   const [showPopup, setShowPopup] = useState(false);
 
-  // 랜딩 → 메인 전환 시 팝업 표시 (오늘 하루 안보기 체크)
-  useEffect(() => {
-    if (!showLanding && !mainRevealing) {
-      const hideUntil = localStorage.getItem("popup_hide_until");
-      if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
-      setShowPopup(true);
-    }
-  }, [showLanding, mainRevealing]);
+  // 팝업 비활성화 (필요 시 아래 주석 해제)
+  // useEffect(() => {
+  //   if (!showLanding && !mainRevealing) {
+  //     const hideUntil = localStorage.getItem("popup_hide_until");
+  //     if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
+  //     setShowPopup(true);
+  //   }
+  // }, [showLanding, mainRevealing]);
 
   const closePopup = () => setShowPopup(false);
   const closePopupToday = () => {
