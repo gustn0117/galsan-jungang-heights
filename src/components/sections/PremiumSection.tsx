@@ -289,9 +289,9 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   <div key={i} className="premium4-card">
                     <div className={`max-w-[1400px] mx-auto flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} min-h-[420px] lg:min-h-[500px] group`}>
                       {/* Image Area */}
-                      <div className={`relative lg:w-[55%] premium4-image-area ${isReversed ? "premium4-blend-left" : "premium4-blend-right"}`}>
+                      <div className={`relative lg:w-[60%] premium4-image-area ${isReversed ? "premium4-blend-left" : "premium4-blend-right"}`}>
                         {"imageSrc" in item && item.imageSrc ? (
-                          <div className="relative h-[300px] lg:h-full min-h-[300px]">
+                          <div className="relative h-[350px] lg:h-full min-h-[350px]">
                             <Image
                               src={item.imageSrc}
                               alt={item.category}
