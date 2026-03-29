@@ -316,15 +316,6 @@ export default function HomeSection() {
                   <br />
                   서울7호선 직결운행으로 서울 주요 업무지구까지 한 번에
                 </p>
-                <div className="mt-10 flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-gold/60 text-gold text-[30px] font-bold group-hover:bg-gold/10 transition-all duration-500">
-                    0
-                  </span>
-                  <div>
-                    <span className="text-white/70 text-[18px] font-semibold">분</span>
-                    <p className="text-white/35 text-[14px] mt-0.5">거리의 역세권</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -347,15 +338,6 @@ export default function HomeSection() {
                   <br />
                   단지에서 나오면 바로 펼쳐지는 갈산천수변공원
                 </p>
-                <div className="mt-10 flex items-center gap-4">
-                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-green-600/60 text-green-700 text-[30px] font-bold group-hover:bg-green-600/10 transition-all duration-500">
-                    1
-                  </span>
-                  <div>
-                    <span className="text-gray-700 text-[18px] font-semibold">분</span>
-                    <p className="text-gray-400 text-[14px] mt-0.5">거리의 공세권</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
