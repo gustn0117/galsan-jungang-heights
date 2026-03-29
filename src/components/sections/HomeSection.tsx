@@ -246,7 +246,7 @@ export default function HomeSection() {
                   src="/images/hero-rendering.jpg"
                   alt="중앙하이츠 갈산역 센트럴"
                   fill
-                  className="object-cover object-[70%_center]"
+                  className="object-cover object-[30%_center]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
