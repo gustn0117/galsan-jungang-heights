@@ -275,9 +275,39 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
               />
             </div>
 
+            {/* 범례 */}
+            <div className="max-w-[500px] mx-auto mb-14">
+              <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+                  <p className="text-center text-navy text-[16px] font-bold tracking-wide">범례</p>
+                </div>
+                {[
+                  { label: "조합원", count: "71세대", color: "bg-[#F5D89A]", textColor: "text-[#8B6914]" },
+                  { label: "일반", count: "50세대", color: "bg-[#A8D8EA]", textColor: "text-[#1A6B8A]" },
+                  { label: "보류지", count: "5세대", color: "bg-[#B0A080]", textColor: "text-white" },
+                ].map((item, i) => (
+                  <div key={i} className="flex border-b border-gray-100 last:border-b-0">
+                    <div className={`w-1/2 ${item.color} flex items-center justify-center py-4`}>
+                      <span className={`${item.textColor} text-[17px] font-bold`}>{item.label}</span>
+                    </div>
+                    <div className="w-1/2 flex items-center justify-center py-4 bg-white">
+                      <span className="text-gray-800 text-[17px] font-bold">{item.count}</span>
+                    </div>
+                  </div>
+                ))}
+                <div className="flex border-t-2 border-gray-300">
+                  <div className="w-1/2 flex items-center justify-center py-4 bg-gray-50">
+                    <span className="text-navy text-[17px] font-bold">합계</span>
+                  </div>
+                  <div className="w-1/2 flex items-center justify-center py-4 bg-white">
+                    <span className="text-navy text-[19px] font-bold">126세대</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* 안내 문구 */}
-            <div className="mt-14 bg-gray-50 rounded-lg border border-gray-100 px-6 py-5">
+            <div className="bg-gray-50 rounded-lg border border-gray-100 px-6 py-5">
               <div className="flex items-start gap-3">
                 <svg className="w-4 h-4 text-gray-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
