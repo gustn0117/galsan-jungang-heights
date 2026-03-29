@@ -232,13 +232,13 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
 
             {/* 약도 */}
             <div data-animate className="mb-10">
-              <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-white">
+              <div className="flex justify-center rounded-lg border border-gray-200 shadow-sm bg-white p-4 lg:p-6">
                 <Image
                   src="/images/map-directions.jpg"
                   alt="중앙하이츠 갈산역 센트럴 오시는길 약도"
-                  width={800}
-                  height={1000}
-                  className="w-full h-auto"
+                  width={634}
+                  height={863}
+                  className="max-w-[500px] w-full h-auto"
                 />
               </div>
 
