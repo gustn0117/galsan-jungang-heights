@@ -167,10 +167,10 @@ export default function Home() {
           {/* ENTER 버튼 */}
           <div className="landing-enter">
             <button onClick={handleEnter} className="group relative">
-              <div className="w-[200px] md:w-[260px] py-3.5 md:py-4 rounded-full border border-navy/15 text-navy/35 text-[11px] md:text-[13px] tracking-[0.4em] font-medium transition-all duration-500 hover:border-navy/35 hover:text-navy hover:shadow-lg flex items-center justify-center gap-3">
+              <div className="w-[200px] md:w-[260px] py-3.5 md:py-4 rounded-full bg-navy text-white text-[11px] md:text-[13px] tracking-[0.4em] font-bold transition-all duration-500 hover:bg-navy-light hover:shadow-lg flex items-center justify-center gap-3">
                 <span>ENTER</span>
-                <svg className="w-3.5 h-3.5 opacity-40 group-hover:opacity-80 transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg className="w-3.5 h-3.5 transition-all duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </div>
             </button>
