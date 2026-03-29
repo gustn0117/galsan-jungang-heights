@@ -276,33 +276,19 @@ export default function ComplexSection({ initialSubTab }: ComplexSectionProps) {
             </div>
 
             {/* 범례 */}
-            <div className="max-w-[500px] mx-auto mb-14">
-              <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-                <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
-                  <p className="text-center text-navy text-[16px] font-bold tracking-wide">범례</p>
-                </div>
+            <div className="max-w-[900px] mx-auto mb-14">
+              <div className="flex rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                 {[
                   { label: "조합원", count: "71세대", color: "bg-[#F5D89A]", textColor: "text-[#8B6914]" },
                   { label: "일반", count: "50세대", color: "bg-[#A8D8EA]", textColor: "text-[#1A6B8A]" },
                   { label: "보류지", count: "5세대", color: "bg-[#B0A080]", textColor: "text-white" },
+                  { label: "합계", count: "126세대", color: "bg-navy", textColor: "text-white" },
                 ].map((item, i) => (
-                  <div key={i} className="flex border-b border-gray-100 last:border-b-0">
-                    <div className={`w-1/2 ${item.color} flex items-center justify-center py-4`}>
-                      <span className={`${item.textColor} text-[17px] font-bold`}>{item.label}</span>
-                    </div>
-                    <div className="w-1/2 flex items-center justify-center py-4 bg-white">
-                      <span className="text-gray-800 text-[17px] font-bold">{item.count}</span>
-                    </div>
+                  <div key={i} className={`flex-1 ${item.color} flex flex-col items-center justify-center py-4 ${i < 3 ? "border-r border-white/30" : ""}`}>
+                    <span className={`${item.textColor} text-[13px] md:text-[14px] font-bold`}>{item.label}</span>
+                    <span className={`${item.textColor} text-[16px] md:text-[18px] font-bold mt-1`}>{item.count}</span>
                   </div>
                 ))}
-                <div className="flex border-t-2 border-gray-300">
-                  <div className="w-1/2 flex items-center justify-center py-4 bg-gray-50">
-                    <span className="text-navy text-[17px] font-bold">합계</span>
-                  </div>
-                  <div className="w-1/2 flex items-center justify-center py-4 bg-white">
-                    <span className="text-navy text-[19px] font-bold">126세대</span>
-                  </div>
-                </div>
               </div>
             </div>
 
