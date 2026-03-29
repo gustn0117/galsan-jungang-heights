@@ -158,8 +158,7 @@ export default function HomeSection() {
                   className="group px-6 py-5 lg:px-10 lg:py-7 bg-navy/80 backdrop-blur-md border-r border-white/[0.06] last:border-r-0 hover:bg-navy/90 transition-all duration-300 text-center"
                 >
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="hidden sm:inline text-gold text-[11px] lg:text-[13px] tracking-[3px] font-medium">{item.tag}</span>
-                    <span className="text-gold/80 text-[10px] lg:text-[12px] font-bold whitespace-nowrap">{item.badge}</span>
+                    <span className="text-gold text-[11px] lg:text-[13px] tracking-[3px] font-medium">{item.tag}</span>
                   </div>
                   <h3 className="text-white text-[28px] lg:text-[36px] font-bold">{item.title}</h3>
                   <p className="text-white/40 text-[14px] lg:text-[16px] mt-1.5">{item.desc}</p>
