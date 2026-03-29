@@ -151,7 +151,7 @@ export default function HomeSection() {
                 { tag: "TRANSPORTATION", badge: "도보 0분", title: "교통중심", desc: "갈산역 도보 0분, 서울 직결" },
                 { tag: "NATURE", badge: "도보 1분", title: "자연중심", desc: "갈산천수변공원 초근접" },
                 { tag: "LIVING", badge: "도보 2분", title: "생활중심", desc: "롯데마트, 부평중앙시장" },
-                { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈산초, 부평동중, 부평여고" },
+                { tag: "EDUCATION", badge: "도보 10분", title: "교육중심", desc: "갈월초, 갈산중, 진산과학고" },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -159,7 +159,7 @@ export default function HomeSection() {
                 >
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="hidden sm:inline text-gold text-[11px] lg:text-[13px] tracking-[3px] font-medium">{item.tag}</span>
-                    <span className="px-2.5 py-1 bg-gold/80 text-white text-[10px] lg:text-[12px] font-bold rounded-sm whitespace-nowrap">{item.badge}</span>
+                    <span className="text-gold/80 text-[10px] lg:text-[12px] font-bold whitespace-nowrap">{item.badge}</span>
                   </div>
                   <h3 className="text-white text-[28px] lg:text-[36px] font-bold">{item.title}</h3>
                   <p className="text-white/40 text-[14px] lg:text-[16px] mt-1.5">{item.desc}</p>
