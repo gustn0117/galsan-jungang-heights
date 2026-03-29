@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "중앙하이츠 갈산역 센트럴 | 갈산역 0분의 가치",
   description: "중앙하이츠 갈산역 센트럴 - 갈산역 '0분'의 가치, 걸어서 누리는 완성된 프리미엄. 총 126세대, 59타입 단일, 초역세권 프리미엄 주거",
   keywords: "갈산역, 중앙하이츠, 중앙하이츠갈산역센트럴, 아파트, 분양, 인천부평, 초역세권, 59타입",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "중앙하이츠 갈산역 센트럴 | 갈산역 0분의 가치",
     description: "갈산역 도보 0분 초역세권, 갈산천수변공원 초근접. 총 126세대, 59타입 단일 평면. 특별공급 4/6, 1순위 4/7, 2순위 4/8",
