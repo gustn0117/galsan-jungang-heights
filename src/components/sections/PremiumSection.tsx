@@ -194,7 +194,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                           <p className="text-navy text-[15px] lg:text-[16px] font-bold group-hover:text-gold transition-colors duration-300">{item.name}</p>
                           <p className="text-gray-400 text-[13px] lg:text-[14px] mt-1">{item.sub}</p>
                           <div className="w-4 h-px bg-gold/30 mx-auto mt-3 group-hover:w-6 group-hover:bg-gold/50 transition-all duration-300" />
-                          <p className={`mt-2 tracking-[2px] uppercase ${item.category === "교통" ? "text-navy text-[13px] font-bold" : "text-gray-300 text-[10px]"}`}>{item.category}</p>
+                          <p className="text-gray-300 text-[10px] mt-2 tracking-[2px] uppercase">{item.category}</p>
                         </div>
                       ))}
                     </div>
