@@ -230,8 +230,20 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
               <p className="text-gray-400 text-[14px] mt-2">현장 : 인천 부평구 갈산동 181-11 &nbsp;|&nbsp; 홍보관 : 인천 부평구 갈산동 181-2 (부평대로 258)</p>
             </div>
 
-            {/* 지도 */}
+            {/* 약도 */}
             <div data-animate className="mb-10">
+              <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/images/map-directions.jpg"
+                  alt="중앙하이츠 갈산역 센트럴 오시는길 약도"
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto"
+                />
+              </div>
+
+            {/* 구글 지도 */}
+            <div className="mt-6">
               <div className="relative overflow-hidden rounded-lg border border-gray-200 shadow-sm bg-gray-50">
                 <div className="relative h-[300px] sm:h-[400px] lg:h-[480px]">
                   <iframe
@@ -247,6 +259,7 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   />
                 </div>
               </div>
+            </div>
               <div className="flex flex-wrap items-center gap-3 mt-3">
                 <p className="text-gray-300 text-[11px] mr-auto">외부 지도에서 상세 위치를 확인할 수 있습니다.</p>
                 <a
