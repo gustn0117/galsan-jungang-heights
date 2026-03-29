@@ -249,7 +249,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                   placeholderNum: 12,
                   gradient: "gradient-premium",
                   imageSrc: "/images/premium-transport.jpg",
-                  imagePosition: "object-[25%_center]",
+                  imagePosition: "contain",
                 },
                 {
                   num: "02",
@@ -297,7 +297,7 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                               src={item.imageSrc}
                               alt={item.category}
                               fill
-                              className={`object-cover group-hover:scale-[1.02] transition-transform duration-700 ${"imagePosition" in item && item.imagePosition ? item.imagePosition : ""}`}
+                              className={`group-hover:scale-[1.02] transition-transform duration-700 ${"imagePosition" in item && item.imagePosition ? `object-contain ${item.imagePosition}` : "object-cover"}`}
                               sizes="(max-width: 1024px) 100vw, 55vw"
                             />
                             <div className="absolute inset-0 bg-[#0a1528]/10 z-[1]" />
