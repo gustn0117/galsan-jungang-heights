@@ -135,17 +135,14 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <h4 className="text-navy text-[17px] font-bold tracking-wide" style={{ fontFamily: "'NanumSquare', sans-serif" }}>사업 정보</h4>
                 </div>
                 {[
-                  { label: "사업명", value: "중앙하이츠 갈산역 센트럴", highlight: true },
-                  { label: "현장", value: "인천 부평구 갈산동 181-11" },
-                  { label: "홍보관", value: "인천 부평구 갈산동 181-2 (부평대로 258)" },
-                  { label: "규모", value: "지하 1층 ~ 지상 19층, 3개동 총 126세대" },
-                  { label: "일반분양", value: "50세대" },
-                  { label: "타입", value: "59TYPE 단일 (전용 59.79㎡ / 공급 86.81㎡)" },
-                  { label: "공급면적", value: "86.81㎡" },
-                  { label: "전용면적", value: "59.79㎡" },
-                  { label: "주거공용면적", value: "27.02㎡" },
-                  { label: "기타공용면적", value: "78.65㎡" },
-                  { label: "대지지분", value: "24.72㎡" },
+                  { label: "사업명", value: "백조아파트소규모재건축정비사업", highlight: true },
+                  { label: "대지위치", value: "인천광역시 부평구 갈산동 181-11 외 1필지" },
+                  { label: "대지면적", value: "4,453.20㎡" },
+                  { label: "연면적", value: "14,778.95㎡" },
+                  { label: "건폐율/용적률", value: "29.53% / 249.62%" },
+                  { label: "건축규모", value: "지하1층~지상19층, 3개동" },
+                  { label: "세대수", value: "126세대(59㎡단일)" },
+                  { label: "주차대수", value: "138대(공동주택+상업시설)" },
                 ].map((item, i) => (
                   <div key={i} className={`flex ${i > 0 ? "border-t border-gray-100" : ""} ${item.highlight ? "bg-gold/[0.03]" : i % 2 === 1 ? "bg-gray-50/40" : "bg-white"} hover:bg-gold/[0.02] transition-colors duration-200`}>
                     <div className="w-[140px] lg:w-[200px] flex-shrink-0 px-6 lg:px-8 py-5 flex items-center border-r border-gray-100">
