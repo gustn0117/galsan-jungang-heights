@@ -292,13 +292,13 @@ export default function PremiumSection({ initialSubTab }: PremiumSectionProps) {
                       {/* Image Area */}
                       <div className={`relative lg:w-[60%] premium4-image-area ${isReversed ? "premium4-blend-left" : "premium4-blend-right"}`}>
                         {"imageSrc" in item && item.imageSrc ? (
-                          <div className="relative h-[350px] lg:h-full min-h-[350px]">
+                          <div className="relative h-[350px] lg:h-full min-h-[350px] flex items-center justify-center bg-[#0a1528]">
                             <Image
                               src={item.imageSrc}
                               alt={item.category}
                               fill
-                              className={`group-hover:scale-[1.02] transition-transform duration-700 ${"imagePosition" in item && item.imagePosition ? `object-contain ${item.imagePosition}` : "object-cover"}`}
-                              sizes="(max-width: 1024px) 100vw, 55vw"
+                              className={`group-hover:scale-[1.02] transition-transform duration-700 ${"imagePosition" in item && item.imagePosition ? "object-contain" : "object-cover"}`}
+                              sizes="(max-width: 1024px) 100vw, 60vw"
                             />
                             <div className="absolute inset-0 bg-[#0a1528]/10 z-[1]" />
                           </div>
