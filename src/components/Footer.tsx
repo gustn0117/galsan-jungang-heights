@@ -75,7 +75,7 @@ export default function Footer({ onTabChange }: FooterProps) {
               <p><span className="text-gray-500">대표</span> 김은정</p>
               <p><span className="text-gray-500">사업자번호</span> 135-86-50101</p>
               <p><span className="text-gray-500">주소</span> 경기도 화성시 효행로 1059, 808-1호(진안동, 미래프라자)</p>
-              <p><span className="text-gray-500">이메일</span> meeow@naver.com</p>
+              <p><span className="text-gray-500">이메일</span> baronplanning@gmail.com</p>
             </div>
           </div>
 
