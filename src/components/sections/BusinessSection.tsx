@@ -111,16 +111,15 @@ export default function BusinessSection({ initialSubTab }: BusinessSectionProps)
                   <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-gold/40 rounded-bl-lg" />
                   <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-gold/40 rounded-br-lg" />
                   <div className="relative overflow-hidden rounded">
-                    <div className="relative aspect-[16/9]">
-                      <Image
-                        src="/images/hero-rendering.jpg"
-                        alt="중앙하이츠 갈산역 센트럴 조감도"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1100px) 100vw, 1100px"
-                        priority
-                      />
-                    </div>
+                    <Image
+                      src="/images/hero-rendering.jpg"
+                      alt="중앙하이츠 갈산역 센트럴 조감도"
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto"
+                      sizes="(max-width: 1100px) 100vw, 1100px"
+                      priority
+                    />
                   </div>
                 </div>
                 <p className="text-gray-300 text-[11px] mt-3 text-center tracking-wide">
