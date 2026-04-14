@@ -45,6 +45,7 @@ const subTabs = [
   { id: "supply", label: "공급안내" },
   { id: "notice", label: "모집공고" },
   { id: "documents", label: "서류안내" },
+  { id: "contract", label: "계약 안내" },
   { id: "reserve", label: "예비당첨자 명단" },
 ];
 
@@ -342,6 +343,22 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             </div>
             <div className="max-w-[1100px] mx-auto">
               <PdfViewer src="/docs/서류안내.pdf" title="서류안내" images={[1,2,3,4,5,6,7].map(n => `/images/sales/documents-${n}.jpg`)} />
+            </div>
+          </div>
+        )}
+
+        {/* ── 계약 안내 ── */}
+        {activeSubTab === "contract" && (
+          <div className="tab-content">
+            <div className="text-center mb-10">
+              <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">CONTRACT</p>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>계약 안내</h3>
+              <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
+            </div>
+            <div className="max-w-[1100px] mx-auto space-y-1">
+              {[1, 2].map((n) => (
+                <img key={n} src={`/images/sales/contract/contract-${n}.jpg`} alt={`계약 안내 ${n}페이지`} className="w-full h-auto" loading="lazy" />
+              ))}
             </div>
           </div>
         )}
