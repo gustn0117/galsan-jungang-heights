@@ -123,8 +123,17 @@ interface SalesSectionProps {
   initialSubTab?: string;
 }
 
+const docTabs: { id: string; label: string; images: string[] }[] = [
+  { id: "institution", label: "기관추천", images: ["/images/sales/docs/docs-1.jpg"] },
+  { id: "firsttime", label: "생애최초", images: ["/images/sales/docs/docs-2.jpg", "/images/sales/docs/docs-4.jpg"] },
+  { id: "newlywed", label: "신혼부부", images: ["/images/sales/docs/docs-3.jpg", "/images/sales/docs/docs-4.jpg"] },
+  { id: "general-score", label: "일반공급 (가점제)", images: ["/images/sales/docs/docs-5.jpg"] },
+  { id: "general-lottery", label: "일반공급 (추첨제)", images: ["/images/sales/docs/docs-6.jpg"] },
+];
+
 export default function SalesSection({ initialSubTab }: SalesSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "schedule");
+  const [activeDocTab, setActiveDocTab] = useState("institution");
 
   useEffect(() => {
     if (initialSubTab) setActiveSubTab(initialSubTab);
@@ -338,11 +347,34 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           <div className="tab-content">
             <div className="text-center mb-10">
               <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">DOCUMENTS</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>서류안내</h3>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>서류접수 안내문</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
-            <div className="max-w-[1100px] mx-auto">
-              <PdfViewer src="/docs/서류안내.pdf" title="서류안내" images={[1,2,3,4,5,6,7].map(n => `/images/sales/documents-${n}.jpg`)} />
+
+            {/* 유형별 탭 */}
+            <div className="max-w-[1100px] mx-auto mb-10">
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-b border-gray-200">
+                {docTabs.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => setActiveDocTab(t.id)}
+                    className={`relative pb-3 px-2 text-[15px] md:text-[16px] font-medium transition-colors ${
+                      activeDocTab === t.id ? "text-gold font-bold" : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {t.label}
+                    {activeDocTab === t.id && (
+                      <span className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-gold" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="max-w-[1100px] mx-auto space-y-1">
+              {(docTabs.find((t) => t.id === activeDocTab)?.images || []).map((src, i) => (
+                <img key={i} src={src} alt={`${docTabs.find((t) => t.id === activeDocTab)?.label} ${i + 1}페이지`} className="w-full h-auto" loading="lazy" />
+              ))}
             </div>
           </div>
         )}
