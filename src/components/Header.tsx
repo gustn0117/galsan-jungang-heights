@@ -55,6 +55,7 @@ const menuItems: MenuItem[] = [
       { id: "supply", label: "공급안내" },
       { id: "notice", label: "모집공고" },
       { id: "documents", label: "서류안내" },
+      { id: "contract", label: "계약 안내" },
       { id: "reserve", label: "예비당첨자 명단" },
     ],
   },
