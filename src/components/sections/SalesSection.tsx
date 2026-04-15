@@ -388,9 +388,8 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
             <div className="max-w-[1100px] mx-auto space-y-1">
-              {[1, 2].map((n) => (
-                <img key={n} src={`/images/sales/contract/contract-${n}.jpg`} alt={`계약 안내 ${n}페이지`} className="w-full h-auto" loading="lazy" />
-              ))}
+              <img src="/images/sales/contract/contract-1.jpg" alt="계약 안내 1페이지" className="w-full h-auto" loading="lazy" />
+              <img src="/images/sales/contract/contract-stamp-v2.jpg" alt="인지세 안내문" className="w-full h-auto" loading="lazy" />
             </div>
           </div>
         )}
