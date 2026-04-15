@@ -125,8 +125,8 @@ interface SalesSectionProps {
 
 const docTabs: { id: string; label: string; images: string[] }[] = [
   { id: "institution", label: "기관추천", images: ["/images/sales/docs/docs-1.jpg"] },
-  { id: "firsttime", label: "생애최초", images: ["/images/sales/docs/docs-2.jpg", "/images/sales/docs/docs-4.jpg"] },
-  { id: "newlywed", label: "신혼부부", images: ["/images/sales/docs/docs-3.jpg", "/images/sales/docs/docs-4.jpg"] },
+  { id: "firsttime", label: "생애최초", images: ["/images/sales/docs/firsttime-list.jpg", "/images/sales/docs/firsttime-income.jpg"] },
+  { id: "newlywed", label: "신혼부부", images: ["/images/sales/docs/newlywed-list.jpg", "/images/sales/docs/newlywed-income.jpg"] },
   { id: "general-score", label: "일반공급 (가점제)", images: ["/images/sales/docs/docs-5.jpg"] },
   { id: "general-lottery", label: "일반공급 (추첨제)", images: ["/images/sales/docs/docs-6.jpg"] },
 ];
