@@ -67,25 +67,14 @@ interface CalendarMonth {
 const calendarData: CalendarMonth[] = [
   {
     year: 2026,
-    month: 3,
+    month: 5,
     events: [
-      { date: 27, label: "입주자 모집공고 일", color: "green" },
-    ],
-  },
-  {
-    year: 2026,
-    month: 4,
-    events: [
-      { date: 6, label: "특별공급", color: "purple" },
-      { date: 7, label: "1순위 청약", color: "purple" },
-      { date: 8, label: "2순위 청약", color: "purple" },
-      { date: 15, label: "당첨자 발표", color: "teal" },
-      { date: 26, label: "정당계약 1일차", color: "pink" },
-      { date: 27, label: "정당계약 2일차", color: "pink" },
-      { date: 28, label: "정당계약 3일차", color: "pink" },
-    ],
-    notes: [
-      { date: 16, text: "당첨자 서류접수 (4/15~4/24, 9일간)" },
+      { date: 14, label: "무순위 입주자 모집공고일", color: "green" },
+      { date: 20, label: "무순위 청약 1일차", color: "purple" },
+      { date: 21, label: "무순위 청약 2일차", color: "purple" },
+      { date: 28, label: "당첨자 발표", color: "teal" },
+      { date: 30, label: "정당계약 1일차", color: "pink" },
+      { date: 31, label: "정당계약 2일차", color: "pink" },
     ],
   },
 ];
@@ -124,16 +113,12 @@ interface SalesSectionProps {
 }
 
 const docTabs: { id: string; label: string; images: string[] }[] = [
-  { id: "institution", label: "기관추천", images: ["/images/sales/docs/docs-1.jpg"] },
-  { id: "firsttime", label: "생애최초", images: ["/images/sales/docs/firsttime-list.jpg", "/images/sales/docs/firsttime-income.jpg"] },
-  { id: "newlywed", label: "신혼부부", images: ["/images/sales/docs/newlywed-list.jpg", "/images/sales/docs/newlywed-income.jpg"] },
-  { id: "general-score", label: "일반공급 (가점제)", images: ["/images/sales/docs/docs-5.jpg"] },
-  { id: "general-lottery", label: "일반공급 (추첨제)", images: ["/images/sales/docs/docs-6.jpg"] },
+  { id: "general-lottery", label: "서류안내", images: ["/images/sales/docs/docs-6.jpg"] },
 ];
 
 export default function SalesSection({ initialSubTab }: SalesSectionProps) {
   const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "schedule");
-  const [activeDocTab, setActiveDocTab] = useState("institution");
+  const [activeDocTab, setActiveDocTab] = useState("general-lottery");
 
   useEffect(() => {
     if (initialSubTab) setActiveSubTab(initialSubTab);
@@ -265,9 +250,9 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
             {/* Schedule Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-[1100px] mx-auto">
               {[
-                { date: "3.27", label: "입주자 모집공고", color: "border-green-300 bg-green-50/50" },
-                { date: "4.6 ~ 4.8", label: "청약 접수", color: "border-purple-300 bg-purple-50/50" },
-                { date: "4.26 ~ 4.28", label: "정당계약", color: "border-pink-300 bg-pink-50/50" },
+                { date: "5.14", label: "무순위 입주자 모집공고", color: "border-green-300 bg-green-50/50" },
+                { date: "5.20 ~ 5.21", label: "무순위 청약 접수", color: "border-purple-300 bg-purple-50/50" },
+                { date: "5.30 ~ 5.31", label: "정당계약", color: "border-pink-300 bg-pink-50/50" },
               ].map((item, i) => (
                 <div key={i} className={`rounded-xl border-2 p-6 text-center ${item.color}`}>
                   <p className="text-[22px] font-bold text-gray-800" style={{ fontFamily: "'NanumSquare', sans-serif" }}>{item.date}</p>
@@ -347,33 +332,34 @@ export default function SalesSection({ initialSubTab }: SalesSectionProps) {
           <div className="tab-content">
             <div className="text-center mb-10">
               <p className="text-gold/60 text-[11px] tracking-[4px] font-medium uppercase mb-4">DOCUMENTS</p>
-              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>서류접수 안내문</h3>
+              <h3 className="text-[32px] md:text-[38px] font-bold text-gray-900 tracking-tight" style={{ fontFamily: "'NanumSquare', sans-serif" }}>서류안내</h3>
               <div className="w-12 h-px bg-gold/40 mx-auto mt-5 mb-5" />
             </div>
 
-            {/* 유형별 탭 */}
-            <div className="max-w-[1100px] mx-auto mb-10">
-              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-b border-gray-200">
-                {docTabs.map((t) => (
-                  <button
-                    key={t.id}
-                    onClick={() => setActiveDocTab(t.id)}
-                    className={`relative pb-3 px-2 text-[15px] md:text-[16px] font-medium transition-colors ${
-                      activeDocTab === t.id ? "text-gold font-bold" : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    {t.label}
-                    {activeDocTab === t.id && (
-                      <span className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-gold" />
-                    )}
-                  </button>
-                ))}
+            {docTabs.length > 1 && (
+              <div className="max-w-[1100px] mx-auto mb-10">
+                <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-b border-gray-200">
+                  {docTabs.map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => setActiveDocTab(t.id)}
+                      className={`relative pb-3 px-2 text-[15px] md:text-[16px] font-medium transition-colors ${
+                        activeDocTab === t.id ? "text-gold font-bold" : "text-gray-500 hover:text-gray-700"
+                      }`}
+                    >
+                      {t.label}
+                      {activeDocTab === t.id && (
+                        <span className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-gold" />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="max-w-[1100px] mx-auto space-y-1">
-              {(docTabs.find((t) => t.id === activeDocTab)?.images || []).map((src, i) => (
-                <img key={i} src={src} alt={`${docTabs.find((t) => t.id === activeDocTab)?.label} ${i + 1}페이지`} className="w-full h-auto" loading="lazy" />
+              {(docTabs.find((t) => t.id === activeDocTab)?.images || docTabs[0]?.images || []).map((src, i) => (
+                <img key={i} src={src} alt={`서류안내 ${i + 1}페이지`} className="w-full h-auto" loading="lazy" />
               ))}
             </div>
           </div>
