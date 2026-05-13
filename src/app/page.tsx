@@ -215,10 +215,10 @@ export default function Home() {
             </button>
             {/* 팝업 이미지 */}
             <Image
-              src="/images/popup2.png"
+              src="/images/popup-0513.png"
               alt="중앙하이츠 갈산역 센트럴 안내"
-              width={960}
-              height={1200}
+              width={1826}
+              height={3014}
               className="w-full h-auto"
               priority
             />
