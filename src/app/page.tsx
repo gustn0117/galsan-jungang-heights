@@ -38,22 +38,10 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Popup
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    if (!showLanding && !mainRevealing) {
-      const hideUntil = localStorage.getItem("popup_hide_until");
-      if (hideUntil && new Date().getTime() < Number(hideUntil)) return;
-      setShowPopup(true);
-    }
-  }, [showLanding, mainRevealing]);
-
-  const closePopup = () => setShowPopup(false);
-  const closePopupToday = () => {
-    localStorage.setItem("popup_hide_until", String(new Date().getTime() + 24 * 60 * 60 * 1000));
-    setShowPopup(false);
-  };
+  // Popup (비활성화)
+  const showPopup = false;
+  const closePopup = () => {};
+  const closePopupToday = () => {};
 
   // Floating CTA button
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
